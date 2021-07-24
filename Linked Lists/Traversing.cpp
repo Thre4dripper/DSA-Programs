@@ -3,15 +3,15 @@ using namespace std;
 
 struct node{
     int data;
-    node * link;
+    node * next;
 };
 
 
 void Traverse(node *head){
     
-    while(head->link!=NULL){
+    while(head!=NULL){
         cout << head->data<<" ";
-        head = head->link;
+        head = head->next;
     }
 }
 
@@ -25,19 +25,19 @@ int main(){
     node *fifth = new node;
 
     head->data = 10;
-    head->link =second;
+    head->next =second;
 
     second->data = 20;
-    second->link = third;
+    second->next = third;
 
     third->data = 30;
-    third->link = forth;
+    third->next = forth;
 
     forth->data = 40;
-    forth->link = fifth;
+    forth->next = fifth;
 
     fifth->data = 50;
-    fifth->link = NULL;
+    fifth->next = NULL;
 
     Traverse(head);
 }
