@@ -43,7 +43,7 @@ int insertAtEnd(int element,int arr[],int size,int mSize){
 int insertAtIndex(int element,int index,int arr[],int size,int mSize){
 
     //index should also be valid
-    if(size<=mSize && index<=size && index > 0){
+    if(size<=mSize && index<=size && index >= 0){
             for (int i = size; i >index;i--)
                 arr[i] = arr[i - 1];
 
