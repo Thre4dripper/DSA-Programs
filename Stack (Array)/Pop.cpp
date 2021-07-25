@@ -6,7 +6,12 @@ int pop(int arr[],int *size){
 
     int element;
     if(*size!=0){
-        element = arr[*size-1];
+        element = arr[0];
+
+        for (int i = 0; i <(*size)-1;i++)
+            arr[i] = arr[i + 1];
+
+        arr[(*size) - 1] = 0;
         (*size)--;
     }
     else
@@ -21,6 +26,9 @@ int main(){
     int size = sizeof(arr)/sizeof(arr[0]);
 
     
+    cout<<endl<<pop(arr, &size);
+    cout<<endl<<pop(arr, &size);
+    cout<<endl<<pop(arr, &size);
     cout<<endl<<pop(arr, &size);
     
 }

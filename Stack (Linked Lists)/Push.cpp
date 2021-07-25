@@ -7,37 +7,37 @@ struct node{
 };
 
 //for traverse and display all nodes of linked list
-int display(node * head){
+int display(node * top){
     int size = 0;
     cout << endl;
-    while(head!=NULL){
-        cout << head->data<<" ";
-        head = head->next;
+    while(top!=NULL){
+        cout << top->data<<" ";
+        top = top->next;
         size++;
     }
     return size;
 }
 
-void push(int element,node **head){
-    node *top = new node;
+void push(int element,node **top){
+    node *ptr = new node;
 
-    top->data = element;
-    top->next = *head;
+    ptr->data = element;
+    ptr->next = *top;
 
-    *head = top;
+    *top = ptr;
 }
 
 int main(){
     system("cls");
 
-    node *head;
+    node *top;
 
-    head = NULL;
+    top = NULL;
 
-    display(head);
-    push(10, &head);
-    push(142, &head);
-    push(15, &head);
-    push(56, &head);
-    display(head);
+    display(top);
+    push(10, &top);
+    push(142, &top);
+    push(15, &top);
+    push(56, &top);
+    display(top);
 }

@@ -18,21 +18,15 @@ int display(node * head){
     return size;
 }
 
-int dequeue(node **head){
+int dequeue(node **front,node **rear){
     int element=NULL;
-    if(head!=NULL){
-        node *last = new node;
-        last = *head;
-
+    if(*front!=NULL){
         node *ptr;
-        while (last->next!=NULL){
-            ptr = last;
-            last = last->next;
-        }
+        ptr = *front;
+        element = (*front)->data;
+        *front = (*front)->next;
 
-        element = last->data;
-        ptr->next = NULL;
-        delete last;
+        delete ptr;
     }
     else
         cout << "Queue Underflow"<<endl;
@@ -49,8 +43,8 @@ int main(){
     node *forth = new node;
     node *fifth = new node;
 
-    node *top = head;
-    node *last = fifth;
+    node *front = head;
+    node *rear = fifth;
  
     head->data = 10;
     head->next =second;
@@ -67,9 +61,10 @@ int main(){
     fifth->data = 50;
     fifth->next = NULL;
 
-    size=display(head);
-    cout << endl<< dequeue(&top);
-    cout << endl<< dequeue(&top);
-    cout << endl<< dequeue(&top);
+    size=display(front);
+    cout << endl<< dequeue(&front,&rear);
+    cout << endl<< dequeue(&front,&rear);
+    cout << endl<< dequeue(&front,&rear);
+    
 
 }

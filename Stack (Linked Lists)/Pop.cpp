@@ -7,29 +7,28 @@ struct node{
 };
 
 //for traverse and display all nodes of linked list
-int display(node * head){
+int display(node * top){
     int size = 0;
     cout << endl;
-    while(head!=NULL){
-        cout << head->data<<" ";
-        head = head->next;
+    while(top!=NULL){
+        cout << top->data<<" ";
+        top = top->next;
         size++;
     }
     return size;
 }
 
-int pop(node **head){
+int pop(node **top){
     int element=NULL;
 
-    if(*head!=NULL){
-        
-        node *top = new node;
-        top=(*head);
+    if(*top!=NULL){
 
-        element=(*head)->data;
-        (*head) = (*head)->next;
+        node *ptr = new node;
+        ptr = *top;
+        element = ptr->data;
+        (*top) = (*top)->next;
 
-        delete top;
+        delete ptr;
     }
     else
         cout << "Stack Underflow"<<endl;
@@ -46,6 +45,8 @@ int main(){
     node *forth = new node;
     node *fifth = new node;
 
+    node *top=head;
+
     head->data = 10;
     head->next =second;
 
@@ -61,13 +62,10 @@ int main(){
     fifth->data = 50;
     fifth->next = NULL;
 
-    display(head);
+    display(top);
 
-    cout << endl << pop(&head);
-    display(head);
-    cout << endl << pop(&head);
-    display(head);
-    cout << endl << pop(&head);
-    display(head);
+    cout << endl<< pop(&top);
+
+     display(top);
 
 }

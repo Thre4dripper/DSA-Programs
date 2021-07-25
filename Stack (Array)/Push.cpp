@@ -9,7 +9,7 @@ void display(int arr[],int n){
 }
 
 void push(int element,int arr[],int *top,int mSize){
-
+//element always enter from top
     if(*top<mSize)
         {
             for (int i = *top; i>0;i--)
