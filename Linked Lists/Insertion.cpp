@@ -45,7 +45,7 @@ node * insertAtEnd(int element, node * head){
     return head;
 }
 
-//definition for insert element at an index of linked list
+//definition for insert element at any index of linked list
 node * insertAtIndex(int element,int index,node * head,int size){
     node *ptr = new node;
     ptr->data = element;

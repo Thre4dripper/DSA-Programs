@@ -18,94 +18,80 @@ int display(node * head){
     return size;
 }
 
-//definition for deletion of element from start of linked list directly from its address
-int deleteFromStart(node **head){
-    int element=NULL;
+//definition for replacing of element from start of linked list directly from its address
+int replaceFromStart(int element,node **head){
+    int initelement=NULL;
 
     if(*head!=NULL){
-        node *ptr = new node;
-        ptr = *head;
 
-        element = (*head)->data;
-        (*head) = (*head)->next;
-
-        delete ptr;
+        initelement = (*head)->data;
+         (*head)->data = element;
 
     }
     else
         cout << "Linked list Underflow"<<endl;
 
-    return element;
+    return initelement;
 }
 
-//definition for deletion of element From end of linked list directly from its address
-int deleteFromEnd(node **head){
-    int element=NULL;
+//definition for replacing of element from end of linked list directly from its address
+int replaceFromEnd(int element,node **head){
+    int initelement=NULL;
 
     if(*head!=NULL){
         node *ptr = new node;
         ptr = *head;
 
-        node *p = new node;
-
         //only last node has next as NULL
-        //and  p lags ptr by one node , thats what we want
         while(ptr->next!=NULL){
-            p = ptr;
             ptr = ptr->next;
         }
             
 
-        element = ptr->data;
-        p->next = NULL;
-        delete ptr;
+        initelement = ptr->data;
+        ptr->data = element;
     }
     else
         cout << "Linked list Underflow"<<endl;
 
-    return element;
+    return initelement;
 }
 
-//definition for delete element from any index of linked list directly from its address
-int deleteFromIndex(int index,node ** head,int *size){
-    int element=NULL;
+//definition for replacing of element from any index of linked list directly from its address
+int replaceFromIndex(int element,int index,node ** head,int size){
+    int initelement=NULL;
 
     if(*head!=NULL){
         node *ptr = new node;
 
         //scenario will be diff for '0' index (very begenning)
         if(index==0){
-            ptr= *head;
-
-            element = ptr->data;
-            (*head) = (*head)->next;
+            initelement = (*head)->data;
+            (*head)->data = element;
         }
         //for indexes smaller than linked list size  
-        else if(index<(*size)){
+        else if(index<size){
             ptr = (*head);
 
-            node *p = new node;
+            
 
             for (int i = 0; i < index && ptr->next != NULL; i++)
             {
-                p = ptr;
                 ptr = ptr->next;
             }
 
-            //simply skipping indexed node and deleting it later
-            p->next = ptr->next;
-
-            element = ptr->data;
+            //simply replacing data of desired node
+            initelement = ptr->data;
+            ptr->data = element;
         }
         else
             cout << "Index greater than Linked list size"<<endl;
-        delete ptr;
-        (*size)--;
+
     }
     else
         cout << "Linked list Underflow"<<endl;
 
-    return element;
+    return initelement;
 }
 
 int main(){
@@ -135,15 +121,7 @@ int main(){
 
     size=display(head);
 
-    cout<<endl<<deleteFromIndex(3,&head,&size);
-   
-    cout<<endl<<deleteFromIndex(3,&head,&size);
-   
-    cout<<endl<<deleteFromIndex(3,&head,&size);
-    
-    cout<<endl<<deleteFromIndex(3,&head,&size);
-  
-
+    cout<<endl<<replaceFromIndex(41,5,&head,size);
 
     display(head);
 }
