@@ -23,13 +23,13 @@ int pop(node **head){
 
     if(*head!=NULL){
         
-        node *ptr = new node;
-        ptr=(*head);
+        node *top = new node;
+        top=(*head);
 
         element=(*head)->data;
         (*head) = (*head)->next;
 
-        delete ptr;
+        delete top;
     }
     else
         cout << "Stack Underflow"<<endl;

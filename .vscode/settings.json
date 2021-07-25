@@ -5,6 +5,8 @@
         "initializer_list": "cpp",
         "utility": "cpp",
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "deque": "cpp",
+        "vector": "cpp"
     }
 }

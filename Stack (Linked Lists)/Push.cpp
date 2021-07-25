@@ -19,12 +19,12 @@ int display(node * head){
 }
 
 void push(int element,node **head){
-    node *ptr = new node;
+    node *top = new node;
 
-    ptr->data = element;
-    ptr->next = *head;
+    top->data = element;
+    top->next = *head;
 
-    *head = ptr;
+    *head = top;
 }
 
 int main(){

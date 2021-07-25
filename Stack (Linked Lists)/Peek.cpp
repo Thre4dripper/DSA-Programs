@@ -22,13 +22,13 @@ int peek(int index,node *head,int *size){
     int element=NULL;
 
     if(index<*size){
-        node *ptr = new node;
-        ptr = head;
-        for (int i = 0; i < index && ptr->next!=NULL;i++){
-            ptr = ptr->next;
+        node *top = new node;
+        top = head;
+        for (int i = 0; i < index && top->next!=NULL;i++){
+            top = top->next;
         }
 
-        element = ptr->data;
+        element = top->data;
     }
     else
         cout << "Index greater than size"<<endl;

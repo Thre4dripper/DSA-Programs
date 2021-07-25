@@ -8,10 +8,17 @@ void display(int arr[],int n){
         cout << arr[i] << " ";
 }
 
-void push(int element,int arr[],int *size,int mSize){
+void push(int element,int arr[],int *top,int mSize){
 
-    if(*size<mSize)
-        arr[(*size)++] = element;
+    if(*top<mSize)
+        {
+            for (int i = *top; i>0;i--)
+                arr[i] = arr[i - 1];
+
+            arr[0] = element;
+
+            (*top)++;
+        }
     else
         cout << "Stack Overflow"<<endl;
 }
@@ -21,11 +28,14 @@ int main(){
 
     int mSize = 10;
     int arr[mSize];
-    int size = 0;
+    int top = 0;
 
-    display(arr,size);
+    display(arr,top);
     
-    push(10,arr, &size, mSize);
+    push(10,arr, &top, mSize);
+    push(20,arr, &top, mSize);
+    push(30,arr, &top, mSize);
+    push(40,arr, &top, mSize);
     
-    display(arr,size);
+    display(arr,top);
 }
