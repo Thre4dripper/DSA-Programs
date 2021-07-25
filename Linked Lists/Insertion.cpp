@@ -55,7 +55,7 @@ node * insertAtIndex(int element,int index,node * head,int size){
         ptr->next = head;
         head = ptr;
     }
-    //for indexes largers than linked list size  
+    //for indexes smaller than linked list size  
      else if(index<=size){
         node *p=head;
 
@@ -66,6 +66,8 @@ node * insertAtIndex(int element,int index,node * head,int size){
         ptr->next = p->next;
         p->next = ptr;
     }
+    else
+        cout << "Index greater than Linked list size"<<endl;
 
     return head;
 }
