@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+
+//Selects smallest element in decreasing non sorted subarray and puts at last in sorted subarray
 int *SelectionSort(int arr[], int size)
 {
     int temp;
@@ -23,8 +25,7 @@ int *SelectionSort(int arr[], int size)
 
     }
 
-    // for (int i = 0; i < size;i++)
-    //     cout << arr[i] << " ";
+
     return arr;
 }
 
