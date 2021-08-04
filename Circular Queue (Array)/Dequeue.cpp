@@ -19,7 +19,7 @@ void display(int arr[], int f, int r, int mSize)
 }
 
 //definition for removing elements in queue
-int remove(int arr[], int *f, int *r, int mSize)
+int Dequeue(int arr[], int *f, int *r, int mSize)
 {
     int element;
     if (*f == -1)
@@ -36,7 +36,6 @@ int remove(int arr[], int *f, int *r, int mSize)
         if (*f == *r)
             *f = *r = -1;
 
-        //cout << *f;
     }
     return element;
 }
@@ -51,11 +50,11 @@ int main()
 
     display(arr, f, r, mSize);
 
-    remove(arr, &f, &r, mSize);
-    remove(arr, &f, &r, mSize);
-    remove(arr, &f, &r, mSize);
-    remove(arr, &f, &r, mSize);
-    //remove(arr, &f, &r, mSize);
+    Dequeue(arr, &f, &r, mSize);
+    Dequeue(arr, &f, &r, mSize);
+    Dequeue(arr, &f, &r, mSize);
+    Dequeue(arr, &f, &r, mSize);
+    //Dequeue(arr, &f, &r, mSize);
 
     display(arr, f, r, mSize);
 }

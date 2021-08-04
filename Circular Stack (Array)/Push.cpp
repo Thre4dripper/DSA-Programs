@@ -1,31 +1,31 @@
 #include <iostream>
 using namespace std;
 
-//function to display whole queue
+//function to display whole Stack
 void display(int arr[], int f, int r, int mSize)
 {
     cout << endl
-         << "Queue->";
+         << "Stack->";
     if (f != -1)
     { //loop at least one time
         do
         {
             cout << arr[f] << " ";
             f = (f + 1) % mSize;
-
         } while (f != r); //to counter this condition
         //cause f==r is condition for both FULL and EMPTY queue
     }
 }
 
-//definition for inertion of elements in queue
-void Enqueue(int element, int arr[], int *f, int *r, int mSize)
+//definition for inertion of elements in Stack
+void Push(int element, int arr[], int *f, int *r, int mSize)
 {
-    //special case when starting filling queue
+
+    //special case when starting filling Stack
     if (*f == -1)
     {
-        *f = 0;
-        *r = 1;
+        (*f) = 0;
+        (*r) = 1;
         arr[*f] = element;
     }
     else
@@ -33,28 +33,33 @@ void Enqueue(int element, int arr[], int *f, int *r, int mSize)
         if (*r != *f)
         {
             arr[*r] = element;
-            *r = (*r + 1) % mSize;
+            (*r) = (*r + 1) % mSize;
         }
         else
-            cout << "Queue Full" << endl;
+        {
+            arr[*r] = element;
+            (*r) = (*r + 1) % mSize;
+            (*f) = (*f + 1) % mSize;
+        }
     }
 }
 
 int main()
 {
     system("cls");
-    int mSize = 5;
-    int arr[mSize];
-    //at staring both pointers are -1
-    int f = -1, r = -1;
 
+    int mSize = 3;
+    int arr[mSize];
+
+    int f = -1, r = -1;
     display(arr, f, r, mSize);
 
-    Enqueue(10, arr, &f, &r, mSize);
-    Enqueue(20, arr, &f, &r, mSize);
-    Enqueue(30, arr, &f, &r, mSize);
-    Enqueue(40, arr, &f, &r, mSize);
-    Enqueue(50, arr, &f, &r, mSize);
+    Push(10, arr, &f, &r, mSize);
+    Push(20, arr, &f, &r, mSize);
+    Push(30, arr, &f, &r, mSize);
+    Push(40, arr, &f, &r, mSize);
+    Push(50, arr, &f, &r, mSize);
+
 
     display(arr, f, r, mSize);
 }
