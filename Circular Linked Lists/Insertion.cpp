@@ -74,7 +74,7 @@ void insertAtIndex(int element, node **head, int index, int *size)
     ptr->data = element;
 
     //index should be in size range
-    if (index <= *size && index>=0)
+    if (index <= *size && index >= 0)
     {
         node *p = new node;
         p = (*head)->next;

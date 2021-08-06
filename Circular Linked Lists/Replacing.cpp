@@ -41,7 +41,7 @@ int traverse(node *head)
 }
 
 //function to replace element from start of circulat linked list
-int replaceFromStart(int element,node *head)
+int replaceFromStart(int element, node *head)
 {
     int initelement;
     //case for empty circular linked list
@@ -52,7 +52,7 @@ int replaceFromStart(int element,node *head)
         node *ptr = new node;
         ptr = head->next;
 
-        initelement=ptr->data;
+        initelement = ptr->data;
 
         ptr->data = element;
     }
@@ -61,15 +61,17 @@ int replaceFromStart(int element,node *head)
 }
 
 //function to replace element from any index in circular linked list
-int replaceFormIndex(int element,node *head, int index, int size)
+int replaceFormIndex(int element, node *head, int index, int size)
 {
     int initelement;
 
-    if(index>=0 && index<size){
+    if (index >= 0 && index < size)
+    {
         node *ptr = new node;
         ptr = head->next;
 
-        for (int i = 0; i < index;i++){
+        for (int i = 0; i < index; i++)
+        {
             ptr = ptr->next;
         }
 
@@ -77,13 +79,13 @@ int replaceFormIndex(int element,node *head, int index, int size)
         ptr->data = element;
     }
     else
-        cout << "Invalid Index"<<endl;
+        cout << "Invalid Index" << endl;
 
     return initelement;
 }
 
 //function to replace element from End in circular linked list
-int replaceFromEnd(int element,node *head)
+int replaceFromEnd(int element, node *head)
 {
     int initelement;
 
@@ -95,12 +97,12 @@ int replaceFromEnd(int element,node *head)
         node *ptr = new node;
         ptr = head->next;
 
-            while (ptr->next != head->next)
-            {
-                ptr = ptr->next;
-            }
-            initelement = ptr->data;
-            ptr->data = element;
+        while (ptr->next != head->next)
+        {
+            ptr = ptr->next;
+        }
+        initelement = ptr->data;
+        ptr->data = element;
     }
 
     return initelement;
@@ -137,7 +139,7 @@ int main()
     size = traverse(head);
 
     cout << endl
-         << replaceFormIndex(10, head,2,size);
+         << replaceFormIndex(10, head, 2, size);
 
     traverse(head);
 }
