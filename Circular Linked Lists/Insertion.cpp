@@ -74,7 +74,7 @@ void insertAtIndex(int element, node **head, int index, int *size)
     ptr->data = element;
 
     //index should be in size range
-    if (index <= *size)
+    if (index <= *size && index>=0)
     {
         node *p = new node;
         p = (*head)->next;
@@ -115,7 +115,7 @@ void insertAtIndex(int element, node **head, int index, int *size)
         (*size)++;
     }
     else
-        cout << "Index greater than size";
+        cout << "Invalid Index";
 }
 
 //function to insert element at End in circular linked list
