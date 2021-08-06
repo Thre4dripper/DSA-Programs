@@ -35,7 +35,6 @@ int Dequeue(int arr[], int *f, int *r, int mSize)
 
         if (*f == *r)
             *f = *r = -1;
-
     }
     return element;
 }
