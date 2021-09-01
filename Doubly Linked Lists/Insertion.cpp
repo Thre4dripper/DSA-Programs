@@ -80,7 +80,6 @@ void InsertAtIndex(int element, node **head, node **tail, int index, int *size)
                 //again for empty
                 if ((*head) == NULL)
                 {
-                    cout << 1 << endl;
                     ptr->next = NULL;
                     ptr->prev = NULL;
                     (*head) = (*tail) = ptr;
@@ -88,7 +87,6 @@ void InsertAtIndex(int element, node **head, node **tail, int index, int *size)
                 //and non-empty
                 else
                 {
-                    cout << 2 << endl;
                     ptr->next = (*head);
                     (*head)->prev = ptr;
                     (*head) = ptr;
@@ -98,7 +96,6 @@ void InsertAtIndex(int element, node **head, node **tail, int index, int *size)
             //non zero indexes
             else
             {
-                cout << 3 << endl;
                 node *p;
                 p = (*head);
 
@@ -118,7 +115,6 @@ void InsertAtIndex(int element, node **head, node **tail, int index, int *size)
             //checking for last index
             if (index == *size)
             {
-                cout << 4 << endl;
                 ptr->prev = (*tail);
                 (*tail)->next = ptr;
                 (*tail) = ptr;
@@ -127,7 +123,6 @@ void InsertAtIndex(int element, node **head, node **tail, int index, int *size)
             //indexing other than last
             else
             {
-                cout << 5 << endl;
                 node *p;
                 p = (*tail);
 
