@@ -42,7 +42,7 @@ int TraverseBackward(node *tail)
     return size;
 }
 
-//function for removing element from Start of Doubly Linked List
+//function for replacing element from Start of Doubly Linked List
 int replaceFromStart(int element, node **head, node **tail)
 {
     //removing element
@@ -63,7 +63,7 @@ int replaceFromStart(int element, node **head, node **tail)
     return initelement;
 }
 
-//function for removing element from Start of Doubly Linked List
+//function for replacing element from any Index of Doubly Linked List
 int replaceFromIndex(int element, int index, node **head, node **tail, int *size)
 {
     //removing element
@@ -129,7 +129,7 @@ int replaceFromIndex(int element, int index, node **head, node **tail, int *size
     return initelement;
 }
 
-//function for removing element from Start of Doubly Linked List
+//function for replacing element from End of Doubly Linked List
 int replaceFromEnd(int element, node **head, node **tail)
 {
     //removing element

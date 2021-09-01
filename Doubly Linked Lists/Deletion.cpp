@@ -72,7 +72,7 @@ int deletefromStart(node **head, node **tail, int *size)
     return element;
 }
 
-//function for removing element from Start of Doubly Linked List
+//function for removing element from any Index of Doubly Linked List
 int deleteFromIndex(int index, node **head, node **tail, int *size)
 {
     //removing element
@@ -155,7 +155,7 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
     return element;
 }
 
-//function for removing element from Start of Doubly Linked List
+//function for removing element from End of Doubly Linked List
 int deleteFromEnd(node **head, node **tail, int *size)
 {
     //removing element

@@ -8,30 +8,25 @@ struct node
     node *prev;
 };
 
-//function for Traverse Doubly Linked List forward
-void TraverseForward(node *head)
+//function for Searcing an element in Doubly Linked List
+int search(int element, node *head, node *tail, int size)
 {
+    bool found = false;
+    node *ptr;
+    ptr = head;
 
-    cout << endl;
-
-    while (head != NULL)
+    while (ptr != NULL)
     {
-        cout << head->data << " ";
-        head = head->next;
+        if (ptr->data == element)
+        {
+            found = true;
+            break;
+        }
+        else
+            ptr = ptr->next;
     }
-}
 
-//function for Traverse Doubly Linked List backward
-void TraverseBackward(node *tail)
-{
-
-    cout << endl;
-
-    while (tail != NULL)
-    {
-        cout << tail->data << " ";
-        tail = tail->prev;
-    }
+    return found;
 }
 
 int main()
@@ -46,7 +41,7 @@ int main()
     node *forth = new node;
     node *fifth = new node;
 
-    int size;
+    int size = 5;
 
     first->data = 10;
     first->prev = NULL;
@@ -71,6 +66,8 @@ int main()
     head = first;
     tail = fifth;
 
-    TraverseForward(head);
-    TraverseBackward(fifth);
+    cout << endl
+         << search(41, head, tail, size);
+    cout << endl
+         << search(30, head, tail, size);
 }
