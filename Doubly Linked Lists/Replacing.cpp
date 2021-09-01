@@ -43,10 +43,10 @@ int TraverseBackward(node *tail)
 }
 
 //function for removing element from Start of Doubly Linked List
-int deletefromStart(node **head, node **tail, int *size)
+int replaceFromStart(int element, node **head, node **tail)
 {
     //removing element
-    int element;
+    int initelement;
 
     //condition for NULL doubly linked list
     if ((*head) == NULL)
@@ -56,27 +56,18 @@ int deletefromStart(node **head, node **tail, int *size)
         node *ptr;
         ptr = (*head);
 
-        element = ptr->data;
-        (*head) = (*head)->next;
-
-        //condition when only one element is left in doubly linked list
-        if (*head != NULL)
-            (*head)->prev = NULL;
-        else
-            (*tail) = NULL;
-
-        delete ptr;
-        (*size)--;
+        initelement = ptr->data;
+        ptr->data = element;
     }
 
-    return element;
+    return initelement;
 }
 
 //function for removing element from Start of Doubly Linked List
-int deleteFromIndex(int index, node **head, node **tail, int *size)
+int replaceFromIndex(int element, int index, node **head, node **tail, int *size)
 {
     //removing element
-    int element;
+    int initelement;
 
     //checking for valid indexes
     if (index >= 0 && index < *size)
@@ -89,13 +80,8 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
             if (index == 0)
             {
                 ptr = (*head);
-                element = ptr->data;
-                (*head) = (*head)->next;
-
-                if ((*head) != NULL)
-                    (*head)->prev = NULL;
-                else
-                    (*tail) = NULL;
+                initelement = ptr->data;
+                ptr->data = element;
             }
             //checking for non-zero indexes
             else
@@ -107,10 +93,8 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
                     p = p->next;
 
                 ptr = p->next;
-                element = ptr->data;
-
-                p->next = ptr->next;
-                ptr->next->prev = p;
+                initelement = ptr->data;
+                ptr->data = element;
             }
         }
         //Optimization in deletion if index lie in second half of doubly linked list
@@ -121,13 +105,8 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
             {
                 ptr = (*tail);
 
-                element = ptr->data;
-                (*tail) = (*tail)->prev;
-
-                if (*tail != NULL)
-                    (*tail)->next = NULL;
-                else
-                    (*head) = NULL;
+                initelement = ptr->data;
+                ptr->data = element;
             }
             //condition for indexes ohther than last
             else
@@ -139,27 +118,22 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
                     p = p->prev;
 
                 ptr = p->prev;
-                element = ptr->data;
-
-                p->prev = ptr->prev;
-                ptr->prev->next = p;
+                initelement = ptr->data;
+                ptr->data = element;
             }
         }
-
-        delete ptr;
-        (*size)--;
     }
     else
         cout << "Invalid Index" << endl;
 
-    return element;
+    return initelement;
 }
 
 //function for removing element from Start of Doubly Linked List
-int deleteFromEnd(node **head, node **tail, int *size)
+int replaceFromEnd(int element, node **head, node **tail)
 {
     //removing element
-    int element;
+    int initelement;
 
     //checking for NULL doubly linked list
     if ((*tail) == NULL)
@@ -170,19 +144,10 @@ int deleteFromEnd(node **head, node **tail, int *size)
         node *ptr;
         ptr = (*tail);
 
-        element = ptr->data;
-        (*tail) = (*tail)->prev;
-
-        //condition when only one element is left in doubly linked list
-        if (*tail != NULL)
-            (*tail)->next = NULL;
-        else
-            (*head) = NULL;
-
-        delete ptr;
-        (*size)--;
+        initelement = ptr->data;
+        ptr->data = element;
     }
-    return element;
+    return initelement;
 }
 
 int main()
@@ -225,7 +190,11 @@ int main()
     size = TraverseForward(head);
 
     cout << endl
-         << deleteFromIndex(3, &head, &tail, &size);
+         << replaceFromIndex(60, 1, &head, &tail, &size);
+    cout << endl
+         << replaceFromIndex(70, 3, &head, &tail, &size);
+    cout << endl
+         << replaceFromIndex(80, 4, &head, &tail, &size);
 
     size = TraverseForward(head);
 }

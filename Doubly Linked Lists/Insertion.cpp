@@ -63,7 +63,7 @@ void InsertAtStart(int element, node **head, node **tail)
 }
 
 //function for insert an index at start of Doubly Linked List
-void InsertAtIndex(int element, node **head, node **tail, int index, int *size)
+void InsertAtIndex(int element, int index, node **head, node **tail, int *size)
 {
     //checking for valid index
     if (index >= 0 && index <= *size)
@@ -176,11 +176,12 @@ int main()
     size = TraverseForward(head);
     //size = TraverseBackward(tail);
 
-    InsertAtIndex(10, &head, &tail, 0, &size);
-    InsertAtIndex(20, &head, &tail, 1, &size);
-    InsertAtIndex(30, &head, &tail, 2, &size);
-    InsertAtIndex(40, &head, &tail, 3, &size);
-    InsertAtIndex(50, &head, &tail, 3, &size);
+    InsertAtIndex(10, 0, &head, &tail, &size);
+    InsertAtIndex(20, 1, &head, &tail, &size);
+    InsertAtIndex(30, 2, &head, &tail, &size);
+    InsertAtIndex(40, 3, &head, &tail, &size);
+    InsertAtIndex(50, 4, &head, &tail, &size);
+    InsertAtIndex(60, 3, &head, &tail, &size);
 
     size = TraverseForward(head);
     //size = TraverseBackward(tail);
