@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 struct node
@@ -8,34 +8,40 @@ struct node
     node *prev;
 };
 
-void TraverseForward(node * head){
+//function for Traverse Doubly Linked List forward
+void TraverseForward(node *head)
+{
 
     cout << endl;
 
-    while(head!=NULL){
-        cout << head->data<<" ";
+    while (head != NULL)
+    {
+        cout << head->data << " ";
         head = head->next;
     }
 }
 
-void TraverseBackward(node * tail){
+//function for Traverse Doubly Linked List backward
+void TraverseBackward(node *tail)
+{
 
     cout << endl;
 
-    while(tail!=NULL){
-        cout << tail->data<<" ";
+    while (tail != NULL)
+    {
+        cout << tail->data << " ";
         tail = tail->prev;
     }
 }
 
-
-int main(){
+int main()
+{
     system("cls");
-    node *head=new node;
-    node *second=new node;
-    node *third=new node;
-    node *forth=new node;
-    node *fifth=new node;
+    node *head = new node;
+    node *second = new node;
+    node *third = new node;
+    node *forth = new node;
+    node *fifth = new node;
 
     head->data = 10;
     head->prev = NULL;
