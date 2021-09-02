@@ -67,7 +67,7 @@ int TraverseAntiClockwise(node *head)
 }
 
 //function for inserting element at start of Doubly Circular Linked List
-void InsertAtStart(int element, node **head)
+void insertAtStart(int element, node **head)
 {
     node *ptr = new node;
     ptr->data = element;
@@ -106,7 +106,7 @@ void InsertAtStart(int element, node **head)
 }
 
 //function for inserting element at any index of Doubly Circular Linked List
-void InsertAtIndex(int element, int index, node **head, int *size)
+void insertAtIndex(int element, int index, node **head, int *size)
 {
     //checking for valid indexes
     if (index >= 0 && index <= *size)
@@ -162,15 +162,33 @@ void InsertAtIndex(int element, int index, node **head, int *size)
             node *p = new node;
             p = (*head)->next;
 
-            for (int i = 0; i < index - 1; i++)
-                p = p->next;
+            //condition for indexes in first half of doubly circular linked list
+            if (index <= (*size) / 2)
+            {
+                for (int i = 0; i < index - 1; i++)
+                    p = p->next;
 
-            ptr->next = p->next;
-            ptr->prev = p;
+                ptr->next = p->next;
+                ptr->prev = p;
 
-            p->next->prev = ptr;
-            p->next = ptr;
+                p->next->prev = ptr;
+                p->next = ptr;
+            }
+
+            //condition for indexes in second half of doubly circular linked list
+            else
+            {
+                for (int i = *size; i > index; i--)
+                    p = p->prev;
+
+                ptr->prev = p->prev;
+                ptr->next = p;
+
+                p->prev->next = ptr;
+                p->prev = ptr;
+            }
         }
+
         (*size)++;
     }
     else
@@ -178,7 +196,7 @@ void InsertAtIndex(int element, int index, node **head, int *size)
 }
 
 //function for inserting element at end of Doubly Circular Linked List
-void InsertAtEnd(int element, node **head)
+void insertAtEnd(int element, node **head)
 {
     node *ptr = new node;
     ptr->data = element;
@@ -220,9 +238,12 @@ int main()
     int size;
 
     size = TraverseClockwise(head);
-    InsertAtIndex(10, 0, &head, &size);
-    InsertAtIndex(20, 0, &head, &size);
-    InsertAtIndex(30, 2, &head, &size);
+    insertAtIndex(10, 0, &head, &size);
+    insertAtIndex(20, 1, &head, &size);
+    insertAtIndex(30, 2, &head, &size);
+    insertAtIndex(40, 3, &head, &size);
+    insertAtIndex(50, 4, &head, &size);
+    insertAtIndex(60, 3, &head, &size);
 
     size = TraverseClockwise(head);
 }
