@@ -70,12 +70,13 @@ void insertAtStart(int element, node **head)
 //function to insert element at any index in circular linked list
 void insertAtIndex(int element, node **head, int index, int *size)
 {
-    node *ptr = new node;
-    ptr->data = element;
 
     //index should be in size range
     if (index <= *size && index >= 0)
     {
+        node *ptr = new node;
+        ptr->data = element;
+
         node *p = new node;
         p = (*head)->next;
 
@@ -119,7 +120,7 @@ void insertAtIndex(int element, node **head, int index, int *size)
 }
 
 //function to insert element at End in circular linked list
-void insertionAtEnd(int element, node **head)
+void insertAtEnd(int element, node **head)
 {
     node *ptr = new node;
     ptr->data = element;
