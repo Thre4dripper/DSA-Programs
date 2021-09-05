@@ -18,7 +18,7 @@ int *CountSort(int arr[], int n)
     for (i = 0; i < n; i++)
         count[arr[i]]++;
 
-    for (i = 0; i < MAX; i++)
+    for (i = 0; i <= MAX; i++)
     {
         if (count[i] > 0)
         {
@@ -35,7 +35,7 @@ int main()
 {
     system("cls");
 
-    int arr[] = {23, 45, 26, 12, 4, 98, 2, 14, 5, 8, 7, 2, 3, 1, 45, 65, 21, 78, 56, 23, 32};
+    int arr[] = {2,5,7,6,3,1,45,12,56,79,6,32,54,74,32,12,84,6,1,21,96,65,54,97,6,15,32,52};
     int size = sizeof(arr) / sizeof(arr[0]);
 
     int *ptr;
