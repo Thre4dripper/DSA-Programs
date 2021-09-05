@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+#define MAXBUFFER 20
+
 struct node
 {
     char data;
@@ -53,11 +55,11 @@ char Pop(node **head)
 }
 
 //main function for checcking expression validity
-int checkValidity(char expression[], int n)
+int checkValidity(char expression[])
 {
     node *head = NULL;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; expression[i]!='\0'; i++)
     {
         if (expression[i] == '(')
             Push(expression[i], &head);
@@ -83,10 +85,10 @@ int main()
 {
     system("cls");
 
-    char expression[20];
+    char expression[MAXBUFFER];
 
-    fgets(expression, 20, stdin);
+    fgets(expression, MAXBUFFER, stdin);
 
     cout << endl
-         << checkValidity(expression, 20);
+         << checkValidity(expression);
 }
