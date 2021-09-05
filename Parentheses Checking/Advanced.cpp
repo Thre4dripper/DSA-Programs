@@ -26,8 +26,10 @@ bool isEmpty(node *head)
 //function for checking Top element of Stack
 bool isOntop(char bracket, node *head)
 {
-    if (head!=NULL && bracket == head->data)
+
+    if (head != NULL && bracket == head->data)
         return true;
+
     else
         return false;
 }
@@ -63,59 +65,81 @@ char Pop(node **head)
 }
 
 //main function for checcking expression validity
-int checkValidity(char expression[])
+bool checkValidity(char expression[])
 {
     node *head = NULL;
 
-    for (int i = 0;expression[i]!='\0'; i++)
+    for (int i = 0; expression[i] != '\0'; i++)
     {
-        if (expression[i] == '(' || expression[i] == '{' || expression[i] == '[')
-            Push(expression[i], &head);
-
+        if (expression[i] == '(')
+        {
+            //   '(' can overlap all three brackets and can fill empty stack
+            if (isOntop('(', head) == true || isOntop('{', head) == true || isOntop('[', head) == true || isEmpty(head) == true)
+                Push(expression[i], &head);
+            else
+                return false;
+        }
+        else if (expression[i] == '{')
+        {
+            //   '{' can overlap only itself and '(' and can fill empty stack
+            if (isOntop('{', head) == true || isOntop('[', head) == true || isEmpty(head) == true)
+                Push(expression[i], &head);
+            else
+                return false;
+        }
+        else if (expression[i] == '[')
+        {
+             //   '[' can overlap only itself and can fill empty stack
+            if (isOntop('[', head) == true || isEmpty(head) == true)
+                Push(expression[i], &head);
+            else
+                return false;
+        }
         else if (expression[i] == ')')
         {
             //condition when ')' stack should not be empty and  '(' must be on Top
-            if (isEmpty(head) == false && isOntop('(',head)==true)
+            if (isEmpty(head) == false && isOntop('(', head) == true)
                 Pop(&head);
             else
-                return 0;
+                return false;
         }
         else if (expression[i] == '}')
         {
             //condition when '}' stack should not be empty and  '{' must be on Top
-            if (isEmpty(head) == false && isOntop('{',head)==true)
+            if (isEmpty(head) == false && isOntop('{', head) == true)
                 Pop(&head);
             else
-                return 0;
+                return false;
         }
         else if (expression[i] == ']')
         {
             //condition when ']' stack should not be empty and  '[' must be on Top
-            if (isEmpty(head) == false && isOntop('[',head)==true)
+            if (isEmpty(head) == false && isOntop('[', head) == true)
                 Pop(&head);
             else
-                return 0;
+                return false;
         }
     }
-    //ABOVE CODE CAN BE SIMPLIFIED TO USE LESS 'IF ELSE' STATEMENTS BUT THEN 
+    //ABOVE CODE CAN BE SIMPLIFIED TO USE LESS 'IF ELSE' STATEMENTS BUT THEN
     //CODE WOULD BE MUCH MORE COMPLEX TO UNDERSTAND
 
     //and after all ')' occured Stack should be empty
     if (isEmpty(head) == true)
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 
 int main()
 {
+    //THIS PROGRAM WILL CHECK VALIDITY OF BRACKETS ACCORDING TO BODMAS RULE OF BRACKETS
+    
     system("cls");
 
     char expression[MAX_BUFFER];
 
     fgets(expression, MAX_BUFFER, stdin);
 
-    
-        cout << endl
-             << checkValidity(expression);
+    cout << endl
+         << checkValidity(expression);
 }
