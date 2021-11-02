@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-
+//function to return index element of stack
 int peek(int index,int arr[],int *mSize){
 
     if(index<*mSize)
