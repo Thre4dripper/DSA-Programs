@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-///function for checking stack is empty or not
+///function for checking circular stack is empty or not
 int IsEmpty(int arr[], int f, int r, int n)
 {
     if (f == -1)
