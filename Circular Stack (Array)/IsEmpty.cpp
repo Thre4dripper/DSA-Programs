@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-int IsEmpty(int arr[], int f,int r,int n)
+///function for checking stack is empty or not
+int IsEmpty(int arr[], int f, int r, int n)
 {
-    if (f==-1)
+    if (f == -1)
         return 1;
     else
         return 0;
-
 }
 
 int main()
@@ -20,7 +20,7 @@ int main()
     //r is for insertion at end and overwrites succeeding values
     //f follows r in that case
     //see POP for more detail about is empty
-    int f = 4, r = 4;//at 4th index right now
+    int f = 4, r = 4; //at 4th index right now
 
-    cout << IsEmpty(arr,f,r, mSize);
+    cout << IsEmpty(arr, f, r, mSize);
 }
