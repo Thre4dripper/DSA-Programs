@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-//stack class implementation using linked list
+//generic stack class implementation using linked list
+template<typename T>
 class Stack
 {
-
 private:
     //structure for stack node
     struct node
     {
-        int data;
+        T data;
         node *next;
     };
 
@@ -18,7 +18,7 @@ private:
 
 public:
     //method for pushing element in the stack
-    void push(int element)
+    void push(T element)
     {
         node *ptr = new node;
         ptr->data = element;
@@ -35,7 +35,7 @@ public:
         {
             node *ptr = top;
 
-            int element = ptr->data;
+            T element = ptr->data;
             top = top->next;
 
             delete ptr;
@@ -98,13 +98,28 @@ int main()
 {
     system("cls");
 
-    //stack class object
-    Stack s;
-    s.push(10);
-    s.push(20);
-    s.push(30);
-    s.push(40);
-    s.pop();
+    //stack class objects
 
-    s.display();
+    Stack<int> s1;
+    s1.push(10);
+    s1.push(20);
+    s1.push(30);
+    s1.push(40);
+    s1.pop();
+    s1.display();
+
+    Stack<float> s2;
+    s2.push(10.3);
+    s2.push(20.5);
+    s2.push(30.54);
+    s2.push(40);
+    s2.display();
+
+    Stack<char> s3;
+    s3.push('a');
+    s3.push('b');
+    s3.push('c');
+    s3.push('d');
+
+    s3.display();
 }
