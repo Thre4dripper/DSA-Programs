@@ -44,9 +44,15 @@ public:
             cout << "\nStack UnderFlow!!!\n";
     }
 
+    //method for getting top element in the stack
     int peek()
     {
-        return arr[top];
+        if (top != -1)
+            return arr[top];
+        else
+            cout << "\nEmpty Stack!!!\n";
+
+        return -1;
     }
 
     //method for display entire stack
@@ -58,7 +64,7 @@ public:
         {
             cout << arr[i];
             if (i != 0)
-                cout << ",";
+                cout << " | ";
         }
 
         cout << "]";
