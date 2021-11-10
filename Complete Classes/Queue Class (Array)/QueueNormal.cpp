@@ -18,7 +18,7 @@ public:
         arr = (int *)malloc(size * sizeof(int));
     }
 
-    //function for push element in the queue
+    //method for push element in the queue
     void enqueue(int element)
     {
         if (front == -1 && rear == -1)
@@ -35,7 +35,7 @@ public:
             cout << "\nQueue Overflow!!!\n";
     }
 
-    //function for removing element from the queue
+    //method for removing element from the queue
     int dequeue()
     {
         if (front > rear || front == -1)
@@ -54,7 +54,7 @@ public:
         }
     }
 
-    //function for getting front element from the queue
+    //method for getting front element from the queue
     int Front()
     {
         if (front == -1)
@@ -63,7 +63,7 @@ public:
             return arr[front];
     }
 
-    //function for getting rear element from the queue
+    //method for getting rear element from the queue
     int Rear()
     {
         if (rear == -1)
@@ -72,7 +72,7 @@ public:
             return arr[rear];
     }
 
-    //function for checking if queue is empty or not
+    //method for checking if queue is empty or not
     bool isEmpty()
     {
         if (front == -1 && rear == -1)
@@ -81,7 +81,7 @@ public:
             return false;
     }
 
-    //function fot checking if queue is full or not
+    //method fot checking if queue is full or not
     bool isFull()
     {
         if (rear == size - 1)
@@ -90,7 +90,7 @@ public:
             return false;
     }
 
-    //function to display whole queue
+    //method to display whole queue
     void display()
     {
         if (rear == -1 && front == -1)
@@ -110,7 +110,7 @@ public:
         }
     }
 
-    //function for getting size of queue
+    //method for getting size of queue
     int Size()
     {
         if (rear == -1 && front == -1)
