@@ -32,7 +32,7 @@ public:
     }
 
     //method for pop element from the stack
-    int pop()
+    T pop()
     {
 
         if (top != -1)

@@ -73,21 +73,21 @@ public:
     }
 
     //function for checking if queue is empty or not
-    int isEmpty()
+    bool isEmpty()
     {
         if (front == -1 && rear == -1)
-            return 1;
+            return true;
         else
-            return 0;
+            return false;
     }
 
     //function fot checking if queue is full or not
-    int isFull()
+    bool isFull()
     {
         if (rear == size - 1)
-            return 1;
+            return true;
         else
-            return 0;
+            return false;
     }
 
     //function to display whole queue

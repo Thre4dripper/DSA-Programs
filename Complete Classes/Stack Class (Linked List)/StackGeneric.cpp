@@ -29,7 +29,7 @@ public:
     }
 
     //method for removing element from stack
-    int pop()
+    T pop()
     {
         if (top != NULL)
         {
@@ -48,7 +48,7 @@ public:
     }
 
     //method for finding top element in the stack
-    int peek()
+    T peek()
     {
         if (top != NULL)
             return top->data;
