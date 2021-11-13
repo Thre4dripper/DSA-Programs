@@ -2,13 +2,14 @@
 using namespace std;
 
 //ArrayList class implementation with all basic operations
+template <typename T>
 class List
 {
 private:
     //structure for each node;
     struct node
     {
-        int data;
+        T data;
         node *next;
         node *prev;
     };
@@ -19,7 +20,7 @@ private:
 
 public:
     //method for adding an element to the end of List
-    List &add(int element)
+    List &add(T element)
     {
         node *ptr = new node;
         ptr->data = element;
@@ -43,7 +44,7 @@ public:
     }
 
     //method for adding an element to a given index of List
-    List &add(int index, int element)
+    List &add(int index, T element)
     {
         if (index < 0 || index > size)
         {
@@ -173,7 +174,7 @@ public:
         return size;
     }
 
-    int get(int index)
+    T get(int index)
     {
         if (index < 0 || index >= size)
         {
@@ -196,7 +197,7 @@ public:
     }
 
     //method for replacing an element from a given index in a list
-    List &set(int index, int element)
+    List &set(int index, T element)
     {
         if (index < 0 || index >= size)
         {
@@ -220,7 +221,7 @@ public:
     }
 
     //method for checking if a element is present or not in the list
-    bool contains(int element)
+    bool contains(T element)
     {
         node *ptr = front;
         while (ptr != NULL)
@@ -234,7 +235,7 @@ public:
     }
 
     //method for getting first index of an element in the list
-    int indexof(int element)
+    int indexof(T element)
     {
         node *ptr = front;
         for (int i = 0; ptr != NULL; i++)
@@ -249,7 +250,7 @@ public:
     }
 
     //method for getting last index of an element in the list
-    int lastIndexof(int element)
+    int lastIndexof(T element)
     {
         node *ptr = rear;
         for (int i = size - 1; ptr != NULL; i--)
@@ -277,7 +278,7 @@ public:
         {
             node *first = front;
             node *last = rear;
-            int temp;
+            T temp;
 
             do
             {
@@ -323,11 +324,30 @@ int main()
 {
     system("cls");
 
-    List list;
-    list.add(10).add(20).add(30);
-    list.add(40);
-    list.add(50);
-    list.add(50);
-    list.add(60);
-    list.reverse().display();
+    //declarations of Objects of List
+    List<int> list1;
+    list1.add(10).add(20).add(30);
+    list1.add(40);
+    list1.add(50);
+    list1.add(50);
+    list1.add(60);
+    list1.reverse().display();
+
+    List<float> list2;
+    list2.add(10.2).add(20.43).add(30.4);
+    list2.add(40.54);
+    list2.add(50.41);
+    list2.add(50.85);
+    list2.add(60.36);
+    cout << endl;
+    list2.reverse().display();
+
+    List<char> list3;
+    list3.add('a').add('b').add('c');
+    list3.add('d');
+    list3.add('e');
+    list3.add('f');
+    list3.add('g');
+    cout << endl;
+    list3.reverse().display();
 }
