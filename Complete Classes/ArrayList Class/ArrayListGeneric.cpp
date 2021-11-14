@@ -318,6 +318,136 @@ public:
 
         return *this;
     }
+
+    //method for finding max element from the list
+    T max()
+    {
+        node *ptr = front;
+        T max = ptr->data;
+        while (ptr != NULL)
+        {
+            if (max < ptr->data)
+                max = ptr->data;
+            ptr = ptr->next;
+        }
+
+        return max;
+    }
+
+    //method for finding min element from the list
+    T min()
+    {
+        node *ptr = front;
+        T min = ptr->data;
+        while (ptr != NULL)
+        {
+            if (min > ptr->data)
+                min = ptr->data;
+            ptr = ptr->next;
+        }
+
+        return min;
+    }
+
+    //method for finding sum of all elements in the list
+    T sum()
+    {
+        node *ptr = front;
+        T sum = 0;
+        while (ptr != NULL)
+        {
+            sum += ptr->data;
+            ptr = ptr->next;
+        }
+
+        return sum;
+    }
+
+    //method for finding average of all elements in the list
+    T avg()
+    {
+        return 1.0 * sum() / size;
+    }
+
+    //method for swaping two elements in the list
+    List &swap(int index1, int index2)
+    {
+        if (index1 >= 0 && index1 < size && index2 >= 0 && index2 < size)
+        {
+            node *p1 = front;
+            node *p2 = front;
+
+            for (int i = 0; i < index1; i++)
+                p1 = p1->next;
+
+            for (int i = 0; i < index2; i++)
+                p2 = p2->next;
+
+            T temp = p1->data;
+            p1->data = p2->data;
+            p2->data = temp;
+        }
+        else
+            cout << "\nIndex Out of Bounds!!!\n";
+
+        return *this;
+    }
+
+    //method for left rotation of list
+    List &leftRotate(int count)
+    {
+        node *ptr;
+        T temp;
+
+        for (int i = 1; i <= count; i++)
+        {
+            ptr = front;
+            temp = ptr->data;
+            remove(0);
+            add(temp);
+        }
+        return *this;
+    }
+
+    //method for right rotation of list
+    List &rightRotate(int count)
+    {
+        node *ptr;
+        T temp;
+
+        for (int i = 1; i <= count; i++)
+        {
+            ptr = rear;
+            temp = ptr->data;
+            remove(size - 1);
+            add(0, temp);
+        }
+        return *this;
+    }
+
+    //method for sort list
+    List &Sort()
+    {
+        node *ptr = front;
+
+        for (int i = 0; ptr->next != NULL; i++)
+        {
+            if (ptr->data < ptr->next->data)
+                ptr = ptr->next;
+            else
+            {
+                node *p = ptr->next;
+                for (int j = i + 1; p->prev != NULL && p->data < p->prev->data; j--)
+                {
+                    swap(j, j - 1);
+                    p = p->prev;
+                }
+                ptr = ptr->next;
+            }
+        }
+
+        return *this;
+    }
 };
 
 int main()
@@ -334,13 +464,13 @@ int main()
     list1.reverse().display();
 
     List<float> list2;
-    list2.add(10.2).add(20.43).add(30.4);
+    list2.add(10.2).add(50.43).add(30.4);
     list2.add(40.54);
-    list2.add(50.41);
-    list2.add(50.85);
+    list2.add(40.41);
+    list2.add(65.85);
     list2.add(60.36);
     cout << endl;
-    list2.reverse().display();
+    list2.Sort().display();
 
     List<char> list3;
     list3.add('a').add('b').add('c');
@@ -349,5 +479,5 @@ int main()
     list3.add('f');
     list3.add('g');
     cout << endl;
-    list3.reverse().display();
+    list3.swap(0, 3).display();
 }

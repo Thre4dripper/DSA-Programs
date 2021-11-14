@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 //ArrayList class implementation with all basic operations
@@ -317,6 +318,136 @@ public:
 
         return *this;
     }
+
+    //method for finding max element from the list
+    int max()
+    {
+        node *ptr = front;
+        int max = ptr->data;
+        while (ptr != NULL)
+        {
+            if (max < ptr->data)
+                max = ptr->data;
+            ptr = ptr->next;
+        }
+
+        return max;
+    }
+
+    //method for finding min element from the list
+    int min()
+    {
+        node *ptr = front;
+        int min = ptr->data;
+        while (ptr != NULL)
+        {
+            if (min > ptr->data)
+                min = ptr->data;
+            ptr = ptr->next;
+        }
+
+        return min;
+    }
+
+    //method for finding sum of all elements in the list
+    int sum()
+    {
+        node *ptr = front;
+        int sum = 0;
+        while (ptr != NULL)
+        {
+            sum += ptr->data;
+            ptr = ptr->next;
+        }
+
+        return sum;
+    }
+
+    //method for finding average of all elements in the list
+    float avg()
+    {
+        return 1.0 * sum() / size;
+    }
+
+    //method for swaping two elements in the list
+    List &swap(int index1, int index2)
+    {
+        if (index1 >= 0 && index1 < size && index2 >= 0 && index2 < size)
+        {
+            node *p1 = front;
+            node *p2 = front;
+
+            for (int i = 0; i < index1; i++)
+                p1 = p1->next;
+
+            for (int i = 0; i < index2; i++)
+                p2 = p2->next;
+
+            int temp = p1->data;
+            p1->data = p2->data;
+            p2->data = temp;
+        }
+        else
+            cout << "\nIndex Out of Bounds!!!\n";
+
+        return *this;
+    }
+
+    //method for left rotation of list
+    List &leftRotate(int count)
+    {
+        node *ptr;
+        int temp;
+
+        for (int i = 1; i <= count; i++)
+        {
+            ptr = front;
+            temp = ptr->data;
+            remove(0);
+            add(temp);
+        }
+        return *this;
+    }
+
+    //method for right rotation of list
+    List &rightRotate(int count)
+    {
+        node *ptr;
+        int temp;
+
+        for (int i = 1; i <= count; i++)
+        {
+            ptr = rear;
+            temp = ptr->data;
+            remove(size - 1);
+            add(0, temp);
+        }
+        return *this;
+    }
+
+    //method for sort list
+    List &Sort()
+    {
+        node *ptr = front;
+
+        for (int i = 0; ptr->next != NULL; i++)
+        {
+            if (ptr->data < ptr->next->data)
+                ptr = ptr->next;
+            else
+            {
+                node *p = ptr->next;
+                for (int j = i + 1; p->prev != NULL && p->data < p->prev->data; j--)
+                {
+                    swap(j, j - 1);
+                    p = p->prev;
+                }
+                ptr = ptr->next;
+            }
+        }
+
+        return *this;
+    }
 };
 
 int main()
@@ -326,9 +457,9 @@ int main()
     //declaration of Object of List
     List list;
     list.add(10).add(20).add(30);
-    list.add(40);
-    list.add(50);
+    list.add(0);
+    list.add(75);
     list.add(50);
     list.add(60);
-    list.reverse().display();
+    list.Sort().display();
 }
