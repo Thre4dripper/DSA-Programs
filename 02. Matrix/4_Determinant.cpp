@@ -2,6 +2,7 @@
 #define Dimens 5
 using namespace std;
 
+//function to find determinant of matrix
 int determinant(int a[][Dimens], int n)
 {
     int det = 0;
