@@ -12,6 +12,10 @@
         "string": "cpp",
         "unordered_map": "cpp",
         "cstdio": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "complex": "cpp",
+        "functional": "cpp",
+        "ratio": "cpp",
+        "valarray": "cpp"
     }
 }
