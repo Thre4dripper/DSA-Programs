@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 //change order of matrix here
 #define Dimens 5
 using namespace std;
@@ -36,6 +37,44 @@ int determinant(int a[][Dimens], int n)
     return det;
 }
 
+//function to find minor of matrix
+int Minor(int matrix[][Dimens], int n, int i, int j)
+{
+    int submatrix[Dimens][Dimens];
+    int k = 0, l = 0;
+    for (int row = 0; row < n; row++)
+    {
+        if (row != i)
+        {
+            for (int col = 0; col < n; col++)
+            {
+                if (col != j)
+                {
+                    submatrix[k][l] = matrix[row][col];
+                    l++;
+                }
+            }
+            l = 0;
+            k++;
+        }
+    }
+    return determinant(submatrix, n - 1);
+}
+
+//function to find minor matrix
+void MinorMatrix(int a[][Dimens], int n)
+{
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << Minor(a, n, i, j) << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
     int mat[][Dimens] =
@@ -45,5 +84,5 @@ int main()
          5, 4, 6, 8, 2,
          1, 2, 3, 5, 6};
 
-    cout << determinant(mat, Dimens);
+    MinorMatrix(mat, Dimens);
 }

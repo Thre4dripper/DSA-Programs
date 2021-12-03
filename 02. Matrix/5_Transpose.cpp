@@ -1,4 +1,5 @@
 #include <iostream>
+//change order of matrix here
 #define Dimens 5
 using namespace std;
 
@@ -30,7 +31,7 @@ int main()
          5, 4, 6, 8, 2,
          1, 2, 3, 5, 6};
 
-        Transpose(mat);
+    Transpose(mat);
 
     for (int i = 0; i < Dimens; i++)
     {
