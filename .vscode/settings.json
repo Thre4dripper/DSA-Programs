@@ -15,6 +15,7 @@
         "mutex": "cpp",
         "shared_mutex": "cpp",
         "streambuf": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "regex": "cpp"
     }
 }

@@ -9,9 +9,8 @@ struct node
     node *left;
     node *right;
 };
-
 //function for printing BT Parent->left->right
-void PreOrderTraverse(node *root)
+void display(node *root)
 {
     if (root == NULL)
     {
@@ -22,75 +21,28 @@ void PreOrderTraverse(node *root)
     cout << root->data << " ";
 
     if (root->left != NULL)
-        PreOrderTraverse(root->left);
+        display(root->left);
 
     if (root->right != NULL)
-        PreOrderTraverse(root->right);
+        display(root->right);
 }
 
-//function for printing BT left->Parent->right
-void InOrderTraverse(node *root)
+//function for searching element in BST
+void Replace(int element, int replace, node *root)
 {
-
+    //element not fount
     if (root == NULL)
-    {
-        cout << "Empty!!";
         return;
-    }
 
+    //element found
+    if (element == root->data)
+        root->data = replace;
+    //element might be in left BT
     if (root->left != NULL)
-        InOrderTraverse(root->left);
-
-    cout << root->data << " ";
-
+        Replace(element, replace, root->left);
+    //element might be in right BT
     if (root->right != NULL)
-        InOrderTraverse(root->right);
-}
-
-//function for printing BT right->left->Parent
-void PostOrderTraverse(node *root)
-{
-
-    if (root == NULL)
-    {
-        cout << "Empty!!";
-        return;
-    }
-
-    if (root->right != NULL)
-        PostOrderTraverse(root->right);
-
-    if (root->left != NULL)
-        PostOrderTraverse(root->left);
-
-    cout << root->data << " ";
-}
-
-void LevelOrderTraverse(node *root)
-{
-    if (root == NULL)
-    {
-        cout << "Empty!!";
-        return;
-    }
-
-    //initial work
-    queue<node *> q;
-    q.push(root);
-
-    while (!q.empty())
-    {
-        node *p = q.front();
-        q.pop();
-
-        cout << p->data << " ";
-
-        if (p->left != NULL)
-            q.push(p->left);
-
-        if (p->right != NULL)
-            q.push(p->right);
-    }
+        Replace(element, replace, root->right);
 }
 
 int main()
@@ -135,12 +87,13 @@ int main()
     seventh->left = NULL;
     seventh->right = NULL;
 
-    
     //         10
     //       /   \
     //     20    30
     //   /  \   /  \
     //  40  50 60  70
 
-    LevelOrderTraverse(root);
+    Replace(40, 25, root);
+
+    display(root);
 }

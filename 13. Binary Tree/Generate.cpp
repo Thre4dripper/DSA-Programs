@@ -10,7 +10,7 @@ struct node
     node *right;
 };
 
-//function for printing BT (inorder)
+//function for printing BT Parent->left->right
 void display(node *root)
 {
     if (root == NULL)
@@ -19,10 +19,10 @@ void display(node *root)
         return;
     }
 
+    cout << root->data << " ";
+
     if (root->left != NULL)
         display(root->left);
-
-    cout << root->data << " ";
 
     if (root->right != NULL)
         display(root->right);
