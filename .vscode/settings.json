@@ -5,6 +5,16 @@
         "complex": "cpp",
         "memory_resource": "cpp",
         "numeric": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "charconv": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "condition_variable": "cpp",
+        "algorithm": "cpp",
+        "istream": "cpp",
+        "mutex": "cpp",
+        "shared_mutex": "cpp",
+        "streambuf": "cpp",
+        "thread": "cpp"
     }
 }

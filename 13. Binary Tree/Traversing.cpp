@@ -1,4 +1,6 @@
-#include<iostream>
+#include <iostream>
+#include <queue>
+
 using namespace std;
 
 struct node
@@ -9,48 +11,92 @@ struct node
 };
 
 //function for printing BT Parent->left->right
-void PreOrderTraverse(node *head){
-    cout << head->data<<" ";
+void PreOrderTraverse(node *root)
+{
+    if (root == NULL)
+    {
+        cout << "Empty!!";
+        return;
+    }
 
-    if(head->left!=NULL)
-        PreOrderTraverse(head->left);
+    cout << root->data << " ";
 
-    if(head->right!=NULL)
-        PreOrderTraverse(head->right);
-    
+    if (root->left != NULL)
+        PreOrderTraverse(root->left);
+
+    if (root->right != NULL)
+        PreOrderTraverse(root->right);
 }
 
 //function for printing BT left->Parent->right
-void InOrderTraverse(node *head){
-    
+void InOrderTraverse(node *root)
+{
 
-    if(head->left!=NULL)
-        InOrderTraverse(head->left);
+    if (root == NULL)
+    {
+        cout << "Empty!!";
+        return;
+    }
 
-        cout << head->data<<" ";
+    if (root->left != NULL)
+        InOrderTraverse(root->left);
 
-    if(head->right!=NULL)
-        InOrderTraverse(head->right);
-    
+    cout << root->data << " ";
+
+    if (root->right != NULL)
+        InOrderTraverse(root->right);
 }
 
 //function for printing BT right->left->Parent
-void PostOrderTraverse(node *head){
-    
+void PostOrderTraverse(node *root)
+{
 
-    if(head->right!=NULL)
-        PostOrderTraverse(head->right);
+    if (root == NULL)
+    {
+        cout << "Empty!!";
+        return;
+    }
 
-    if(head->left!=NULL)
-        PostOrderTraverse(head->left);
+    if (root->right != NULL)
+        PostOrderTraverse(root->right);
 
-        cout << head->data<<" ";
- 
+    if (root->left != NULL)
+        PostOrderTraverse(root->left);
+
+    cout << root->data << " ";
 }
 
-int main(){
+void LevelOrderTraverse(node *root)
+{
+    if (root == NULL)
+    {
+        cout << "Empty!!";
+        return;
+    }
+
+    //initial work
+    queue<node *> q;
+    q.push(root);
+
+    while (!q.empty())
+    {
+        node *p = q.front();
+        q.pop();
+
+        cout << p->data << " ";
+
+        if (p->left != NULL)
+            q.push(p->left);
+
+        if (p->right != NULL)
+            q.push(p->right);
+    }
+}
+
+int main()
+{
     system("cls");
-    node *head=NULL;
+    node *root = NULL;
     node *first = new node;
     node *second = new node;
     node *third = new node;
@@ -59,7 +105,7 @@ int main(){
     node *sixth = new node;
     node *seventh = new node;
 
-    head = first;
+    root = first;
 
     first->data = 10;
     first->left = second;
@@ -89,5 +135,5 @@ int main(){
     seventh->left = NULL;
     seventh->right = NULL;
 
-    PostOrderTraverse(head);
+    LevelOrderTraverse(root);
 }
