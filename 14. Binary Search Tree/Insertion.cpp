@@ -7,19 +7,20 @@ struct node
     node *left;
     node *right;
 };
-//function for printing BT Parent->left->right
+//function for printing BT left->Parent->right
 void display(node *root)
 {
+
     if (root == NULL)
     {
         cout << "Empty!!";
         return;
     }
 
-    cout << root->data << " ";
-
     if (root->left != NULL)
         display(root->left);
+
+    cout << root->data << " ";
 
     if (root->right != NULL)
         display(root->right);
@@ -28,26 +29,24 @@ void display(node *root)
 //function for inserting element in BST
 node *Insert(int element, node *root)
 {
-    node *ptr = new node;
+    node *ptr = NULL;
     if (root == NULL)
     {
+        ptr = new node;
         ptr->data = element;
         ptr->left = ptr->right = NULL;
-        root = ptr;
 
-        return root;
+        return ptr;
     }
-    else
-    {
-        if (element < root->data)
-            root->left = Insert(element, root->left);
-        else if (element > root->data)
-            root->right = Insert(element, root->right);
-        else
-            //ignore and return same element
-            return root;
-    }
+
+    if (element < root->data)
+        root->left = Insert(element, root->left);
+    else if (element > root->data)
+        root->right = Insert(element, root->right);
+
+    return root;
 }
+
 int main()
 {
     system("cls");

@@ -10,19 +10,20 @@ struct node
     node *right;
 };
 
-//function for printing BT Parent->left->right
+//function for printing BT left->Parent->right
 void display(node *root)
 {
+
     if (root == NULL)
     {
         cout << "Empty!!";
         return;
     }
 
-    cout << root->data << " ";
-
     if (root->left != NULL)
         display(root->left);
+
+    cout << root->data << " ";
 
     if (root->right != NULL)
         display(root->right);
