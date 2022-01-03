@@ -12,7 +12,7 @@ void enqueue(int element, int arr[], int *front, int *rear, int mSize)
 {
     //Element always entered in queue from front
 
-    if (*rear < mSize)
+    if (*rear < mSize-1)
     {
         if (*front == -1)
             (*front) = (*rear) = 0;
@@ -44,6 +44,7 @@ int main()
     enqueue(20, arr, &front, &rear, mSize);
     enqueue(30, arr, &front, &rear, mSize);
     enqueue(45, arr, &front, &rear, mSize);
+    enqueue(21, arr, &front, &rear, mSize);
 
     display(arr, front, rear);
 }
