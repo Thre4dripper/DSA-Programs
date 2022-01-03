@@ -20,7 +20,26 @@ int display(node *front)
 
     return size;
 }
-void enqueue(int element, node **front, node **rear)
+
+//function to insert element at start
+void enqueueStart(int element, node **front, node **rear)
+{
+    node *ptr = new node;
+
+    ptr->data = element;
+    ptr->next = NULL;
+    if (*front == NULL)
+        *front = *rear = ptr;
+
+    else
+    {
+        ptr->next = *front;
+        (*front) = ptr;
+    }
+}
+
+//function to insert element at end
+void enqueueEnd(int element, node **front, node **rear)
 {
     node *ptr = new node;
 
@@ -43,9 +62,11 @@ int main()
     node *rear = NULL;
 
     display(front);
-    enqueue(10, &front, &rear);
-    enqueue(20, &front, &rear);
-    enqueue(30, &front, &rear);
+    enqueueEnd(10, &front, &rear);
+    enqueueEnd(20, &front, &rear);
+    enqueueEnd(30, &front, &rear);
+    enqueueStart(40, &front, &rear);
+    enqueueStart(50, &front, &rear);
 
     display(front);
 }

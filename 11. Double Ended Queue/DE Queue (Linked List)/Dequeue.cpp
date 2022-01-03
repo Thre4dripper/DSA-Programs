@@ -21,7 +21,8 @@ int display(node *head)
     return size;
 }
 
-int dequeue(node **front, node **rear)
+//function to delete element from start
+int dequeueStart(node **front, node **rear)
 {
     int element = 0;
     if (*front != NULL)
@@ -31,6 +32,34 @@ int dequeue(node **front, node **rear)
         *front = (*front)->next;
 
         delete ptr;
+    }
+    else
+        cout << "Queue Underflow" << endl;
+    return element;
+}
+
+//function to delete element from end
+int dequeueEnd(node **front, node **rear)
+{
+    int element = 0;
+
+    if (*front != NULL)
+    {
+        //only one node is left, below logic doesn't work on this
+        //otherwise u have to use two sliding pointers
+        if ((*front)->next == NULL)
+            return dequeueStart(front, rear);
+
+        node *ptr = *front;
+
+        //reching second last node
+        while (ptr->next->next != NULL)
+            ptr = ptr->next;
+
+        element = ptr->next->data;
+        ptr->next = NULL;
+
+        delete ptr->next;
     }
     else
         cout << "Queue Underflow" << endl;
@@ -68,9 +97,15 @@ int main()
 
     size = display(front);
     cout << endl
-         << dequeue(&front, &rear);
+         << dequeueStart(&front, &rear);
     cout << endl
-         << dequeue(&front, &rear);
+         << dequeueStart(&front, &rear);
     cout << endl
-         << dequeue(&front, &rear);
+         << dequeueStart(&front, &rear);
+    cout << endl
+         << dequeueEnd(&front, &rear);
+    cout << endl
+         << dequeueEnd(&front, &rear);
+    cout << endl
+         << dequeueEnd(&front, &rear);
 }

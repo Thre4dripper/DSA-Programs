@@ -21,16 +21,19 @@ int display(node *head)
     return size;
 }
 
+//function to peek at start
 int peekStart(node **head, node **rear)
 {
     return (*head)->data;
 }
 
+//function to peek at end
 int peekEnd(node **head, node **rear)
 {
     return (*rear)->data;
 }
 
+//function to peek at index
 int peekIndex(int index, node **head, node **rear, int size)
 {
     int element = NULL;
