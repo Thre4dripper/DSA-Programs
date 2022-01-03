@@ -23,10 +23,11 @@ int display(node *head)
 
 int dequeue(node **front, node **rear)
 {
-    int element = 0;
+    int element = NULL;
     if (*front != NULL)
     {
-        node *ptr = *front;
+        node *ptr;
+        ptr = *front;
         element = (*front)->data;
         *front = (*front)->next;
 
@@ -42,17 +43,17 @@ int main()
     system("cls");
 
     int size;
-    node *head = new node;
+    node *first = new node;
     node *second = new node;
     node *third = new node;
     node *forth = new node;
     node *fifth = new node;
 
-    node *front = head;
+    node *front = first;
     node *rear = fifth;
 
-    head->data = 10;
-    head->next = second;
+    first->data = 10;
+    first->next = second;
 
     second->data = 20;
     second->next = third;

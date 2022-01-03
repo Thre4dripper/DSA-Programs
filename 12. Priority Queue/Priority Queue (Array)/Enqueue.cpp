@@ -9,6 +9,11 @@ struct node
 
 void display(node arr[], int front, int rear)
 {
+    if (front = -1)
+    {
+        cout << "\nQueue is Empty";
+        return;
+    }
     cout << endl
          << "PQ: ";
     for (int i = 0; i <= rear; i++)
