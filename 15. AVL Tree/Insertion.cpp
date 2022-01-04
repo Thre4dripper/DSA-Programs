@@ -13,7 +13,6 @@ struct node
 //function for printing BT left->Parent->right
 void display(node *root)
 {
-
     if (root == NULL)
     {
         cout << "Empty!!";
@@ -64,8 +63,8 @@ node *RRrotation(node *ptr)
     ptr->left = p->right;
     p->right = ptr;
 
-    ptr->bf = Height(ptr->left) - Height(ptr->right);
-    p->bf = Height(p->left) - Height(p->right);
+    ptr->bf = BalanceFactor(ptr);
+    p->bf = BalanceFactor(p);
 
     return p;
 }
@@ -84,8 +83,8 @@ node *LLrotation(node *ptr)
     ptr->right = p->left;
     p->left = ptr;
 
-    ptr->bf = Height(ptr->left) - Height(ptr->right);
-    p->bf = Height(p->left) - Height(p->right);
+    ptr->bf = BalanceFactor(ptr);
+    p->bf = BalanceFactor(p);
 
     return p;
 }
@@ -108,9 +107,9 @@ node *LRrotation(node *ptr)
     p1->left = p;
     p1->right = ptr;
 
-    ptr->bf = Height(ptr->left) - Height(ptr->right);
-    p->bf = Height(p->left) - Height(p->right);
-    p1->bf = Height(p1->left) - Height(p1->right);
+    ptr->bf = BalanceFactor(ptr);
+    p->bf = BalanceFactor(p);
+    p1->bf = BalanceFactor(p1);
 
     return p1;
 }
@@ -133,9 +132,9 @@ node *RLrotation(node *ptr)
     p1->right = p;
     p1->left = ptr;
 
-    ptr->bf = Height(ptr->left) - Height(ptr->right);
-    p->bf = Height(p->left) - Height(p->right);
-    p1->bf = Height(p1->left) - Height(p1->right);
+    ptr->bf = BalanceFactor(ptr);
+    p->bf = BalanceFactor(p);
+    p1->bf = BalanceFactor(p1);
 
     return p1;
 }
@@ -159,7 +158,7 @@ node *Insert(int element, node *root)
         root->right = Insert(element, root->right);
 
     //calculating balance factor of every node at returning time
-    root->bf = Height(root->left) - Height(root->right);
+    root->bf = BalanceFactor(root);
 
     //left-left imbalance
     if (root->bf == 2 && root->left->bf == 1)
@@ -177,6 +176,7 @@ node *Insert(int element, node *root)
     else if (root->bf == -2 && root->right->bf == -1)
         return LLrotation(root);
 
+    //these rotations were done on recursions's return time
     return root;
 }
 
@@ -184,13 +184,16 @@ int main()
 {
     system("cls");
     node *root = NULL;
-    root = Insert(10, root);
+
+    //these are only few emenents to test AVL tree but
+    //AVL tree is invented in such a way that node of the two cases of rotation will contradict
+    //even on very large no of elements
     root = Insert(20, root);
-    root = Insert(30, root);
-    root = Insert(25, root);
-    root = Insert(28, root);
-    root = Insert(27, root);
-    root = Insert(5, root);
+    root = Insert(4, root);
+    root = Insert(26, root);
+    root = Insert(3, root);
+    root = Insert(9, root);
+    root = Insert(15, root);
 
     display(root);
     cout << endl

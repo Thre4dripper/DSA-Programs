@@ -1,6 +1,4 @@
 #include <iostream>
-#include <queue>
-
 using namespace std;
 
 struct node
@@ -61,8 +59,7 @@ int main()
     seventh->left = NULL;
     seventh->right = NULL;
 
-    
-    //         10
+        //         10
     //       /   \
     //     20    30
     //   /  \   /  \

@@ -1,6 +1,4 @@
 #include <iostream>
-#include <queue>
-
 using namespace std;
 
 struct node
@@ -9,10 +7,10 @@ struct node
     node *left;
     node *right;
 };
+
 //function for printing BT left->Parent->right
 void display(node *root)
 {
-
     if (root == NULL)
     {
         cout << "Empty!!";
@@ -28,98 +26,128 @@ void display(node *root)
         display(root->right);
 }
 
-//function for initial filling of BST
-node *Insert(int element, node *root)
+//function for getting heigth of binary tree
+int Height(node *root)
 {
-    node *ptr = NULL;
     if (root == NULL)
-    {
-        ptr = new node;
-        ptr->data = element;
-        ptr->left = ptr->right = NULL;
-        return ptr;
-    }
+        return 0;
+    int x = Height(root->left) + 1;
+    int y = Height(root->right) + 1;
 
-    if (element < root->data)
-        root->left = Insert(element, root->left);
-    else if (element > root->data)
-        root->right = Insert(element, root->right);
+    return x > y ? x : y;
+}
 
-    return root;
+//function for getting balance factor of node
+int BalanceFactor(node *ptr)
+{
+    int hL, hR;
+    hL = Height(ptr->left);
+    hR = Height(ptr->right);
+
+    return hL - hR;
+}
+
+//fucntion to find inorder predec
+node *inorderPredecessor(node *root)
+{
+    node *ptr = root;
+    while (ptr != NULL && ptr->right != NULL)
+        ptr = ptr->right;
+
+    return ptr;
 }
 
 //fucntion to find inorder succ
 node *inorderSuccessor(node *root)
 {
     node *ptr = root;
-    while (ptr->right != NULL)
-        ptr = ptr->right;
+    while (ptr != NULL && ptr->left != NULL)
+        ptr = ptr->left;
 
     return ptr;
 }
 
+//function for deleting element from BST
 node *Remove(int element, node *root)
 {
     //element not found
     if (root == NULL)
         return NULL;
 
-    if (element == root->data)
+    if (element < root->data)
+        root->left = Remove(element, root->left);
+    else if (element > root->data)
+        root->right = Remove(element, root->right);
+    else
     {
-        //leaf node
         if (root->left == NULL && root->right == NULL)
+        {
+            delete root;
             return NULL;
-
-        //only left child
-        else if (root->left != NULL && root->right == NULL)
-        {
-            node *p = root->left;
-            delete root;
-            return p;
         }
-
-        //only right child
-        else if (root->left == NULL && root->right != NULL)
-        {
-            node *p = root->right;
-            delete root;
-            return p;
-        }
-        //both children exist
         else
         {
-            node *p = inorderSuccessor(root->left);
-            root->data = p->data;
-            root->left = Remove(p->data, root->left);
+            node *p = NULL;
+
+            //selection of replacing node will be based on
+            //left and right sub tree's height
+            if (Height(root->left) > Height(root->right))
+            {
+                p = inorderPredecessor(root->left);
+                root->data = p->data;
+                root->left = Remove(p->data, root->left);
+            }
+            else
+            {
+                p = inorderSuccessor(root->right);
+                root->data = p->data;
+                root->right = Remove(p->data, root->right);
+            }
         }
     }
-    //element might be in left BST
-    else if (element < root->data)
-        root->left = Remove(element, root->left);
-    //element might be in right BST
-    else
-        root->right = Remove(element, root->right);
+
+    return root;
 }
 
 int main()
 {
     system("cls");
     node *root = NULL;
+    node *first = new node;
+    node *second = new node;
+    node *third = new node;
+    node *forth = new node;
+    node *fifth = new node;
 
-    int arr[] = {50, 55, 10, 40, 20, 30};
-    //         50
-    //       /   \
-    //     10    55
-    //       \  
-    //        40
-    //       /
-    //     20
-    //       \
-    //        30
+    root = first;
+    first->data = 2;
+    first->left = second;
+    first->right = third;
 
-    //initial filling of BST
-    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
-        root = Insert(arr[i], root);
+    second->data = 1;
+    second->left = NULL;
+    second->right = NULL;
+
+    third->data = 4;
+    third->left = forth;
+    third->right = fifth;
+
+    forth->data = 3;
+    forth->left = NULL;
+    forth->right = NULL;
+
+    fifth->data = 5;
+    fifth->left = NULL;
+    fifth->right = NULL;
+
+    //      Sample BST
+    //
+    //          2
+    //        /  \
+    //      1     4
+    //          /  \
+    //         3    5
+    //
 
     cout << "Before Deletion: ";
     display(root);
@@ -128,4 +156,6 @@ int main()
 
     cout << "\nAfter Deletion: ";
     display(root);
+
+    cout << "\nRoot: " << root->data;
 }
