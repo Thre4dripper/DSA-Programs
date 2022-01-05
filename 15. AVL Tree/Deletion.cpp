@@ -22,7 +22,7 @@ void display(node *root)
     if (root->left != NULL)
         display(root->left);
 
-    cout << root->data << " ";
+    cout << root->data << "  Bfactor: " << root->bf << endl;
 
     if (root->right != NULL)
         display(root->right);
@@ -69,9 +69,11 @@ node *inorderSuccessor(node *root)
     return ptr;
 }
 
+//  Comments are copied from GFG
+//
 //              z                                      y
 //             / \                                   /   \
-//            y   T4      Right-Right Rotate (z)          x     z
+//            y   T4      Right-Right Rotate (z)    x     z
 //           / \          - - - - - - - - ->      /  \   /  \ 
 //          x   T3                               T1  T2 T3  T4
 //         / \
@@ -89,9 +91,11 @@ node *RRrotation(node *ptr)
     return p;
 }
 
+//  Comments are copied from GFG
+//
 //          z                                y
 //        /  \                             /  \ 
-//       T1   y     Left-Left Rotate(z)       z     x
+//       T1   y     Left-Left Rotate(z)  z     x
 //           /  \   - - - - - - - ->    / \   / \
 //          T2   x                     T1 T2 T3  T4
 //              / \
@@ -109,6 +113,8 @@ node *LLrotation(node *ptr)
     return p;
 }
 
+//  Comments are copied from GFG
+//
 //           z                               z                           x
 //          / \                            /   \                       /  \ 
 //         y   T4  Left Rotate (y)        x    T4  Right Rotate(z)   y      z
@@ -134,6 +140,8 @@ node *LRrotation(node *ptr)
     return p1;
 }
 
+//  Comments are copied from GFG
+//
 //         z                            z                             x
 //        / \                          / \                          /  \ 
 //      T1   y   Right Rotate (y)    T1   x      Left Rotate(z)   z      y
@@ -277,12 +285,12 @@ int main()
     //         3    5
     //
 
-    cout << "Before Deletion: ";
+    cout << "Before Deletion: \n";
     display(root);
 
     root = Remove(1, root);
 
-    cout << "\nAfter Deletion: ";
+    cout << "\nAfter Deletion: \n";
     display(root);
 
     cout << "\nRoot: " << root->data;

@@ -22,7 +22,7 @@ void display(node *root)
     if (root->left != NULL)
         display(root->left);
 
-    cout << root->data << " ";
+    cout << root->data << "  Bfactor: " << root->bf << endl;
 
     if (root->right != NULL)
         display(root->right);
@@ -49,9 +49,11 @@ int BalanceFactor(node *ptr)
     return hL - hR;
 }
 
+//  Comments are copied from GFG
+//
 //              z                                      y
 //             / \                                   /   \
-//            y   T4      Right-Right Rotate (z)          x     z
+//            y   T4      Right-Right Rotate (z)    x     z
 //           / \          - - - - - - - - ->      /  \   /  \ 
 //          x   T3                               T1  T2 T3  T4
 //         / \
@@ -69,9 +71,11 @@ node *RRrotation(node *ptr)
     return p;
 }
 
+//  Comments are copied from GFG
+//
 //          z                                y
 //        /  \                             /  \ 
-//       T1   y     Left-Left Rotate(z)       z     x
+//       T1   y     Left-Left Rotate(z)  z     x
 //           /  \   - - - - - - - ->    / \   / \
 //          T2   x                     T1 T2 T3  T4
 //              / \
@@ -89,6 +93,8 @@ node *LLrotation(node *ptr)
     return p;
 }
 
+//  Comments are copied from GFG
+//
 //           z                               z                           x
 //          / \                            /   \                       /  \ 
 //         y   T4  Left Rotate (y)        x    T4  Right Rotate(z)   y      z
@@ -114,13 +120,15 @@ node *LRrotation(node *ptr)
     return p1;
 }
 
+//  Comments are copied from GFG
+//
 //         z                            z                             x
 //        / \                          / \                          /  \ 
 //      T1   y   Right Rotate (y)    T1   x      Left Rotate(z)   z      y
 //          / \  - - - - - - - - ->     /  \   - - - - - - - ->  / \    / \
 //         x   T4                      T2   y                  T1  T2  T3  T4
 //        / \                              / \
-//      T2   T3                           T3  T4
+//      T2   T3                          T3  T4
 node *RLrotation(node *ptr)
 {
     node *p = ptr->right;
