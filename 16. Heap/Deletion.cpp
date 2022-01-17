@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//function to display heap
 void display(int arr[], int size)
 {
     //array indexing is from 1..size
@@ -8,6 +9,7 @@ void display(int arr[], int size)
         cout << arr[i] << " ";
 }
 
+//function for swapping two variables
 void swap(int *a, int *b)
 {
     int temp = *a;
@@ -35,13 +37,13 @@ int RemoveMaxHeap(int arr[], int *size)
     {
         if (arr[j] > arr[j + 1])
         {
-            if (arr[i] < arr[j])
+            if (arr[j] > arr[i])
                 swap(&arr[i], &arr[j]);
             i = j;
         }
         else
         {
-            if (arr[i] < arr[j + 1])
+            if (arr[j + 1] > arr[i])
                 swap(&arr[i], &arr[j + 1]);
             i = j + 1;
         }
@@ -72,13 +74,13 @@ int RemoveMinHeap(int arr[], int *size)
     {
         if (arr[j] < arr[j + 1])
         {
-            if (arr[i] > arr[j])
+            if (arr[j] < arr[i])
                 swap(&arr[i], &arr[j]);
             i = j;
         }
         else
         {
-            if (arr[i] > arr[j + 1])
+            if (arr[j + 1] < arr[i])
                 swap(&arr[i], &arr[j + 1]);
             i = j + 1;
         }

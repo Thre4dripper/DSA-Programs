@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//function to display heap
 void display(int arr[], int size)
 {
     //arr indexing is from 1..size
