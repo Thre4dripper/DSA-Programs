@@ -10,22 +10,24 @@ int *CountSort(int arr[], int n)
         if (MAX < arr[i])
             MAX = arr[i];
 
-    int count[MAX];
+    int count[MAX + 1];
 
-    for (i = 0; i < MAX; i++)
+    //initializing with 0
+    for (i = 0; i <= MAX; i++)
         count[i] = 0;
 
+    //filling count array
     for (i = 0; i < n; i++)
         count[arr[i]]++;
 
+    //extracting count array
     for (i = 0; i <= MAX; i++)
     {
         if (count[i] > 0)
         {
             count[i]--;
-            arr[j] = i;
-            j++;
-            i--;
+            arr[j++] = i;
+            i--;//for rescanning of duplicate elements
         }
     }
 
@@ -35,7 +37,7 @@ int main()
 {
     system("cls");
 
-    int arr[] = {2,5,7,6,3,1,45,12,56,79,6,32,54,74,32,12,84,6,1,21,96,65,54,97,6,15,32,52};
+    int arr[] = {2, 5, 7, 6, 3, 1, 45, 12, 56, 79, 6, 32, 54, 74, 32, 12, 84, 6, 1, 21, 96, 65, 54, 97, 6, 15, 32, 52};
     int size = sizeof(arr) / sizeof(arr[0]);
 
     int *ptr;
