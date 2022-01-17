@@ -7,6 +7,7 @@ struct node
     node *left;
     node *right;
 };
+
 //function for printing BT left->Parent->right
 void display(node *root)
 {
@@ -25,7 +26,6 @@ void display(node *root)
     if (root->right != NULL)
         display(root->right);
 }
-
 
 //function for searching element in BST
 void Replace(int element, int replace, node *root)
