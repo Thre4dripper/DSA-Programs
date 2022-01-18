@@ -9,7 +9,7 @@ void display(int arr[], int size)
         cout << arr[i] << " ";
 }
 
-//function to insert in max heap
+//function to insert element in max heap
 void InsertMaxHeap(int element, int arr[], int *size, int mSize)
 {
     if (*size >= mSize)
@@ -31,7 +31,7 @@ void InsertMaxHeap(int element, int arr[], int *size, int mSize)
     (*size)++;
 }
 
-//function to insert in min heap
+//function to insert element in min heap
 void InsertMinHeap(int element, int arr[], int *size, int mSize)
 {
     if (*size >= mSize)

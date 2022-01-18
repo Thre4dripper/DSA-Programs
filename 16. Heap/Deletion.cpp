@@ -17,7 +17,7 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-//function to insert in max heap
+//function to remove element from max heap
 int RemoveMaxHeap(int arr[], int *size)
 {
     if ((*size) == 1)
@@ -54,7 +54,7 @@ int RemoveMaxHeap(int arr[], int *size)
     return element;
 }
 
-//function to insert in min heap
+//function to remove element from min heap
 int RemoveMinHeap(int arr[], int *size)
 {
     if ((*size) == 1)
