@@ -28,15 +28,17 @@ void InsertBucket(int element, node *bucket[])
 }
 
 //function to remove element from bucket
-node *RemoveBucket(int index, node *bucket[])
+int RemoveBucket(int index, node *bucket[])
 {
     node *ptr = bucket[index];
     if (ptr == NULL)
-        return NULL;
+        return -1;
 
     bucket[index] = bucket[index]->next;
+    int element = ptr->data;
+    delete ptr;
 
-    return ptr;
+    return element;
 }
 
 //function to Sort array using bucket sort
@@ -60,14 +62,16 @@ int *BucketSort(int arr[], int n)
     for (int i = 0; i < n; i++)
         InsertBucket(arr[i], bucket);
 
-    node *p = NULL;
+    int receivedValue = 0;
     //extracting bucket array
     for (int i = 0; i <= MAX; i++)
     {
-        p = RemoveBucket(i, bucket);
-        if (p != NULL)
+        receivedValue = RemoveBucket(i, bucket);
+
+        //since bucket sort only works for +ve int so -1 is excluded from bucket sorting
+        if (receivedValue != -1)
         {
-            arr[j++] = p->data;
+            arr[j++] = receivedValue;
             i--; //for rescanning of duplicate elements
         }
     }
