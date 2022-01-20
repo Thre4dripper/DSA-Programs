@@ -37,16 +37,6 @@ int Height(node *root)
     return x > y ? x : y;
 }
 
-//function for getting balance factor of node
-int BalanceFactor(node *ptr)
-{
-    int hL, hR;
-    hL = Height(ptr->left);
-    hR = Height(ptr->right);
-
-    return hL - hR;
-}
-
 //fucntion to find inorder predec
 node *inorderPredecessor(node *root)
 {
@@ -152,7 +142,7 @@ int main()
     cout << "Before Deletion: ";
     display(root);
 
-    root = Remove(50, root);
+    root = Remove(2, root);
 
     cout << "\nAfter Deletion: ";
     display(root);

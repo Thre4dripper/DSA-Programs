@@ -28,9 +28,29 @@ int hx(int x, int size)
     return x % size;
 }
 
+//function for searching element in hashtable
+bool Search(int element, node *HashTable[], int size)
+{
+    int index = hx(element, size);
+
+    node *p = HashTable[index];
+
+    while (p != NULL)
+    {
+        if (p->data == element)
+            return true;
+        p = p->next;
+    }
+
+    return false;
+}
+
 //function to insert element in hash table
 void Insert(int element, node *HashTable[], int size)
 {
+    if (Search(element, HashTable, size) == true)
+        return;
+
     node *ptr = new node;
     ptr->data = element;
     ptr->next = NULL;
@@ -48,23 +68,6 @@ void Insert(int element, node *HashTable[], int size)
         }
         p->next = ptr;
     }
-}
-
-//function for searching element in hashtable
-bool Search(int element, node *HashTable[], int size)
-{
-    int index = hx(element, size);
-
-    node *p = HashTable[index];
-
-    while (p != NULL)
-    {
-        if (p->data == element)
-            return true;
-        p = p->next;
-    }
-
-    return false;
 }
 
 //function for removing element from hashtable
@@ -123,7 +126,7 @@ int main()
     Insert(2, HashTable, size);
     Insert(3, HashTable, size);
     Insert(42, HashTable, size);
-    Insert(1, HashTable, size);
+    Insert(10, HashTable, size);
     Insert(7, HashTable, size);
 
     cout << Remove(23, HashTable, size) << endl;
