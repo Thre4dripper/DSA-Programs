@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+//size of hash table
+#define SIZE 5
+
 struct node
 {
     int data;
@@ -8,12 +11,12 @@ struct node
 };
 
 //function to print whole hash table
-void display(node *HashTable[], int size)
+void display(node *HT[])
 {
     node *p = NULL;
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < SIZE; i++)
     {
-        p = HashTable[i];
+        p = HT[i];
         while (p != NULL)
         {
             cout << p->data << " ";
@@ -23,17 +26,17 @@ void display(node *HashTable[], int size)
 }
 
 //hash function
-int hx(int x, int size)
+int hx(int x)
 {
-    return x % size;
+    return x % SIZE;
 }
 
 //function for searching element in hashtable
-bool Search(int element, node *HashTable[], int size)
+bool Search(int element, node *HT[])
 {
-    int index = hx(element, size);
+    int index = hx(element);
 
-    node *p = HashTable[index];
+    node *p = HT[index];
 
     while (p != NULL)
     {
@@ -46,20 +49,20 @@ bool Search(int element, node *HashTable[], int size)
 }
 
 //function to insert element in hash table
-void Insert(int element, node *HashTable[], int size)
+void Insert(int element, node *HT[])
 {
-    if (Search(element, HashTable, size) == true)
+    if (Search(element, HT) == true)
         return;
 
     node *ptr = new node;
     ptr->data = element;
     ptr->next = NULL;
 
-    int index = hx(element, size);
+    int index = hx(element);
 
-    node *p = HashTable[index];
+    node *p = HT[index];
     if (p == NULL)
-        HashTable[index] = ptr;
+        HT[index] = ptr;
     else
     {
         while (p->next != NULL)
@@ -71,22 +74,22 @@ void Insert(int element, node *HashTable[], int size)
 }
 
 //function for removing element from hashtable
-int Remove(int element, node *HashTable[], int size)
+int Remove(int element, node *HT[])
 {
-    if (Search(element, HashTable, size) == false)
+    if (Search(element, HT) == false)
     {
         cout << "Not Found!!!" << endl;
         return -1;
     }
 
-    int index = hx(element, size);
-    node *p = HashTable[index];
+    int index = hx(element);
+    node *p = HT[index];
 
     //element present at 'index' at first place
     if (p->data == element)
     {
         node *ptr = p;
-        HashTable[index] = HashTable[index]->next;
+        HT[index] = HT[index]->next;
         delete ptr;
     }
     //element present at 'index' after first place
@@ -111,26 +114,25 @@ int Remove(int element, node *HashTable[], int size)
 int main()
 {
     system("cls");
-    int size = 5;
-    node *HashTable[size];
+    node *HashTable[SIZE];
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < SIZE; i++)
         HashTable[i] = NULL;
 
-    Insert(10, HashTable, size);
-    Insert(15, HashTable, size);
-    Insert(24, HashTable, size);
-    Insert(23, HashTable, size);
-    Insert(18, HashTable, size);
-    Insert(36, HashTable, size);
-    Insert(2, HashTable, size);
-    Insert(3, HashTable, size);
-    Insert(42, HashTable, size);
-    Insert(10, HashTable, size);
-    Insert(7, HashTable, size);
+    Insert(10, HashTable);
+    Insert(15, HashTable);
+    Insert(24, HashTable);
+    Insert(23, HashTable);
+    Insert(18, HashTable);
+    Insert(36, HashTable);
+    Insert(2, HashTable);
+    Insert(3, HashTable);
+    Insert(42, HashTable);
+    Insert(10, HashTable);
+    Insert(7, HashTable);
 
-    cout << Remove(23, HashTable, size) << endl;
-    cout << Search(23, HashTable, size) << endl;
+    cout << Remove(23, HashTable) << endl;
+    cout << Search(23, HashTable) << endl;
 
-    display(HashTable, size);
+    display(HashTable);
 }
