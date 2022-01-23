@@ -20,13 +20,13 @@ int probe(int HT[], int index)
     int i = 0;
 
     //increments value until finds empty space
-    while (i < SIZE && HT[(index + i) % SIZE] != 0)
+    while (i * i < SIZE * SIZE && HT[(index + i * i) % SIZE] != 0)
         i++;
 
     //whole loop completed
-    if (i == SIZE)
+    if (i * i == SIZE * SIZE)
         return -1;
-    return (index + i) % SIZE;
+    return (index + i * i) % SIZE;
 }
 
 //hash function
@@ -46,10 +46,10 @@ bool Search(int element, int HT[])
     int index = element % SIZE;
 
     int i = 0;
-    while (i < SIZE && HT[(index + i) % SIZE] != element)
+    while (i * i < SIZE * SIZE && HT[(index + i * i) % SIZE] != element)
         i++;
 
-    if (i == SIZE)
+    if (i * i == SIZE * SIZE)
         return false;
 
     return true;
@@ -83,10 +83,10 @@ int Remove(int element, int HT[])
 
     int index = element % SIZE;
     int i = 0;
-    while (i < SIZE && HT[(index + i) % SIZE] != element)
+    while (i * i < SIZE * SIZE && HT[(index + i * i) % SIZE] != element)
         i++;
 
-    HT[(index + i) % SIZE] = 0;
+    HT[(index + i * i) % SIZE] = 0;
 
     return element;
 }
@@ -98,21 +98,20 @@ int main()
     int HashTable[SIZE] = {0};
     Insert(15, HashTable);
     Insert(25, HashTable);
-    Insert(21, HashTable);
     Insert(35, HashTable);
-    Insert(24, HashTable);
-    Insert(3, HashTable);
+    Insert(26, HashTable);
+    Insert(36, HashTable);
 
     //for loading factor <0.5 not more than half size hashtable should be filled
 
-    // Insert(22, HashTable);
-    // Insert(02, HashTable);
-    // Insert(4, HashTable);
-    // Insert(5, HashTable);
-    
+    // Insert(47, HashTable);
+    // Insert(1, HashTable);
+    // Insert(3, HashTable);
+    // Insert(2, HashTable);
+    // Insert(10, HashTable);
 
-    cout << Remove(35, HashTable) << endl;
-    cout << Search(35, HashTable) << endl;
+    cout << Remove(36, HashTable) << endl;
+    cout << Search(36, HashTable) << endl;
 
     display(HashTable);
 }
