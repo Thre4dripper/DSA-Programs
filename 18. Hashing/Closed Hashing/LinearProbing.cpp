@@ -20,6 +20,7 @@ int probe(int HT[], int index)
     int i = 0;
 
     //increments value until finds empty space
+    //breaking condition in case non of the indices left
     while (i < SIZE && HT[(index + i) % SIZE] != 0)
         i++;
 
@@ -46,6 +47,7 @@ bool Search(int element, int HT[])
     int index = element % SIZE;
 
     int i = 0;
+    //breaking condition in case non of the indices left
     while (i < SIZE && HT[(index + i) % SIZE] != element)
         i++;
 
@@ -83,7 +85,7 @@ int Remove(int element, int HT[])
 
     int index = element % SIZE;
     int i = 0;
-    while (i < SIZE && HT[(index + i) % SIZE] != element)
+    while (HT[(index + i) % SIZE] != element)
         i++;
 
     HT[(index + i) % SIZE] = 0;
@@ -109,7 +111,6 @@ int main()
     // Insert(02, HashTable);
     // Insert(4, HashTable);
     // Insert(5, HashTable);
-    
 
     cout << Remove(35, HashTable) << endl;
     cout << Search(35, HashTable) << endl;

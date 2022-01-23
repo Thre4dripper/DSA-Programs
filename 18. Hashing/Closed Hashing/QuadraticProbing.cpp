@@ -20,6 +20,7 @@ int probe(int HT[], int index)
     int i = 0;
 
     //increments value until finds empty space
+    //breaking condition in case non of the indices left
     while (i * i < SIZE * SIZE && HT[(index + i * i) % SIZE] != 0)
         i++;
 
@@ -46,6 +47,7 @@ bool Search(int element, int HT[])
     int index = element % SIZE;
 
     int i = 0;
+    //breaking condition in case non of the indices left
     while (i * i < SIZE * SIZE && HT[(index + i * i) % SIZE] != element)
         i++;
 
@@ -83,7 +85,7 @@ int Remove(int element, int HT[])
 
     int index = element % SIZE;
     int i = 0;
-    while (i * i < SIZE * SIZE && HT[(index + i * i) % SIZE] != element)
+    while (HT[(index + i * i) % SIZE] != element)
         i++;
 
     HT[(index + i * i) % SIZE] = 0;
