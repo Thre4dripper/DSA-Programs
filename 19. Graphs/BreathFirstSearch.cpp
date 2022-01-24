@@ -4,6 +4,7 @@ using namespace std;
 
 //no of vertex in graph
 #define GRAPH_SIZE 8
+#define I INT_MAX
 
 //function for printing Breadth First Search of a Graph
 void BFS(int startingNode, int graph[][GRAPH_SIZE + 1])
@@ -41,26 +42,26 @@ int main()
     //graphs always represented in square matrices with 1 based index
     int graph[][GRAPH_SIZE + 1] =
         {
-            /**/ 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            /**/ 0, 0, 1, 1, 1, 0, 0, 0, 0, //1
-            /**/ 0, 1, 0, 0, 1, 1, 1, 0, 0, //2
-            /**/ 0, 1, 0, 0, 1, 0, 0, 0, 0, //3
-            /**/ 0, 1, 1, 1, 0, 1, 0, 0, 0, //4
-            /**/ 0, 0, 1, 0, 1, 0, 1, 1, 1, //5
-            /**/ 0, 0, 1, 0, 0, 1, 0, 0, 1, //6
-            /**/ 0, 0, 0, 0, 0, 1, 0, 0, 1, //7
-            /**/ 0, 0, 0, 0, 0, 1, 1, 1, 0  //8
+            /**/ I, I, I, I, I, I, I, I, I,
+            /**/ I, I, 1, 1, 1, I, I, I, I, //1
+            /**/ I, 1, I, I, 1, 1, 1, I, I, //2
+            /**/ I, 1, I, I, 1, I, I, I, I, //3
+            /**/ I, 1, 1, 1, I, 1, I, I, I, //4
+            /**/ I, I, 1, I, 1, I, 1, 1, 1, //5
+            /**/ I, I, 1, I, I, 1, I, I, 1, //6
+            /**/ I, I, I, I, I, 1, I, I, 1, //7
+            /**/ I, I, I, I, I, 1, 1, 1, I  //8
             ////    1  2  3  4  5  6  7  8
         };
 
     /* Graph Structure
-       1 ----- 2 ----- 6
-       | \     | \   /  \
-       |  \    |  \ /    \
-       |   \   |   5 --- 8
-       |    \  |  / \   /
-       |     \ | /   \ /
-       3 ----- 4      7
+      (1) ---- (2) ---- (6)
+       | \      | \    /  \
+       |  \     |  \  /    \
+       |   \    |  (5) -- (8)
+       |    \   |  / \    /
+       |     \  | /   \  /
+      (3) ---- (4)    (7)
     */
 
     cout << "BFS: ";
