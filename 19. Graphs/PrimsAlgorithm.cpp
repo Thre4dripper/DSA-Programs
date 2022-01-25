@@ -11,7 +11,7 @@ using namespace std;
 int tree[2][GRAPH_SIZE - 1];
 
 //function for finding minimum cost by minimum cost spanning tree of graph
-int minimumCost(int cost[][GRAPH_SIZE + 1])
+int PrimsAlgo(int cost[][GRAPH_SIZE + 1])
 {
     int near[GRAPH_SIZE + 1];
     for (int i = 0; i <= GRAPH_SIZE; i++)
@@ -99,6 +99,8 @@ int main()
     system("cls");
 
     //graphs always represented in square matrices with 1 based index
+    //fisrt row and column are useless so marked with zeroes
+    //no edges means infinite distance so marked with INT_MAX
     int cost[][GRAPH_SIZE + 1] =
         {
             /**/ I, I, I, I, I, I, I, I, I,
@@ -134,7 +136,7 @@ int main()
              (4)
     */
 
-    cout << "Minimum Cost: " << minimumCost(cost) << endl;
+    cout << "Minimum Cost: " << PrimsAlgo(cost) << endl;
 
     cout << "Edges between vertices: " << endl;
 
