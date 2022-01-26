@@ -24,6 +24,7 @@
         "initializer_list": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "ostream": "cpp"
     }
 }
