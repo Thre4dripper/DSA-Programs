@@ -2,12 +2,13 @@
 using namespace std;
 
 //double ended queue class implementation using linked list
+template <typename T>
 class DEQueue
 {
 private:
     struct node
     {
-        int data;
+        T data;
         node *next;
     };
 
@@ -18,7 +19,7 @@ private:
 
 public:
     //function to insert element at start
-    void enqueueStart(int element)
+    void enqueueStart(T element)
     {
         node *ptr = new node;
 
@@ -37,7 +38,7 @@ public:
     }
 
     //function to insert element at end
-    void enqueueEnd(int element)
+    void enqueueEnd(T element)
     {
         node *ptr = new node;
 
@@ -55,9 +56,9 @@ public:
     }
 
     //function to delete element from start
-    int dequeueStart()
+    T dequeueStart()
     {
-        int element = 0;
+        T element = 0;
         if (front != NULL)
         {
             node *ptr = front;
@@ -77,9 +78,9 @@ public:
     }
 
     //function to delete element from end
-    int dequeueEnd()
+    T dequeueEnd()
     {
-        int element = 0;
+        T element = 0;
 
         if (front != NULL)
         {
@@ -108,7 +109,7 @@ public:
     }
 
     //method for getting front element from queue
-    int Front()
+    T Front()
     {
         if (front != NULL)
             return front->data;
@@ -117,7 +118,7 @@ public:
     }
 
     //method for getting rear element from queue
-    int Rear()
+    T Rear()
     {
         if (rear != NULL)
             return rear->data;
@@ -166,18 +167,34 @@ int main()
 {
     system("cls");
 
-    //queue class object declaration
-    DEQueue q;
-    q.enqueueStart(10);
-    q.enqueueStart(20);
-    q.enqueueEnd(30);
-    q.enqueueEnd(40);
-    q.enqueueStart(50);
+    //generic queue class objects declaration
+    DEQueue<int> q1;
+    q1.enqueueStart(10);
+    q1.enqueueStart(20);
+    q1.enqueueEnd(30);
+    q1.enqueueEnd(40);
+    q1.enqueueStart(50);
 
-    cout << q.dequeueStart() << endl;
-    cout << q.dequeueEnd() << endl;
+    cout << endl;
+    q1.display();
 
-    cout << q.Size() << endl;
+    DEQueue<float> q2;
+    q2.enqueueStart(3.6);
+    q2.enqueueStart(4.2);
+    q2.enqueueEnd(9.8);
+    q2.enqueueEnd(5.6);
+    q2.enqueueStart(4.1);
 
-    q.display();
+    cout << endl;
+    q2.display();
+
+    DEQueue<char> q3;
+    q3.enqueueStart('a');
+    q3.enqueueStart('b');
+    q3.enqueueEnd('c');
+    q3.enqueueEnd('d');
+    q3.enqueueStart('e');
+
+    cout << endl;
+    q3.display();
 }
