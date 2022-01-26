@@ -9,7 +9,7 @@ struct node
 
 void display(node arr[], int front, int rear)
 {
-    if (front = -1)
+    if (front == -1)
     {
         cout << "\nQueue is Empty";
         return;
@@ -24,7 +24,6 @@ void display(node arr[], int front, int rear)
 void enqueue(node element, node arr[], int *front, int *rear, int mSize)
 {
     //Element always entered in queue acc to priorities
-
     if (*rear < mSize - 1)
     {
         if (*front == -1)
@@ -54,7 +53,7 @@ void enqueue(node element, node arr[], int *front, int *rear, int mSize)
         }
     }
     else
-        cout << "Queue Overflow" << endl;
+        cout << "Queue Overflow!!!" << endl;
 }
 
 int main()
