@@ -1,13 +1,14 @@
 #include <iostream>
 using namespace std;
 
-//double ended queue class implementation using array
+//generic double ended queue class implementation using array
+template <typename T>
 class DEQueue
 {
 private:
     int front, rear;
     int size;
-    int *arr;
+    T *arr;
 
 public:
     //constructor for initialising size , front and rear
@@ -15,11 +16,11 @@ public:
     {
         front = rear = -1;
         this->size = size;
-        arr = (int *)malloc(size * sizeof(int));
+        arr = (T *)malloc(size * sizeof(T));
     }
 
     //function for inserting element at start
-    void enqueueStart(int element)
+    void enqueueStart(T element)
     {
 
         if (rear < size - 1)
@@ -40,7 +41,7 @@ public:
     }
 
     //function for inserting element at end
-    void enqueueEnd(int element)
+    void enqueueEnd(T element)
     {
 
         if (rear < size - 1)
@@ -58,10 +59,10 @@ public:
     }
 
     //function for deleting element from start
-    int dequeueStart()
+    T dequeueStart()
     {
 
-        int element;
+        T element;
         if (rear >= 0)
         {
             element = arr[0];
@@ -79,10 +80,10 @@ public:
     }
 
     //function for deleting element from end
-    int dequeueEnd()
+    T dequeueEnd()
     {
-        int element;
-        if (rear>= 0)
+        T element;
+        if (rear >= 0)
         {
             element = arr[rear];
 
@@ -97,7 +98,7 @@ public:
     }
 
     //method for getting front element from the queue
-    int Front()
+    T Front()
     {
         if (front == -1)
             return -1;
@@ -106,7 +107,7 @@ public:
     }
 
     //method for getting rear element from the queue
-    int Rear()
+    T Rear()
     {
         if (rear == -1)
             return -1;
@@ -165,19 +166,38 @@ int main()
 {
     system("cls");
 
-    //double ended queue class object declaration
-    DEQueue q(5);
-    q.enqueueStart(10);
-    q.enqueueStart(20);
-    q.enqueueEnd(30);
-    q.enqueueEnd(40);
-    q.enqueueStart(50);
+    //generic double ended queue class objects declaration
+    DEQueue<int> q1(5);
+    q1.enqueueStart(10);
+    q1.enqueueStart(20);
+    q1.enqueueEnd(30);
+    q1.enqueueEnd(40);
+    q1.enqueueStart(50);
+
+    cout << q1.Front() << " " << q1.Rear();
+    q1.display();
+
+    DEQueue<float> q2(5);
+    q2.enqueueStart(2.2);
+    q2.enqueueStart(3.2);
+    q2.enqueueEnd(1.3);
+    q2.enqueueEnd(5.8);
+    q2.enqueueStart(7.6);
 
     cout << endl
-         << q.Size();
+         << endl
+         << q2.Front() << " " << q2.Rear();
+    q2.display();
+
+    DEQueue<char> q3(5);
+    q3.enqueueStart('a');
+    q3.enqueueStart('b');
+    q3.enqueueEnd('c');
+    q3.enqueueEnd('d');
+    q3.enqueueStart('e');
+
     cout << endl
-         << q.isFull();
-    cout << endl
-         << q.Front() << " " << q.Rear();
-    q.display();
+         << endl
+         << q3.Front() << " " << q3.Rear();
+    q3.display();
 }
