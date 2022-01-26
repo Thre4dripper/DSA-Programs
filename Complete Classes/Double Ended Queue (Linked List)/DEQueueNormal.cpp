@@ -1,11 +1,9 @@
 #include <iostream>
 using namespace std;
 
-//queue class implementation using linked list
-class Queue
+class DEQueue
 {
 private:
-    //node structure for every element in queue
     struct node
     {
         int data;
@@ -18,45 +16,94 @@ private:
     int size = 0;
 
 public:
-    //method for inserting element in the queue
-    void enqueue(int element)
+    //function to insert element at start
+    void enqueueStart(int element)
     {
         node *ptr = new node;
+
         ptr->data = element;
         ptr->next = NULL;
-
         if (front == NULL)
-        {
             front = rear = ptr;
-        }
+
         else
         {
-            rear->next = ptr;
-            rear = ptr;
+            ptr->next = front;
+            front = ptr;
         }
 
         size++;
     }
 
-    //method for removing element from the queue
-    int dequeue()
+    //function to insert element at end
+    void enqueueEnd(int element)
     {
+        node *ptr = new node;
+
+        ptr->data = element;
+        ptr->next = NULL;
+        if (front == NULL)
+            front = rear = ptr;
+
+        else
+        {
+            rear->next = ptr;
+            rear = ptr;
+        }
+        size++;
+    }
+
+    //function to delete element from start
+    int dequeueStart()
+    {
+        int element = 0;
         if (front != NULL)
         {
             node *ptr = front;
-
-            int element = ptr->data;
+            element = front->data;
             front = front->next;
 
-            size--;
+            if (front == NULL)
+                rear = NULL;
+
             delete ptr;
 
-            return element;
+            size--;
         }
         else
-            cout << "\nQueue Underflow!!!\n";
+            cout << "Queue Underflow" << endl;
+        return element;
+    }
 
-        return -1;
+    //function to delete element from end
+    int dequeueEnd()
+    {
+        int element = 0;
+
+        if (front != NULL)
+        {
+            //only one node is left, below logic doesn't work on this
+            //otherwise u have to use two sliding pointers
+            if (front->next == NULL)
+                return dequeueStart();
+
+            node *ptr = front;
+
+            //reching second last node
+            while (ptr->next->next != NULL)
+                ptr = ptr->next;
+
+            element = ptr->next->data;
+
+            delete ptr->next;
+            ptr->next = NULL;
+            rear = ptr;
+
+            size--;
+        }
+        else
+            cout << "Queue Underflow" << endl;
+        return element;
     }
 
     //method for getting front element from queue
@@ -107,6 +154,7 @@ public:
     }
 
     //there is no isFull operation in Linked list implementation because of dynamic allocation
+
     int Size()
     {
         return size;
@@ -118,13 +166,17 @@ int main()
     system("cls");
 
     //queue class object declaration
-    Queue q;
-    q.enqueue(10);
-    q.enqueue(20);
-    q.enqueue(30);
-    q.enqueue(40);
-    q.enqueue(50);
+    DEQueue q;
+    q.enqueueStart(10);
+    q.enqueueStart(20);
+    q.enqueueEnd(30);
+    q.enqueueEnd(40);
+    q.enqueueStart(50);
 
-    cout << q.dequeue() << endl;
+    cout << q.dequeueStart() << endl;
+    cout << q.dequeueEnd() << endl;
+
+    cout << q.Size() << endl;
+
     q.display();
 }

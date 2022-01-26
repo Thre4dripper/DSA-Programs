@@ -31,6 +31,9 @@ int dequeueStart(node **front, node **rear)
         element = (*front)->data;
         *front = (*front)->next;
 
+        if (*front == NULL)
+            *rear = NULL;
+
         delete ptr;
     }
     else
@@ -57,9 +60,10 @@ int dequeueEnd(node **front, node **rear)
             ptr = ptr->next;
 
         element = ptr->next->data;
-        ptr->next = NULL;
 
         delete ptr->next;
+        ptr->next = NULL;
+        *rear = ptr;
     }
     else
         cout << "Queue Underflow" << endl;
