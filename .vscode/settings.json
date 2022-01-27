@@ -25,6 +25,8 @@
         "utility": "cpp",
         "valarray": "cpp",
         "stack": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp"
     }
 }
