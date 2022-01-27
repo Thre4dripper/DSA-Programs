@@ -84,21 +84,23 @@ public:
     }
 
     //method for getting front element from the queue
-    T Front()
+    node Front()
     {
+        node element;
         if (front == -1)
-            return NULL;
+            return element;
         else
-            return arr[front].name;
+            return arr[front];
     }
 
     //method for getting rear element from the queue
-    T Rear()
+    node Rear()
     {
+        node element;
         if (rear == -1)
-            return NULL;
+            return element;
         else
-            return arr[rear].name;
+            return arr[rear];
     }
 
     //method for checking if queue is empty or not
@@ -149,7 +151,7 @@ int main()
     pq1.enqueue({"p4", 2});
     pq1.enqueue({"p6", 3});
 
-    cout << pq1.Front() << " " << pq1.Rear() << endl;
+    cout << pq1.Front().name << " " << pq1.Rear().name << endl;
     pq1.display();
 
     PQueue<char> pq2(5);
@@ -159,6 +161,6 @@ int main()
     pq2.enqueue({'d', 2});
     pq2.enqueue({'e', 3});
 
-    cout << pq2.Front() << " " << pq2.Rear() << endl;
+    cout << pq2.Front().name << " " << pq2.Rear().name << endl;
     pq2.display();
 }

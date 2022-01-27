@@ -58,13 +58,13 @@ public:
     }
 
     //function for deleting elements from priority queue
-    string dequeue()
+    node dequeue()
     {
-        string element;
+        node element = {"null", -1};
         if (front != NULL)
         {
             node *ptr = front;
-            element = front->name;
+            element = *front;
             front = front->next;
 
             if (front == NULL)
@@ -74,29 +74,29 @@ public:
             size--;
         }
         else
-        {
             cout << "Queue Underflow!!!" << endl;
-            return NULL;
-        }
+
         return element;
     }
 
     //method for getting front element from the queue
-    string Front()
+    node Front()
     {
+        node element = {"null", -1};
         if (front == NULL)
-            return NULL;
+            return element;
         else
-            return front->name;
+            return *front;
     }
 
     //method for getting rear element from the queue
-    string Rear()
+    node Rear()
     {
+        node element = {"null", -1};
         if (rear == NULL)
-            return NULL;
+            return element;
         else
-            return rear->name;
+            return *rear;
     }
 
     //method for checking if queue is empty or not
@@ -140,11 +140,11 @@ int main()
     pq.enqueue({"p4", 3});
     pq.enqueue({"p5", 9});
 
-    cout << pq.dequeue() << endl;
-    cout << pq.dequeue() << endl;
-    cout << pq.dequeue() << endl;
+    cout << pq.dequeue().name << endl;
+    cout << pq.dequeue().name << endl;
+    cout << pq.dequeue().name << endl;
 
-    cout << pq.Front() << " " << pq.Rear() << endl;
+    cout << pq.Front().name << " " << pq.Rear().name << endl;
     cout << pq.Size();
 
     pq.display();

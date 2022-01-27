@@ -83,21 +83,23 @@ public:
     }
 
     //method for getting front element from the queue
-    string Front()
+    node Front()
     {
+        node element;
         if (front == -1)
-            return NULL;
+            return element;
         else
-            return arr[front].name;
+            return arr[front];
     }
 
     //method for getting rear element from the queue
-    string Rear()
+    node Rear()
     {
+        node element;
         if (rear == -1)
-            return NULL;
+            return element;
         else
-            return arr[rear].name;
+            return arr[rear];
     }
 
     //method for checking if queue is empty or not
@@ -152,7 +154,7 @@ int main()
     cout << pq.dequeue().name << endl;
     cout << pq.dequeue().name << endl;
 
-    cout << pq.Front() << " " << pq.Rear() << endl;
+    cout << pq.Front().name << " " << pq.Rear().name << endl;
     cout << pq.Size();
     pq.display();
 }
