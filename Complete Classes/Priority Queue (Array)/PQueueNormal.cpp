@@ -86,7 +86,7 @@ public:
     string Front()
     {
         if (front == -1)
-            return "";
+            return NULL;
         else
             return arr[front].name;
     }
@@ -95,7 +95,7 @@ public:
     string Rear()
     {
         if (rear == -1)
-            return "";
+            return NULL;
         else
             return arr[rear].name;
     }
