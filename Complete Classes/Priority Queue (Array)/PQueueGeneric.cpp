@@ -141,7 +141,7 @@ int main()
 {
     system("cls");
 
-    //double ended queue class object declaration
+    //genric double ended queue class objects declaration
     PQueue<string> pq1(5);
     pq1.enqueue({"p1", 5});
     pq1.enqueue({"p2", 1});
