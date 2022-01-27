@@ -2,13 +2,14 @@
 #include <queue>
 using namespace std;
 
-//AVL tree class implementation
+//generic AVL tree class implementation
+template <typename T>
 class AVLTree
 {
 private:
     struct node
     {
-        int data;
+        T data;
         //balance factor
         int bf;
         node *left;
@@ -137,7 +138,7 @@ private:
     }
 
     //function for inserting element in AVL tree
-    node *InsertAVL(int element, node *root)
+    node *InsertAVL(T element, node *root)
     {
         node *ptr = NULL;
         if (root == NULL)
@@ -200,7 +201,7 @@ private:
     }
 
     //function for deleting element from AVL tree
-    node *RemoveAVL(int element, node *root)
+    node *RemoveAVL(T element, node *root)
     {
         //element not found
         if (root == NULL)
@@ -273,7 +274,7 @@ private:
     }
 
     //function for searching element in AVL tree
-    int SearchAVL(int element, node *root)
+    int SearchAVL(T element, node *root)
     {
         //element not fount
         if (root == NULL)
@@ -384,14 +385,14 @@ public:
     }
 
     //function for inserting element in AVL tree
-    AVLTree &Insert(int element)
+    AVLTree &Insert(T element)
     {
         root = InsertAVL(element, root);
         return *this;
     }
 
     //function for removing element from AVL tree
-    AVLTree &Remove(int element)
+    AVLTree &Remove(T element)
     {
         root = RemoveAVL(element, root);
         return *this;
@@ -406,7 +407,7 @@ public:
     }
 
     //function getting root element in AVL tree
-    int Root()
+    T Root()
     {
         if (isEmpty() == false)
             return root->data;
@@ -434,7 +435,7 @@ public:
     }
 
     //function for searching element in AVL tree
-    int Search(int element)
+    int Search(T element)
     {
         return SearchAVL(element, root);
     }
@@ -486,14 +487,27 @@ int main()
 {
     system("cls");
 
-    //AVL tree class object declaration
-    AVLTree avlt;
+    //genric AVL tree class objects declaration
+    AVLTree<int> avlt1;
 
-    avlt.Insert(2).Insert(1).Insert(4).Insert(3).Insert(5);
+    avlt1.Insert(2).Insert(1).Insert(4).Insert(3).Insert(5);
+    avlt1.Remove(2).Remove(3);
 
-    cout << avlt.Size() << endl;
+    avlt1.displayInorder();
 
-    avlt.Remove(2).Remove(3);
+    AVLTree<float> avlt2;
 
-    avlt.displayInorder();
+    avlt2.Insert(2.12).Insert(3.01).Insert(5.69).Insert(7.24).Insert(6.21);
+    avlt2.Remove(2.12).Remove(7.24);
+
+    cout << endl;
+    avlt2.displayInorder();
+
+    AVLTree<char> avlt3;
+
+    avlt3.Insert('a').Insert('g').Insert('w').Insert('b').Insert('i');
+    avlt3.Remove('i').Remove('g');
+
+    cout << endl;
+    avlt3.displayInorder();
 }
