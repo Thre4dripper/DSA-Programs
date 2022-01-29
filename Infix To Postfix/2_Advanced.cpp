@@ -9,10 +9,27 @@ int precedence(char ch)
         return 1;
     else if (ch == '*' || ch == '/')
         return 2;
+    else if (ch == '^')
+        return 3;
     else
         return 0;
 }
 
+// function to calculate associativity of a operator
+char associativity(char ch)
+{
+    switch (ch)
+    {
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+        return 'L';
+    case '^':
+        return 'R';
+    }
+    return 0;
+}
 // function to convert infix expression to postfix expression
 string InfixToPostfix(string infix)
 {
@@ -39,7 +56,7 @@ string InfixToPostfix(string infix)
         //closing bracket
         else if (infix[i] == ')')
         {
-            while (st.top() != '(')
+            while (st.empty() == false && st.top() != '(')
             {
                 postfix += st.top();
                 st.pop();
@@ -50,7 +67,7 @@ string InfixToPostfix(string infix)
         //operator encountered
         else
         {
-            while (precedence(infix[i]) <= precedence(st.top()))
+            while (st.empty() == false && (precedence(infix[i]) < precedence(st.top())) || precedence(infix[i]) == precedence(st.top()) && associativity(infix[i]) == 'L')
             {
                 postfix += st.top();
                 st.pop();
