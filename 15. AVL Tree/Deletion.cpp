@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
     //balance factor
     int bf;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 
 //function for printing BT left->Parent->right
-void display(node *root)
+void display(Node *root)
 {
     if (root == NULL)
     {
@@ -29,7 +29,7 @@ void display(node *root)
 }
 
 //function for getting heigth of binary tree
-int Height(node *root)
+int Height(Node *root)
 {
     if (root == NULL)
         return 0;
@@ -40,7 +40,7 @@ int Height(node *root)
 }
 
 //function for getting balance factor of node
-int BalanceFactor(node *ptr)
+int BalanceFactor(Node *ptr)
 {
     int hL, hR;
     hL = Height(ptr->left);
@@ -50,9 +50,9 @@ int BalanceFactor(node *ptr)
 }
 
 //fucntion to find inorder predec
-node *inorderPredecessor(node *root)
+Node *inorderPredecessor(Node *root)
 {
-    node *ptr = root;
+    Node *ptr = root;
     while (ptr != NULL && ptr->right != NULL)
         ptr = ptr->right;
 
@@ -60,9 +60,9 @@ node *inorderPredecessor(node *root)
 }
 
 //fucntion to find inorder succ
-node *inorderSuccessor(node *root)
+Node *inorderSuccessor(Node *root)
 {
-    node *ptr = root;
+    Node *ptr = root;
     while (ptr != NULL && ptr->left != NULL)
         ptr = ptr->left;
 
@@ -78,9 +78,9 @@ node *inorderSuccessor(node *root)
 //          x   T3                               T1  T2 T3  T4
 //         / \
 //       T1   T2
-node *RRrotation(node *ptr)
+Node *RRrotation(Node *ptr)
 {
-    node *p = ptr->left;
+    Node *p = ptr->left;
 
     ptr->left = p->right;
     p->right = ptr;
@@ -100,9 +100,9 @@ node *RRrotation(node *ptr)
 //          T2   x                     T1 T2 T3  T4
 //              / \
 //            T3  T4
-node *LLrotation(node *ptr)
+Node *LLrotation(Node *ptr)
 {
-    node *p = ptr->right;
+    Node *p = ptr->right;
 
     ptr->right = p->left;
     p->left = ptr;
@@ -122,10 +122,10 @@ node *LLrotation(node *ptr)
 //      T1   x                          y    T3                   T1  T2 T3  T4
 //          / \                        / \
 //        T2   T3                    T1   T2
-node *LRrotation(node *ptr)
+Node *LRrotation(Node *ptr)
 {
-    node *p = ptr->left;
-    node *p1 = p->right;
+    Node *p = ptr->left;
+    Node *p1 = p->right;
 
     ptr->left = p1->right;
     p->right = p1->left;
@@ -149,10 +149,10 @@ node *LRrotation(node *ptr)
 //         x   T4                      T2   y                  T1  T2  T3  T4
 //        / \                              / \
 //      T2   T3                           T3  T4
-node *RLrotation(node *ptr)
+Node *RLrotation(Node *ptr)
 {
-    node *p = ptr->right;
-    node *p1 = p->left;
+    Node *p = ptr->right;
+    Node *p1 = p->left;
 
     ptr->right = p1->left;
     p->left = p1->right;
@@ -168,7 +168,7 @@ node *RLrotation(node *ptr)
 }
 
 //function for deleting element from AVL tree
-node *Remove(int element, node *root)
+Node *Remove(int element, Node *root)
 {
     //element not found
     if (root == NULL)
@@ -187,7 +187,7 @@ node *Remove(int element, node *root)
         }
         else
         {
-            node *p = NULL;
+            Node *p = NULL;
 
             //selection of replacing node will be based on
             //left and right sub tree's height
@@ -243,12 +243,12 @@ int main()
 {
     system("cls");
 
-    node *root = NULL;
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *root = NULL;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     root = first;
     first->data = 2;

@@ -2,20 +2,20 @@
 #include <math.h>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //function to insert element in radixBucket
-void InsertBucket(int element, int index, node *radixBucket[])
+void InsertBucket(int element, int index, Node *radixBucket[])
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
     ptr->next = NULL;
 
-    node *p = radixBucket[index];
+    Node *p = radixBucket[index];
     if (p == NULL)
         radixBucket[index] = ptr;
     else
@@ -29,9 +29,9 @@ void InsertBucket(int element, int index, node *radixBucket[])
 }
 
 //function to remove element from radixBucket
-int RemoveBucket(int index, node *radixBucket[])
+int RemoveBucket(int index, Node *radixBucket[])
 {
-    node *ptr = radixBucket[index];
+    Node *ptr = radixBucket[index];
     if (ptr == NULL)
         return -1;
 
@@ -71,7 +71,7 @@ int *RadixSort(int arr[], int n)
 {
     int i, j, k;
 
-    node *radixBucket[10];
+    Node *radixBucket[10];
 
     //initializing with NULLs
     for (int i = 0; i < 10; i++)

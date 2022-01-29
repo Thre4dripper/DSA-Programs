@@ -7,20 +7,20 @@ class Stack
 {
 private:
     //structure for stack node
-    struct node
+    struct Node
     {
         T data;
-        node *next;
+        Node *next;
     };
 
-    node *top = NULL;
+    Node *top = NULL;
     int size = 0;
 
 public:
     //method for pushing element in the stack
     void push(T element)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr->data = element;
         ptr->next = top;
         top = ptr;
@@ -33,7 +33,7 @@ public:
     {
         if (top != NULL)
         {
-            node *ptr = top;
+            Node *ptr = top;
 
             T element = ptr->data;
             top = top->next;
@@ -63,7 +63,7 @@ public:
     {
 
         cout << "\n[";
-        node *ptr = top;
+        Node *ptr = top;
 
         while (ptr != NULL)
         {

@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //function to insert element in bucket
-void InsertBucket(int element, node *bucket[])
+void InsertBucket(int element, Node *bucket[])
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
     ptr->next = NULL;
 
-    node *p = bucket[element];
+    Node *p = bucket[element];
     if (p == NULL)
         bucket[element] = ptr;
     else
@@ -28,9 +28,9 @@ void InsertBucket(int element, node *bucket[])
 }
 
 //function to remove element from bucket
-int RemoveBucket(int index, node *bucket[])
+int RemoveBucket(int index, Node *bucket[])
 {
-    node *ptr = bucket[index];
+    Node *ptr = bucket[index];
     if (ptr == NULL)
         return -1;
 
@@ -52,7 +52,7 @@ int *BucketSort(int arr[], int n)
             MAX = arr[i];
     }
 
-    node *bucket[MAX + 1];
+    Node *bucket[MAX + 1];
 
     //initializing with NULLs
     for (int i = 0; i <= MAX; i++)

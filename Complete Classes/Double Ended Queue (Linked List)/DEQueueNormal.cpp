@@ -5,22 +5,22 @@ using namespace std;
 class DEQueue
 {
 private:
-    struct node
+    struct Node
     {
         int data;
-        node *next;
+        Node *next;
     };
 
     //varibales for controlling queue flow
-    node *front = NULL;
-    node *rear = NULL;
+    Node *front = NULL;
+    Node *rear = NULL;
     int size = 0;
 
 public:
     //function to insert element at start
     void enqueueStart(int element)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
 
         ptr->data = element;
         ptr->next = NULL;
@@ -39,7 +39,7 @@ public:
     //function to insert element at end
     void enqueueEnd(int element)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
 
         ptr->data = element;
         ptr->next = NULL;
@@ -60,7 +60,7 @@ public:
         int element = 0;
         if (front != NULL)
         {
-            node *ptr = front;
+            Node *ptr = front;
             element = front->data;
             front = front->next;
 
@@ -88,9 +88,9 @@ public:
             if (front->next == NULL)
                 return dequeueStart();
 
-            node *ptr = front;
+            Node *ptr = front;
 
-            //reching second last node
+            //reaching second last node
             while (ptr->next->next != NULL)
                 ptr = ptr->next;
 
@@ -128,7 +128,7 @@ public:
     //method for displaying all the elements from the queue
     void display()
     {
-        node *ptr = front;
+        Node *ptr = front;
 
         cout << "[ ";
         while (ptr != NULL)

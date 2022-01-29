@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //fucntion for travering circular linked list
-int traverse(node *head)
+int traverse(Node *head)
 {
     //function also used to calculate size of circular linked list
     int size = 0;
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = head;
 
     //checking of empty circular linked list
@@ -39,9 +39,9 @@ int traverse(node *head)
 }
 
 //function to insert element at start of circulat linked list
-void insertAtStart(int element, node **head)
+void insertAtStart(int element, Node **head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
 
     //when circular linked list is empty, it will create one
@@ -53,7 +53,7 @@ void insertAtStart(int element, node **head)
     //storing of element in created circular linked list
     else
     {
-        node *p = new node;
+        Node *p = new Node;
         p = (*head)->next;
 
         while (p->next != (*head)->next)
@@ -68,16 +68,16 @@ void insertAtStart(int element, node **head)
 }
 
 //function to insert element at any index in circular linked list
-void insertAtIndex(int element, node **head, int index, int *size)
+void insertAtIndex(int element, Node **head, int index, int *size)
 {
 
     //index should be in size range
     if (index <= *size && index >= 0)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr->data = element;
 
-        node *p = new node;
+        Node *p = new Node;
         p = (*head)->next;
 
         //two cases when index=0
@@ -120,9 +120,9 @@ void insertAtIndex(int element, node **head, int index, int *size)
 }
 
 //function to insert element at End in circular linked list
-void insertAtEnd(int element, node **head)
+void insertAtEnd(int element, Node **head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
 
     //condition for empty circular linked list
@@ -134,7 +134,7 @@ void insertAtEnd(int element, node **head)
     //for filled circular linked list
     else
     {
-        node *p = new node;
+        Node *p = new Node;
 
         p = (*head)->next;
         while (p->next != (*head)->next)
@@ -151,7 +151,7 @@ int main()
 {
     system("cls");
 
-    node *head = new node;
+    Node *head = new Node;
     head->next = head;
     int size;
 

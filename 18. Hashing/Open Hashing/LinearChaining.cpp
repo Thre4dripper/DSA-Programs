@@ -4,16 +4,16 @@ using namespace std;
 //size of hash table
 #define SIZE 5
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //function to print whole hash table
-void display(node *HT[])
+void display(Node *HT[])
 {
-    node *p = NULL;
+    Node *p = NULL;
     for (int i = 0; i < SIZE; i++)
     {
         p = HT[i];
@@ -32,11 +32,11 @@ int hx(int x)
 }
 
 //function for searching element in hashtable
-bool Search(int element, node *HT[])
+bool Search(int element, Node *HT[])
 {
     int index = hx(element);
 
-    node *p = HT[index];
+    Node *p = HT[index];
 
     while (p != NULL)
     {
@@ -49,18 +49,18 @@ bool Search(int element, node *HT[])
 }
 
 //function to insert element in hash table
-void Insert(int element, node *HT[])
+void Insert(int element, Node *HT[])
 {
     if (Search(element, HT) == true)
         return;
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
     ptr->next = NULL;
 
     int index = hx(element);
 
-    node *p = HT[index];
+    Node *p = HT[index];
     if (p == NULL)
         HT[index] = ptr;
     else
@@ -74,7 +74,7 @@ void Insert(int element, node *HT[])
 }
 
 //function for removing element from hashtable
-int Remove(int element, node *HT[])
+int Remove(int element, Node *HT[])
 {
     if (Search(element, HT) == false)
     {
@@ -83,12 +83,12 @@ int Remove(int element, node *HT[])
     }
 
     int index = hx(element);
-    node *p = HT[index];
+    Node *p = HT[index];
 
     //element present at 'index' at first place
     if (p->data == element)
     {
-        node *ptr = p;
+        Node *ptr = p;
         HT[index] = HT[index]->next;
         delete ptr;
     }
@@ -99,7 +99,7 @@ int Remove(int element, node *HT[])
         {
             if (p->next->data == element)
             {
-                node *ptr = p->next;
+                Node *ptr = p->next;
                 p->next = p->next->next;
                 delete ptr;
             }
@@ -114,7 +114,7 @@ int Remove(int element, node *HT[])
 int main()
 {
     system("cls");
-    node *HashTable[SIZE];
+    Node *HashTable[SIZE];
 
     for (int i = 0; i < SIZE; i++)
         HashTable[i] = NULL;

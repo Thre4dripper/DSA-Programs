@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
-    node *prev;
+    Node *next;
+    Node *prev;
 };
 
 //function for Traverse Doubly Linked List forward
-int TraverseForward(node *head)
+int TraverseForward(Node *head)
 {
     int size = 0;
     cout << endl;
@@ -25,7 +25,7 @@ int TraverseForward(node *head)
 }
 
 //function for Traverse Doubly Linked List borward
-int TraverseBackward(node *tail)
+int TraverseBackward(Node *tail)
 {
     int size = 0;
     cout << endl;
@@ -41,9 +41,9 @@ int TraverseBackward(node *tail)
 }
 
 //function for insert an element at start of Doubly Linked List
-void insertAtStart(int element, node **head, node **tail)
+void insertAtStart(int element, Node **head, Node **tail)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
 
     //checking for empty linked list
@@ -63,12 +63,12 @@ void insertAtStart(int element, node **head, node **tail)
 }
 
 //function for insert an index at start of Doubly Linked List
-void insertAtIndex(int element, int index, node **head, node **tail, int *size)
+void insertAtIndex(int element, int index, Node **head, Node **tail, int *size)
 {
     //checking for valid index
     if (index >= 0 && index <= *size)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr->data = element;
 
         //optimization in insertion if index lie in first half of Doubly linked list
@@ -96,7 +96,7 @@ void insertAtIndex(int element, int index, node **head, node **tail, int *size)
             //non zero indexes
             else
             {
-                node *p;
+                Node *p;
                 p = (*head);
 
                 //loop will stop one less than index
@@ -123,7 +123,7 @@ void insertAtIndex(int element, int index, node **head, node **tail, int *size)
             //indexing other than last
             else
             {
-                node *p;
+                Node *p;
                 p = (*tail);
 
                 //loop will stop one less than index
@@ -144,9 +144,9 @@ void insertAtIndex(int element, int index, node **head, node **tail, int *size)
 }
 
 //function for insert an element at end of Doubly Linked List
-void insertAtEnd(int element, node **head, node **tail)
+void insertAtEnd(int element, Node **head, Node **tail)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
 
     if ((*tail) == NULL)
@@ -167,8 +167,8 @@ void insertAtEnd(int element, node **head, node **tail)
 int main()
 {
     system("cls");
-    node *head;
-    node *tail;
+    Node *head;
+    Node *tail;
 
     head = tail = NULL;
     int size;

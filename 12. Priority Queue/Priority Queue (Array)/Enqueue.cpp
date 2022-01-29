@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     string name;
     int priority;
 };
 
-void display(node arr[], int front, int rear)
+void display(Node arr[], int front, int rear)
 {
     if (front == -1)
     {
@@ -21,7 +21,7 @@ void display(node arr[], int front, int rear)
 }
 
 //function to insert elements in priority queue
-void enqueue(node element, node arr[], int *front, int *rear, int mSize)
+void enqueue(Node element, Node arr[], int *front, int *rear, int mSize)
 {
     //Element always entered in queue acc to priorities
     if (*rear < mSize - 1)
@@ -61,7 +61,7 @@ int main()
     system("cls");
 
     int mSize = 5;
-    node arr[mSize];
+    Node arr[mSize];
     int front = -1;
     int rear = -1;
 

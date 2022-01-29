@@ -7,22 +7,22 @@ class List
 {
 private:
     //structure for each node;
-    struct node
+    struct Node
     {
         T data;
-        node *next;
-        node *prev;
+        Node *next;
+        Node *prev;
     };
 
-    node *front = NULL;
-    node *rear = NULL;
+    Node *front = NULL;
+    Node *rear = NULL;
     int size = 0;
 
 public:
     //method for adding an element to the end of List
     List &add(T element)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr->data = element;
         ptr->next = NULL;
 
@@ -53,7 +53,7 @@ public:
         }
         else if (index == 0)
         {
-            node *ptr = new node;
+            Node *ptr = new Node;
             ptr->data = element;
 
             ptr->next = front;
@@ -68,10 +68,10 @@ public:
             return add(element);
         }
 
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr->data = element;
 
-        node *p = front;
+        Node *p = front;
 
         for (int i = 0; i < index - 1; i++)
             p = p->next;
@@ -90,7 +90,7 @@ public:
     {
         if (size > 0)
         {
-            node *ptr = rear;
+            Node *ptr = rear;
 
             if (size > 1)
             {
@@ -124,7 +124,7 @@ public:
         }
         else if (index == 0)
         {
-            node *ptr = front;
+            Node *ptr = front;
 
             front = front->next;
             front->prev = NULL;
@@ -133,12 +133,12 @@ public:
             return *this;
         }
 
-        node *p = front;
+        Node *p = front;
 
         for (int i = 0; i < index - 1; i++)
             p = p->next;
 
-        node *ptr = p->next;
+        Node *ptr = p->next;
 
         p->next->next->prev = p;
         p->next = p->next->next;
@@ -152,7 +152,7 @@ public:
     //method for displaying all the elements of the list
     List &display()
     {
-        node *ptr = front;
+        Node *ptr = front;
 
         cout << "[";
         while (ptr != NULL)
@@ -187,7 +187,7 @@ public:
             return rear->data;
         else
         {
-            node *p = front;
+            Node *p = front;
 
             for (int i = 0; i < index - 1; i++)
                 p = p->next;
@@ -210,7 +210,7 @@ public:
             return *this;
         }
 
-        node *p = front;
+        Node *p = front;
 
         for (int i = 0; i < index - 1; i++)
             p = p->next;
@@ -223,7 +223,7 @@ public:
     //method for checking if a element is present or not in the list
     bool contains(T element)
     {
-        node *ptr = front;
+        Node *ptr = front;
         while (ptr != NULL)
         {
             if (ptr->data == element)
@@ -237,7 +237,7 @@ public:
     //method for getting first index of an element in the list
     int indexof(T element)
     {
-        node *ptr = front;
+        Node *ptr = front;
         for (int i = 0; ptr != NULL; i++)
         {
             if (ptr->data == element)
@@ -252,7 +252,7 @@ public:
     //method for getting last index of an element in the list
     int lastIndexof(T element)
     {
-        node *ptr = rear;
+        Node *ptr = rear;
         for (int i = size - 1; ptr != NULL; i--)
         {
             if (ptr->data == element)
@@ -276,8 +276,8 @@ public:
 
         if (size > 1)
         {
-            node *first = front;
-            node *last = rear;
+            Node *first = front;
+            Node *last = rear;
             T temp;
 
             do
@@ -305,9 +305,9 @@ public:
 
     List &clear()
     {
-        node *ptr = front;
+        Node *ptr = front;
         front = NULL;
-        node *p = front;
+        Node *p = front;
 
         while (p != NULL)
         {
@@ -322,7 +322,7 @@ public:
     //method for finding max element from the list
     T max()
     {
-        node *ptr = front;
+        Node *ptr = front;
         T max = ptr->data;
         while (ptr != NULL)
         {
@@ -337,7 +337,7 @@ public:
     //method for finding min element from the list
     T min()
     {
-        node *ptr = front;
+        Node *ptr = front;
         T min = ptr->data;
         while (ptr != NULL)
         {
@@ -352,7 +352,7 @@ public:
     //method for finding sum of all elements in the list
     T sum()
     {
-        node *ptr = front;
+        Node *ptr = front;
         T sum = 0;
         while (ptr != NULL)
         {
@@ -374,8 +374,8 @@ public:
     {
         if (index1 >= 0 && index1 < size && index2 >= 0 && index2 < size)
         {
-            node *p1 = front;
-            node *p2 = front;
+            Node *p1 = front;
+            Node *p2 = front;
 
             for (int i = 0; i < index1; i++)
                 p1 = p1->next;
@@ -396,7 +396,7 @@ public:
     //method for left rotation of list
     List &leftRotate(int count)
     {
-        node *ptr;
+        Node *ptr;
         T temp;
 
         for (int i = 1; i <= count; i++)
@@ -412,7 +412,7 @@ public:
     //method for right rotation of list
     List &rightRotate(int count)
     {
-        node *ptr;
+        Node *ptr;
         T temp;
 
         for (int i = 1; i <= count; i++)
@@ -428,7 +428,7 @@ public:
     //method for sort list
     List &Sort()
     {
-        node *ptr = front;
+        Node *ptr = front;
 
         for (int i = 0; ptr->next != NULL; i++)
         {
@@ -436,7 +436,7 @@ public:
                 ptr = ptr->next;
             else
             {
-                node *p = ptr->next;
+                Node *p = ptr->next;
                 for (int j = i + 1; p->prev != NULL && p->data < p->prev->data; j--)
                 {
                     swap(j, j - 1);

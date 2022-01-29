@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 
-struct node{
+struct Node{
     int data;
-    node * next;
+    Node * next;
 };
 
 //for traverse and display all nodes of linked list
-int display(node * head){
+int display(Node * head){
     int size = 0;
     cout << endl;
     while(head!=NULL){
@@ -19,11 +19,11 @@ int display(node * head){
 }
 
 //definition for deletion of element from start of linked list directly from its address
-int deleteFromStart(node **head){
+int deleteFromStart(Node **head){
     int element=NULL;
 
     if(*head!=NULL){
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = *head;
 
         element = (*head)->data;
@@ -39,14 +39,14 @@ int deleteFromStart(node **head){
 }
 
 //definition for deletion of element From end of linked list directly from its address
-int deleteFromEnd(node **head){
+int deleteFromEnd(Node **head){
     int element=NULL;
 
     if(*head!=NULL){
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = *head;
 
-        node *p = new node;
+        Node *p = new Node;
 
         //only last node has next as NULL
         //and  p lags ptr by one node , thats what we want
@@ -67,11 +67,11 @@ int deleteFromEnd(node **head){
 }
 
 //definition for delete element from any index of linked list directly from its address
-int deleteFromIndex(int index,node ** head,int *size){
+int deleteFromIndex(int index,Node ** head,int *size){
     int element=NULL;
 
     if(*head!=NULL){
-        node *ptr = new node;
+        Node *ptr = new Node;
 
         //scenario will be diff for '0' index (very begenning)
         if(index==0){
@@ -84,7 +84,7 @@ int deleteFromIndex(int index,node ** head,int *size){
         else if(index<(*size)){
             ptr = (*head);
 
-            node *p = new node;
+            Node *p = new Node;
 
             for (int i = 0; i < index && ptr->next != NULL; i++)
             {
@@ -112,11 +112,11 @@ int main(){
     system("cls");
 
     int size;
-    node *head=new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *head=new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     head->data = 10;
     head->next =second;

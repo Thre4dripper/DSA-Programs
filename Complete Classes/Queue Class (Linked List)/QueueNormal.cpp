@@ -6,22 +6,22 @@ class Queue
 {
 private:
     //node structure for every element in queue
-    struct node
+    struct Node
     {
         int data;
-        node *next;
+        Node *next;
     };
 
     //varibales for controlling queue flow
-    node *front = NULL;
-    node *rear = NULL;
+    Node *front = NULL;
+    Node *rear = NULL;
     int size = 0;
 
 public:
     //method for inserting element in the queue
     void enqueue(int element)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr->data = element;
         ptr->next = NULL;
 
@@ -43,7 +43,7 @@ public:
     {
         if (front != NULL)
         {
-            node *ptr = front;
+            Node *ptr = front;
 
             int element = ptr->data;
             front = front->next;
@@ -80,7 +80,7 @@ public:
     //method for displaying all the elements from the queue
     void display()
     {
-        node *ptr = front;
+        Node *ptr = front;
 
         cout << "[ ";
         while (ptr != NULL)

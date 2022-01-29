@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
-int display(node *front)
+int display(Node *front)
 {
     int size = 0;
     cout << endl;
@@ -22,9 +22,9 @@ int display(node *front)
 }
 
 //function to insert element at start
-void enqueueStart(int element, node **front, node **rear)
+void enqueueStart(int element, Node **front, Node **rear)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
 
     ptr->data = element;
     ptr->next = NULL;
@@ -39,9 +39,9 @@ void enqueueStart(int element, node **front, node **rear)
 }
 
 //function to insert element at end
-void enqueueEnd(int element, node **front, node **rear)
+void enqueueEnd(int element, Node **front, Node **rear)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
 
     ptr->data = element;
     ptr->next = NULL;
@@ -58,8 +58,8 @@ void enqueueEnd(int element, node **front, node **rear)
 int main()
 {
     system("cls");
-    node *front = NULL;
-    node *rear = NULL;
+    Node *front = NULL;
+    Node *rear = NULL;
 
     display(front);
     enqueueEnd(10, &front, &rear);

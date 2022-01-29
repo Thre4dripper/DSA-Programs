@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
-int Searching(int element, node *head)
+int Searching(int element, Node *head)
 {
     bool found = false;
 
     if (head->next != head)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = head->next;
 
         while (ptr->next!=head->next)
@@ -37,11 +37,11 @@ int main()
 {
     system("cls");
 
-    node *head = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *head = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
 

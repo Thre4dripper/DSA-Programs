@@ -27,6 +27,8 @@
         "stack": "cpp",
         "ostream": "cpp",
         "typeindex": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     }
 }

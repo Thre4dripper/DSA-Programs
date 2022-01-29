@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //function to display whole queue
-int display(node *front)
+int display(Node *front)
 {
     int size = 0;
     cout << endl
          << "Circular Queue->";
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = front;
 
     //condition for empty circular queue
@@ -38,10 +38,10 @@ int display(node *front)
 }
 
 //function for removing an element from queue
-int Dequeue(node **front, node **rear, int *size)
+int Dequeue(Node **front, Node **rear, int *size)
 {
     int element;
-    node *ptr = new node;
+    Node *ptr = new Node;
 
     //condition for empty queue
     if ((*front)->next != *front)
@@ -71,13 +71,13 @@ int main()
 {
     system("cls");
 
-    node *front = new node;
-    node *rear = new node;
+    Node *front = new Node;
+    Node *rear = new Node;
 
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
     front->next = front;

@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //for traverse and display all nodes of linked list
-int display(node *head)
+int display(Node *head)
 {
     int size = 0;
     cout << endl;
@@ -22,25 +22,25 @@ int display(node *head)
 }
 
 //function to peek at start
-int peekStart(node **head, node **rear)
+int peekStart(Node **head, Node **rear)
 {
     return (*head)->data;
 }
 
 //function to peek at end
-int peekEnd(node **head, node **rear)
+int peekEnd(Node **head, Node **rear)
 {
     return (*rear)->data;
 }
 
 //function to peek at index
-int peekIndex(int index, node **head, node **rear, int size)
+int peekIndex(int index, Node **head, Node **rear, int size)
 {
     int element = NULL;
 
     if (index < size && index >= 0)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = *head;
         for (int i = 0; i < index && ptr->next != NULL; i++)
         {
@@ -58,14 +58,14 @@ int main()
     system("cls");
 
     int size;
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
-    node *front = first;
-    node *rear = fifth;
+    Node *front = first;
+    Node *rear = fifth;
 
     first->data = 10;
     first->next = second;

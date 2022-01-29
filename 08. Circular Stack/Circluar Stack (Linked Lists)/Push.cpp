@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //Function to display whole circular stack
-int display(node *top)
+int display(Node *top)
 {
     int size = 0;
 
     cout << endl
          << "Circular Stack->";
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = top;
 
     if (ptr->next != ptr)
@@ -39,9 +39,9 @@ int display(node *top)
 }
 
 //Circular Stack Push Operation
-void Push(int element, node **top)
+void Push(int element, Node **top)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
 
     if ((*top)->next == *top)
@@ -51,7 +51,7 @@ void Push(int element, node **top)
     }
     else
     {
-        node *p = new node;
+        Node *p = new Node;
         p = (*top)->next;
 
         while (p->next != (*top)->next)
@@ -69,7 +69,7 @@ int main()
 {
     system("cls");
 
-    node *top = new node;
+    Node *top = new Node;
     int size;
 
     top->next = top;

@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
-    node *prev;
+    Node *next;
+    Node *prev;
 };
 
 //function for Traverse Doubly Linked List forward
-int TraverseForward(node *head)
+int TraverseForward(Node *head)
 {
     int size = 0;
     cout << endl
@@ -26,7 +26,7 @@ int TraverseForward(node *head)
 }
 
 //function for Traverse Doubly Linked List borward
-int TraverseBackward(node *tail)
+int TraverseBackward(Node *tail)
 {
     int size = 0;
     cout << endl
@@ -43,7 +43,7 @@ int TraverseBackward(node *tail)
 }
 
 //function for removing element from Start of Doubly Linked List
-int deletefromStart(node **head, node **tail, int *size)
+int deletefromStart(Node **head, Node **tail, int *size)
 {
     //removing element
     int element;
@@ -53,7 +53,7 @@ int deletefromStart(node **head, node **tail, int *size)
         cout << "Empty Doubly Linked List" << endl;
     else
     {
-        node *ptr;
+        Node *ptr;
         ptr = (*head);
 
         element = ptr->data;
@@ -73,7 +73,7 @@ int deletefromStart(node **head, node **tail, int *size)
 }
 
 //function for removing element from any Index of Doubly Linked List
-int deleteFromIndex(int index, node **head, node **tail, int *size)
+int deleteFromIndex(int index, Node **head, Node **tail, int *size)
 {
     //removing element
     int element;
@@ -81,7 +81,7 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
     //checking for valid indexes
     if (index >= 0 && index < *size)
     {
-        node *ptr;
+        Node *ptr;
         //Optimization in deletion if index lie in first half of doubly linked list
         if (index <= (*size) / 2)
         {
@@ -100,7 +100,7 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
             //checking for non-zero indexes
             else
             {
-                node *p;
+                Node *p;
                 p = (*head);
 
                 for (int i = 0; i < index - 1; i++)
@@ -132,7 +132,7 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
             //condition for indexes ohther than last
             else
             {
-                node *p;
+                Node *p;
                 p = (*tail);
 
                 for (int i = *size - 1; i > index + 1; i--)
@@ -156,7 +156,7 @@ int deleteFromIndex(int index, node **head, node **tail, int *size)
 }
 
 //function for removing element from End of Doubly Linked List
-int deleteFromEnd(node **head, node **tail, int *size)
+int deleteFromEnd(Node **head, Node **tail, int *size)
 {
     //removing element
     int element;
@@ -167,7 +167,7 @@ int deleteFromEnd(node **head, node **tail, int *size)
 
     else
     {
-        node *ptr;
+        Node *ptr;
         ptr = (*tail);
 
         element = ptr->data;
@@ -188,14 +188,14 @@ int deleteFromEnd(node **head, node **tail, int *size)
 int main()
 {
     system("cls");
-    node *head;
-    node *tail;
+    Node *head;
+    Node *tail;
 
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
 

@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     string name;
     int priority;
 };
 
-node peekStart(node arr[], int *mSize)
+Node peekStart(Node arr[], int *mSize)
 {
 
     if (*mSize == 0)
@@ -15,7 +15,7 @@ node peekStart(node arr[], int *mSize)
     return arr[0];
 }
 
-node peekEnd(node arr[], int *mSize)
+Node peekEnd(Node arr[], int *mSize)
 {
 
     if (*mSize == 0)
@@ -24,7 +24,7 @@ node peekEnd(node arr[], int *mSize)
     return arr[*mSize - 1];
 }
 
-node peekIndex(int index, node arr[], int *mSize)
+Node peekIndex(int index, Node arr[], int *mSize)
 {
 
     if (index < *mSize)
@@ -37,7 +37,7 @@ int main()
 {
     system("cls");
 
-    node arr[] = {{"p1", 1}, {"p5", 2}, {"p4", 3}, {"p2", 4}, {"p3", 5}, {"p0", 6}};
+    Node arr[] = {{"p1", 1}, {"p5", 2}, {"p4", 3}, {"p2", 4}, {"p3", 5}, {"p0", 6}};
     int size = sizeof(arr) / sizeof(arr[0]);
 
     cout << endl

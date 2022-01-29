@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
-    node *prev;
+    Node *next;
+    Node *prev;
 };
 
 //function for Clockwise Traversing in Doubly Circular Linked list
-int TraverseClockwise(node *head)
+int TraverseClockwise(Node *head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = head;
 
     int size = 0;
@@ -38,9 +38,9 @@ int TraverseClockwise(node *head)
 }
 
 //function for AntiClockwise Traversing in Doubly Circular Linked list
-int TraverseAntiClockwise(node *head)
+int TraverseAntiClockwise(Node *head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = head;
 
     int size = 0;
@@ -67,7 +67,7 @@ int TraverseAntiClockwise(node *head)
 }
 
 //function for replacing element from Start of Doubly Circular Linked List
-int replaceFromStart(int element, node **head)
+int replaceFromStart(int element, Node **head)
 {
     //replacing element
     int initelement;
@@ -77,7 +77,7 @@ int replaceFromStart(int element, node **head)
         cout << "Empty Doubly Circular Linked List" << endl;
     else
     {
-        node *ptr;
+        Node *ptr;
         ptr = (*head)->next;
 
         initelement = ptr->data;
@@ -88,7 +88,7 @@ int replaceFromStart(int element, node **head)
 }
 
 //function for replacing element from and Index of Doubly Circular Linked List
-int replaceFromIndex(int element, int index, node **head, int size)
+int replaceFromIndex(int element, int index, Node **head, int size)
 {
     //replacing element
     int initelement;
@@ -96,7 +96,7 @@ int replaceFromIndex(int element, int index, node **head, int size)
     //condition for empty doubly circular linked list
     if (index >= 0 && index < size)
     {
-        node *ptr;
+        Node *ptr;
         ptr = (*head)->next;
 
         //condition for '0' index
@@ -125,7 +125,7 @@ int replaceFromIndex(int element, int index, node **head, int size)
         //condition for indexes between 0 and last
         else
         {
-            node *p;
+            Node *p;
             p = (*head)->next;
 
             //condition for indexes in first half of doubly circular linked list
@@ -158,7 +158,7 @@ int replaceFromIndex(int element, int index, node **head, int size)
 }
 
 //function for replacing element from End of Doubly Circular Linked List
-int replaceFromEnd(int element, node **head)
+int replaceFromEnd(int element, Node **head)
 {
     //replacing element
     int initelement;
@@ -168,7 +168,7 @@ int replaceFromEnd(int element, node **head)
         cout << "Empty Doubly Circular Linked List" << endl;
     else
     {
-        node *ptr;
+        Node *ptr;
         ptr = (*head)->next;
 
         //when only one node in doubly circular linked list
@@ -192,15 +192,15 @@ int replaceFromEnd(int element, node **head)
 int main()
 {
     system("cls");
-    node *head = new node;
+    Node *head = new Node;
     head->next = head;
     head->prev = head;
 
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
 

@@ -2,17 +2,17 @@
 using namespace std;
 
 //AVL TREE IS NOTHING BUT A HEIGHT BALANCED BST, SO SEARCHING IS SAME AS IN BST
-struct node
+struct Node
 {
     int data;
     //balance factor
     int bf;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 
 //function for searching element in BST
-int Search(int element, node *root)
+int Search(int element, Node *root)
 {
     //element not fount
     if (root == NULL)
@@ -33,12 +33,12 @@ int main()
 {
     system("cls");
 
-    node *root = NULL;
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *root = NULL;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     root = first;
     first->data = 2;

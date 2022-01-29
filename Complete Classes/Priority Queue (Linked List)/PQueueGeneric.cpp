@@ -6,23 +6,23 @@ template <typename T>
 class PQueue
 {
 private:
-    struct node
+    struct Node
     {
         T name;
         int priority;
-        node *next;
+        Node *next;
     };
 
-    node *front = NULL;
-    node *rear = NULL;
+    Node *front = NULL;
+    Node *rear = NULL;
     int size = 0;
 
 public:
     //function for inserting element in priority queue
-    void enqueue(node element)
+    void enqueue(Node element)
     {
         //elements are inserting acc to their priorities
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = &element;
 
         ptr->next = NULL;
@@ -38,8 +38,8 @@ public:
         }
         else
         {
-            node *p = front;
-            node *q = NULL;
+            Node *p = front;
+            Node *q = NULL;
 
             while (p != NULL && element.priority > p->priority)
             {
@@ -58,12 +58,12 @@ public:
     }
 
     //function for deleting elements from priority queue
-    node dequeue()
+    Node dequeue()
     {
-        node element;
+        Node element;
         if (front != NULL)
         {
-            node *ptr = front;
+            Node *ptr = front;
             element = *front;
             front = front->next;
 
@@ -80,9 +80,9 @@ public:
     }
 
     //method for getting front element from the queue
-    node Front()
+    Node Front()
     {
-        node element;
+        Node element;
         if (front == NULL)
             return element;
         else
@@ -90,9 +90,9 @@ public:
     }
 
     //method for getting rear element from the queue
-    node Rear()
+    Node Rear()
     {
-        node element;
+        Node element;
         if (rear == NULL)
             return element;
         else
@@ -111,7 +111,7 @@ public:
     //function for displaying priority queue
     void display()
     {
-        struct node *p = front;
+        struct Node *p = front;
 
         cout << endl
              << "PQ: ";

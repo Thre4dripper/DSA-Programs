@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 
-struct node{
+struct Node{
     int data;
-    node * next;
+    Node * next;
 };
 
 //for traverse and display all nodes of linked list
-int display(node * head){
+int display(Node * head){
     int size = 0;
     cout << endl;
     while(head!=NULL){
@@ -19,9 +19,9 @@ int display(node * head){
 }
 
 //definition for insert element at start of linked list
-node * insertAtStart(int element, node *head){
+Node * insertAtStart(int element, Node *head){
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
     ptr->next = head;
 
@@ -29,12 +29,12 @@ node * insertAtStart(int element, node *head){
 }
 
 //definition for insert element at end of linked list
-node * insertAtEnd(int element, node * head){
-    node *ptr = new node;
+Node * insertAtEnd(int element, Node * head){
+    Node *ptr = new Node;
     ptr->data = element;
     ptr->next = NULL;
 
-    node *p = head;
+    Node *p = head;
 
     //only last node has next as NULL
     while(p->next!=NULL)
@@ -46,8 +46,8 @@ node * insertAtEnd(int element, node * head){
 }
 
 //definition for insert element at any index of linked list
-node * insertAtIndex(int element,int index,node * head,int size){
-    node *ptr = new node;
+Node * insertAtIndex(int element,int index,Node * head,int size){
+    Node *ptr = new Node;
     ptr->data = element;
 
     //scenario will be diff for '0' index (very begenning)
@@ -57,7 +57,7 @@ node * insertAtIndex(int element,int index,node * head,int size){
     }
     //for indexes smaller than linked list size  
      else if(index<=size){
-        node *p=head;
+        Node *p=head;
 
         for (int i = 0;i<index-1 && p->next!=NULL;i++){
             p = p->next;
@@ -75,9 +75,9 @@ node * insertAtIndex(int element,int index,node * head,int size){
 int main(){
     system("cls");
 
-    node *head=new node;
-    node *second = new node;
-    node *third = new node;
+    Node *head=new Node;
+    Node *second = new Node;
+    Node *third = new Node;
 
     head->data = 10;
     head->next =second;

@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
-    node *prev;
+    Node *next;
+    Node *prev;
 };
 
 //function for Clockwise Traversing in Doubly Circular Linked list
-int TraverseClockwise(node *head)
+int TraverseClockwise(Node *head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = head;
 
     int size = 0;
@@ -38,9 +38,9 @@ int TraverseClockwise(node *head)
 }
 
 //function for AntiClockwise Traversing in Doubly Circular Linked list
-int TraverseAntiClockwise(node *head)
+int TraverseAntiClockwise(Node *head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = head;
 
     int size = 0;
@@ -67,9 +67,9 @@ int TraverseAntiClockwise(node *head)
 }
 
 //function for inserting element at start of Doubly Circular Linked List
-void insertAtStart(int element, node **head)
+void insertAtStart(int element, Node **head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
 
     //when doubly circular linked list is empty , it will create one
@@ -106,12 +106,12 @@ void insertAtStart(int element, node **head)
 }
 
 //function for inserting element at any index of Doubly Circular Linked List
-void insertAtIndex(int element, int index, node **head, int *size)
+void insertAtIndex(int element, int index, Node **head, int *size)
 {
     //checking for valid indexes
     if (index >= 0 && index <= *size)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr->data = element;
 
         //both cases for zero and last index
@@ -159,7 +159,7 @@ void insertAtIndex(int element, int index, node **head, int *size)
         //general case for indexes between 0 and last
         else
         {
-            node *p = new node;
+            Node *p = new Node;
             p = (*head)->next;
 
             //condition for indexes in first half of doubly circular linked list
@@ -196,9 +196,9 @@ void insertAtIndex(int element, int index, node **head, int *size)
 }
 
 //function for inserting element at end of Doubly Circular Linked List
-void insertAtEnd(int element, node **head)
+void insertAtEnd(int element, Node **head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
 
     //when doubly circular linked list is empty , it will create one
@@ -231,7 +231,7 @@ void insertAtEnd(int element, node **head)
 int main()
 {
     system("cls");
-    node *head = new node;
+    Node *head = new Node;
     head->next = head;
     head->prev = head;
 

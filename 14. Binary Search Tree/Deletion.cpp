@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 
 //function for printing BT left->Parent->right
-void display(node *root)
+void display(Node *root)
 {
     if (root == NULL)
     {
@@ -27,7 +27,7 @@ void display(node *root)
 }
 
 //function for getting heigth of binary tree
-int Height(node *root)
+int Height(Node *root)
 {
     if (root == NULL)
         return 0;
@@ -38,9 +38,9 @@ int Height(node *root)
 }
 
 //fucntion to find inorder predec
-node *inorderPredecessor(node *root)
+Node *inorderPredecessor(Node *root)
 {
-    node *ptr = root;
+    Node *ptr = root;
     while (ptr != NULL && ptr->right != NULL)
         ptr = ptr->right;
 
@@ -48,9 +48,9 @@ node *inorderPredecessor(node *root)
 }
 
 //fucntion to find inorder succ
-node *inorderSuccessor(node *root)
+Node *inorderSuccessor(Node *root)
 {
-    node *ptr = root;
+    Node *ptr = root;
     while (ptr != NULL && ptr->left != NULL)
         ptr = ptr->left;
 
@@ -58,7 +58,7 @@ node *inorderSuccessor(node *root)
 }
 
 //function for deleting element from BST
-node *Remove(int element, node *root)
+Node *Remove(int element, Node *root)
 {
     //element not found
     if (root == NULL)
@@ -77,7 +77,7 @@ node *Remove(int element, node *root)
         }
         else
         {
-            node *p = NULL;
+            Node *p = NULL;
 
             //selection of replacing node will be based on
             //left and right sub tree's height
@@ -102,12 +102,12 @@ node *Remove(int element, node *root)
 int main()
 {
     system("cls");
-    node *root = NULL;
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *root = NULL;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     root = first;
     first->data = 2;

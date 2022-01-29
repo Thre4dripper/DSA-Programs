@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //fucntion for travering circular linked list
-void traverse(node *head)
+void traverse(Node *head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = head;
 
     //checking of empty circular linked list
@@ -36,11 +36,11 @@ int main()
 {
     system("cls");
 
-    node *head = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *head = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     head->next = head;
 

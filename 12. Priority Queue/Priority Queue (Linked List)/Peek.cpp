@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     string name;
     int priority;
-    node *next;
+    Node *next;
 };
 
 //for traverse, count and display all nodes of linked list
-int display(node *front)
+int display(Node *front)
 {
     int size = 0;
     cout << endl;
@@ -27,23 +27,23 @@ int display(node *front)
     return size;
 }
 
-node peekStart(node **head, node **rear)
+Node peekStart(Node **head, Node **rear)
 {
     return *(*head);
 }
 
-node peekEnd(node **head, node **rear)
+Node peekEnd(Node **head, Node **rear)
 {
     return *(*rear);
 }
 
-node peekIndex(int index, node **head, node **rear, int size)
+Node peekIndex(int index, Node **head, Node **rear, int size)
 {
-    node element = {"null", -1};
+    Node element = {"null", -1};
 
     if (index < size && index >= 0)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = *head;
         for (int i = 0; i < index && ptr->next != NULL; i++)
         {
@@ -61,14 +61,14 @@ int main()
     system("cls");
 
     int size;
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
-    node *front = first;
-    node *rear = fifth;
+    Node *front = first;
+    Node *rear = fifth;
 
     first->name = "p2";
     first->priority = 5;

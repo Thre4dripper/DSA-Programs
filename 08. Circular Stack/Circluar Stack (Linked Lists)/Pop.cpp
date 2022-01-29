@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //Function to display whole circular stack
-int display(node *top)
+int display(Node *top)
 {
     int size = 0;
 
     cout << endl
          << "Circular Stack->";
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = top;
 
     if (ptr->next != ptr)
@@ -39,7 +39,7 @@ int display(node *top)
 }
 
 //Circular Stack Pop Operation
-int Pop(node **top, int *size)
+int Pop(Node **top, int *size)
 {
     int element;
 
@@ -47,13 +47,13 @@ int Pop(node **top, int *size)
         cout << "Empty Circular Linked List" << endl;
     else
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = (*top)->next;
 
         element = ptr->data;
         if (*size != 1)
         {
-            node *p = new node;
+            Node *p = new Node;
             p = (*top)->next;
 
             while (p->next != (*top)->next)
@@ -79,11 +79,11 @@ int main()
 {
     system("cls");
 
-    node *top = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *top = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
     top->next = top;

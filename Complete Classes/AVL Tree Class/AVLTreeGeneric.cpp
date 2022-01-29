@@ -7,19 +7,19 @@ template <typename T>
 class AVLTree
 {
 private:
-    struct node
+    struct Node
     {
         T data;
         //balance factor
         int bf;
-        node *left;
-        node *right;
+        Node *left;
+        Node *right;
     };
-    node *root;
+    Node *root;
     int size;
 
     //function for getting heigth of binary tree
-    int HeightAVL(node *root)
+    int HeightAVL(Node *root)
     {
         if (root == NULL)
             return 0;
@@ -30,7 +30,7 @@ private:
     }
 
     //function for getting balance factor of node
-    int BalanceFactorAVL(node *ptr)
+    int BalanceFactorAVL(Node *ptr)
     {
         int hL, hR;
         hL = HeightAVL(ptr->left);
@@ -48,9 +48,9 @@ private:
     //          x   T3                               T1  T2 T3  T4
     //         / \
     //       T1   T2
-    node *RRrotation(node *ptr)
+    Node *RRrotation(Node *ptr)
     {
-        node *p = ptr->left;
+        Node *p = ptr->left;
 
         ptr->left = p->right;
         p->right = ptr;
@@ -70,9 +70,9 @@ private:
     //          T2   x                     T1 T2 T3  T4
     //              / \
     //            T3  T4
-    node *LLrotation(node *ptr)
+    Node *LLrotation(Node *ptr)
     {
-        node *p = ptr->right;
+        Node *p = ptr->right;
 
         ptr->right = p->left;
         p->left = ptr;
@@ -92,10 +92,10 @@ private:
     //      T1   x                          y    T3                   T1  T2 T3  T4
     //          / \                        / \
     //        T2   T3                    T1   T2
-    node *LRrotation(node *ptr)
+    Node *LRrotation(Node *ptr)
     {
-        node *p = ptr->left;
-        node *p1 = p->right;
+        Node *p = ptr->left;
+        Node *p1 = p->right;
 
         ptr->left = p1->right;
         p->right = p1->left;
@@ -119,10 +119,10 @@ private:
     //         x   T4                      T2   y                  T1  T2  T3  T4
     //        / \                              / \
     //      T2   T3                          T3  T4
-    node *RLrotation(node *ptr)
+    Node *RLrotation(Node *ptr)
     {
-        node *p = ptr->right;
-        node *p1 = p->left;
+        Node *p = ptr->right;
+        Node *p1 = p->left;
 
         ptr->right = p1->left;
         p->left = p1->right;
@@ -138,12 +138,12 @@ private:
     }
 
     //function for inserting element in AVL tree
-    node *InsertAVL(T element, node *root)
+    Node *InsertAVL(T element, Node *root)
     {
-        node *ptr = NULL;
+        Node *ptr = NULL;
         if (root == NULL)
         {
-            ptr = new node;
+            ptr = new Node;
             ptr->data = element;
             ptr->left = ptr->right = NULL;
             ptr->bf = 0;
@@ -181,9 +181,9 @@ private:
     }
 
     //fucntion to find inorder predec
-    node *inorderPredecessor(node *root)
+    Node *inorderPredecessor(Node *root)
     {
-        node *ptr = root;
+        Node *ptr = root;
         while (ptr != NULL && ptr->right != NULL)
             ptr = ptr->right;
 
@@ -191,9 +191,9 @@ private:
     }
 
     //fucntion to find inorder succ
-    node *inorderSuccessor(node *root)
+    Node *inorderSuccessor(Node *root)
     {
-        node *ptr = root;
+        Node *ptr = root;
         while (ptr != NULL && ptr->left != NULL)
             ptr = ptr->left;
 
@@ -201,7 +201,7 @@ private:
     }
 
     //function for deleting element from AVL tree
-    node *RemoveAVL(T element, node *root)
+    Node *RemoveAVL(T element, Node *root)
     {
         //element not found
         if (root == NULL)
@@ -221,7 +221,7 @@ private:
             }
             else
             {
-                node *p = NULL;
+                Node *p = NULL;
 
                 //selection of replacing node will be based on
                 //left and right sub tree's height
@@ -274,7 +274,7 @@ private:
     }
 
     //function for searching element in AVL tree
-    int SearchAVL(T element, node *root)
+    int SearchAVL(T element, Node *root)
     {
         //element not fount
         if (root == NULL)
@@ -292,7 +292,7 @@ private:
     }
 
     //function for deleting all the nodes from AVL tree
-    void ClearAVL(node *root)
+    void ClearAVL(Node *root)
     {
         if (root != NULL)
         {
@@ -307,7 +307,7 @@ private:
     }
 
     //function for printing AVL tree left->Parent->right
-    void displayAVLInorder(node *root)
+    void displayAVLInorder(Node *root)
     {
         if (root != NULL)
         {
@@ -322,7 +322,7 @@ private:
     }
 
     //function for printing AVL tree left->Parent->right
-    void displayAVLPreorder(node *root)
+    void displayAVLPreorder(Node *root)
     {
         if (root != NULL)
         {
@@ -337,7 +337,7 @@ private:
     }
 
     //function for printing AVL tree left->Parent->right
-    void displayAVLPostorder(node *root)
+    void displayAVLPostorder(Node *root)
     {
         if (root != NULL)
         {
@@ -352,18 +352,18 @@ private:
     }
 
     //function for printing AVL tree level by level
-    void displayAVLLevelorder(node *root)
+    void displayAVLLevelorder(Node *root)
     {
         if (root == NULL)
             return;
 
         //initial work
-        queue<node *> q;
+        queue<Node *> q;
         q.push(root);
 
         while (!q.empty())
         {
-            node *p = q.front();
+            Node *p = q.front();
             q.pop();
 
             cout << p->data << " ";

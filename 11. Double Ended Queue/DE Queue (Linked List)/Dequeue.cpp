@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //for traverse and display all nodes of linked list
-int display(node *head)
+int display(Node *head)
 {
     int size = 0;
     cout << endl;
@@ -22,12 +22,12 @@ int display(node *head)
 }
 
 //function to delete element from start
-int dequeueStart(node **front, node **rear)
+int dequeueStart(Node **front, Node **rear)
 {
     int element = 0;
     if (*front != NULL)
     {
-        node *ptr = *front;
+        Node *ptr = *front;
         element = (*front)->data;
         *front = (*front)->next;
 
@@ -42,7 +42,7 @@ int dequeueStart(node **front, node **rear)
 }
 
 //function to delete element from end
-int dequeueEnd(node **front, node **rear)
+int dequeueEnd(Node **front, Node **rear)
 {
     int element = 0;
 
@@ -53,7 +53,7 @@ int dequeueEnd(node **front, node **rear)
         if ((*front)->next == NULL)
             return dequeueStart(front, rear);
 
-        node *ptr = *front;
+        Node *ptr = *front;
 
         //reching second last node
         while (ptr->next->next != NULL)
@@ -75,14 +75,14 @@ int main()
     system("cls");
 
     int size;
-    node *head = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *head = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
-    node *front = head;
-    node *rear = fifth;
+    Node *front = head;
+    Node *rear = fifth;
 
     head->data = 10;
     head->next = second;

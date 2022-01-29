@@ -1,18 +1,18 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
-    node *prev;
+    Node *next;
+    Node *prev;
 };
 
 //function for Searcing an element in Doubly Linked List
-int search(int element, node *head, node *tail, int size)
+int search(int element, Node *head, Node *tail, int size)
 {
     bool found = false;
-    node *ptr;
+    Node *ptr;
     ptr = head;
 
     while (ptr != NULL)
@@ -32,14 +32,14 @@ int search(int element, node *head, node *tail, int size)
 int main()
 {
     system("cls");
-    node *head;
-    node *tail;
+    Node *head;
+    Node *tail;
 
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size = 5;
 

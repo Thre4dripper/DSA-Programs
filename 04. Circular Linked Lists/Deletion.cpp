@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //fucntion for travering circular linked list
-int traverse(node *head)
+int traverse(Node *head)
 {
     //function also used to calculate size of circular linked list
     int size = 0;
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = head;
     cout << endl
          << "Circular Linked List->";
@@ -41,7 +41,7 @@ int traverse(node *head)
 }
 
 //function to delete element from start of circulat linked list
-int deleteFromStart(node **head, int *size)
+int deleteFromStart(Node **head, int *size)
 {
     int element;
 
@@ -50,7 +50,7 @@ int deleteFromStart(node **head, int *size)
         cout << "Empty Circular Linked List" << endl;
     else
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
 
         ptr = (*head)->next;
         element = ptr->data;
@@ -58,7 +58,7 @@ int deleteFromStart(node **head, int *size)
         //two cases for filled and size 1 circular linked list
         if (*size != 1)
         {
-            node *p = new node;
+            Node *p = new Node;
             p = (*head)->next;
 
             while (p->next != (*head)->next)
@@ -82,15 +82,15 @@ int deleteFromStart(node **head, int *size)
 }
 
 //function to delete element from any index in circular linked list
-int deleteFromIndex(node **head, int index, int *size)
+int deleteFromIndex(Node **head, int index, int *size)
 {
     int element;
 
     //valid index case
     if (index < *size && index >= 0)
     {
-        node *ptr = new node;
-        node *p = new node;
+        Node *ptr = new Node;
+        Node *p = new Node;
         p = ptr = (*head)->next;
 
         //two case for filled and size 1 circular linked list
@@ -140,7 +140,7 @@ int deleteFromIndex(node **head, int index, int *size)
 }
 
 //function to delete element from End in circular linked list
-int deleteFromEnd(node **head, int *size)
+int deleteFromEnd(Node **head, int *size)
 {
     int element;
 
@@ -149,13 +149,13 @@ int deleteFromEnd(node **head, int *size)
         cout << "Empty Circular Linked List" << endl;
     else
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = (*head)->next;
 
         //two cases for filled and size 1 circular linked list
         if (*size != 1)
         {
-            node *p = new node;
+            Node *p = new Node;
             p = (*head)->next;
 
             while (ptr->next != (*head)->next)
@@ -185,11 +185,11 @@ int main()
 {
     system("cls");
 
-    node *head = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *head = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
 

@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //function to peek in queue
-int Peek(int index, node *front, node *rear, int size)
+int Peek(int index, Node *front, Node *rear, int size)
 {
     int element;
-    node *ptr = new node;
+    Node *ptr = new Node;
 
     //index should be valid
     if (index >= 0 && index < size)
@@ -33,13 +33,13 @@ int main()
 {
     system("cls");
 
-    node *front = new node;
-    node *rear = new node;
+    Node *front = new Node;
+    Node *rear = new Node;
 
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
     front->next = front;

@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 
 //function for inserting element in BST
-node *InsertBST(int element, node *root)
+Node *InsertBST(int element, Node *root)
 {
-    node *ptr = NULL;
+    Node *ptr = NULL;
     if (root == NULL)
     {
-        ptr = new node;
+        ptr = new Node;
         ptr->data = element;
         ptr->left = ptr->right = NULL;
 
@@ -32,7 +32,7 @@ node *InsertBST(int element, node *root)
 }
 
 //function for extracting keys from BST in sorted way using inorder traversal
-void SortByInorder(int arr[], node *root)
+void SortByInorder(int arr[], Node *root)
 {
     //static variable for singleton pattern
     static int index = 0;
@@ -52,7 +52,7 @@ void SortByInorder(int arr[], node *root)
 //function for sorting array using Tree Sort (Binary Search Tree)
 int *TreeSort(int arr[], int n)
 {
-    node *BST = NULL;
+    Node *BST = NULL;
 
     for (int i = 0; i < n; i++)
         BST = InsertBST(arr[i], BST);

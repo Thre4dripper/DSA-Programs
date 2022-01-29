@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 
-struct node{
+struct Node{
     int data;
-    node * next;
+    Node * next;
 };
 
 //for traverse and display all nodes of linked list
-int display(node * head){
+int display(Node * head){
     int size = 0;
     cout << endl;
     while(head!=NULL){
@@ -19,7 +19,7 @@ int display(node * head){
 }
 
 //definition for replacing of element from start of linked list directly from its address
-int replaceFromStart(int element,node **head){
+int replaceFromStart(int element,Node **head){
     int initelement=NULL;
 
     if(*head!=NULL){
@@ -35,11 +35,11 @@ int replaceFromStart(int element,node **head){
 }
 
 //definition for replacing of element from end of linked list directly from its address
-int replaceFromEnd(int element,node **head){
+int replaceFromEnd(int element,Node **head){
     int initelement=NULL;
 
     if(*head!=NULL){
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = *head;
 
         //only last node has next as NULL
@@ -58,11 +58,11 @@ int replaceFromEnd(int element,node **head){
 }
 
 //definition for replacing of element from any index of linked list directly from its address
-int replaceFromIndex(int element,int index,node ** head,int size){
+int replaceFromIndex(int element,int index,Node ** head,int size){
     int initelement=NULL;
 
     if(*head!=NULL){
-        node *ptr = new node;
+        Node *ptr = new Node;
 
         //scenario will be diff for '0' index (very begenning)
         if(index==0){
@@ -98,11 +98,11 @@ int main(){
     system("cls");
 
     int size;
-    node *head=new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *head=new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     head->data = 10;
     head->next =second;

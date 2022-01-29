@@ -6,22 +6,22 @@ using namespace std;
 class BST
 {
 private:
-    struct node
+    struct Node
     {
         int data;
-        node *left;
-        node *right;
+        Node *left;
+        Node *right;
     };
-    node *root;
+    Node *root;
     int size;
 
     //function for inserting element in BST
-    node *InsertBST(int element, node *root)
+    Node *InsertBST(int element, Node *root)
     {
-        node *ptr = NULL;
+        Node *ptr = NULL;
         if (root == NULL)
         {
-            ptr = new node;
+            ptr = new Node;
             ptr->data = element;
             ptr->left = ptr->right = NULL;
 
@@ -38,7 +38,7 @@ private:
     }
 
     //function for getting heigth of binary tree
-    int Height(node *root)
+    int Height(Node *root)
     {
         if (root == NULL)
             return 0;
@@ -49,9 +49,9 @@ private:
     }
 
     //fucntion to find inorder predec
-    node *inorderPredecessor(node *root)
+    Node *inorderPredecessor(Node *root)
     {
-        node *ptr = root;
+        Node *ptr = root;
         while (ptr != NULL && ptr->right != NULL)
             ptr = ptr->right;
 
@@ -59,9 +59,9 @@ private:
     }
 
     //fucntion to find inorder succ
-    node *inorderSuccessor(node *root)
+    Node *inorderSuccessor(Node *root)
     {
-        node *ptr = root;
+        Node *ptr = root;
         while (ptr != NULL && ptr->left != NULL)
             ptr = ptr->left;
 
@@ -69,7 +69,7 @@ private:
     }
 
     //function for deleting element from BST
-    node *RemoveBST(int element, node *root)
+    Node *RemoveBST(int element, Node *root)
     {
         //element not found
         if (root == NULL)
@@ -89,7 +89,7 @@ private:
             }
             else
             {
-                node *p = NULL;
+                Node *p = NULL;
 
                 //selection of replacing node will be based on
                 //left and right sub tree's height
@@ -112,7 +112,7 @@ private:
     }
 
     //function for searching element in BST
-    int SearchBST(int element, node *root)
+    int SearchBST(int element, Node *root)
     {
         //element not fount
         if (root == NULL)
@@ -130,7 +130,7 @@ private:
     }
 
     //function for deleting all the nodes from BST
-    void ClearBST(node *root)
+    void ClearBST(Node *root)
     {
         if (root != NULL)
         {
@@ -145,7 +145,7 @@ private:
     }
 
     //function for printing BT left->Parent->right
-    void displayBSTInorder(node *root)
+    void displayBSTInorder(Node *root)
     {
         if (root != NULL)
         {
@@ -160,7 +160,7 @@ private:
     }
 
     //function for printing BT left->Parent->right
-    void displayBSTPreorder(node *root)
+    void displayBSTPreorder(Node *root)
     {
         if (root != NULL)
         {
@@ -175,7 +175,7 @@ private:
     }
 
     //function for printing BT left->Parent->right
-    void displayBSTPostorder(node *root)
+    void displayBSTPostorder(Node *root)
     {
         if (root != NULL)
         {
@@ -190,18 +190,18 @@ private:
     }
 
     //function for printing BST level by level
-    void displayBSTLevelorder(node *root)
+    void displayBSTLevelorder(Node *root)
     {
         if (root == NULL)
             return;
 
         //initial work
-        queue<node *> q;
+        queue<Node *> q;
         q.push(root);
 
         while (!q.empty())
         {
-            node *p = q.front();
+            Node *p = q.front();
             q.pop();
 
             cout << p->data << " ";

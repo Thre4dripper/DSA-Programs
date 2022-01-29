@@ -3,15 +3,15 @@
 
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 
 //function for printing BT Parent->left->right
-void PreOrderTraverse(node *root)
+void PreOrderTraverse(Node *root)
 {
     if (root == NULL)
     {
@@ -29,7 +29,7 @@ void PreOrderTraverse(node *root)
 }
 
 //function for printing BT left->Parent->right
-void InOrderTraverse(node *root)
+void InOrderTraverse(Node *root)
 {
 
     if (root == NULL)
@@ -48,7 +48,7 @@ void InOrderTraverse(node *root)
 }
 
 //function for printing BT right->left->Parent
-void PostOrderTraverse(node *root)
+void PostOrderTraverse(Node *root)
 {
 
     if (root == NULL)
@@ -66,7 +66,7 @@ void PostOrderTraverse(node *root)
     cout << root->data << " ";
 }
 
-void LevelOrderTraverse(node *root)
+void LevelOrderTraverse(Node *root)
 {
     if (root == NULL)
     {
@@ -75,12 +75,12 @@ void LevelOrderTraverse(node *root)
     }
 
     //initial work
-    queue<node *> q;
+    queue<Node *> q;
     q.push(root);
 
     while (!q.empty())
     {
-        node *p = q.front();
+        Node *p = q.front();
         q.pop();
 
         cout << p->data << " ";
@@ -96,14 +96,14 @@ void LevelOrderTraverse(node *root)
 int main()
 {
     system("cls");
-    node *root = NULL;
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
-    node *sixth = new node;
-    node *seventh = new node;
+    Node *root = NULL;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
+    Node *sixth = new Node;
+    Node *seventh = new Node;
 
     root = first;
 

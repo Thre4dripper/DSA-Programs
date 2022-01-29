@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
-    node *prev;
+    Node *next;
+    Node *prev;
 };
 
 //function for Traverse Doubly Linked List forward
-void TraverseForward(node *head)
+void TraverseForward(Node *head)
 {
 
     cout << endl;
@@ -22,7 +22,7 @@ void TraverseForward(node *head)
 }
 
 //function for Traverse Doubly Linked List backward
-void TraverseBackward(node *tail)
+void TraverseBackward(Node *tail)
 {
 
     cout << endl;
@@ -37,14 +37,14 @@ void TraverseBackward(node *tail)
 int main()
 {
     system("cls");
-    node *head;
-    node *tail;
+    Node *head;
+    Node *tail;
 
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
 

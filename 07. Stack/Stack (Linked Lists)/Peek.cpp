@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 
-struct node{
+struct Node{
     int data;
-    node *next;
+    Node *next;
 };
 
 //for traverse and display all nodes of linked list
-int display(node * head){
+int display(Node * head){
     int size = 0;
     cout << endl;
     while(head!=NULL){
@@ -18,11 +18,11 @@ int display(node * head){
     return size;
 }
 
-int peek(int index,node *head,int *size){
+int peek(int index,Node *head,int *size){
     int element=NULL;
 
     if(index<*size){
-        node *top = new node;
+        Node *top = new Node;
         top = head;
         for (int i = 0; i < index && top->next!=NULL;i++){
             top = top->next;
@@ -39,11 +39,11 @@ int main(){
     system("cls");
 
     int size;
-    node *head=new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *head=new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     head->data = 10;
     head->next =second;

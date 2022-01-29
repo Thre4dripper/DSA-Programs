@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 ///function for checking stack is empty or not
-int IsEmpty(node *top)
+int IsEmpty(Node *top)
 {
     if (top == NULL)
         return 1;
@@ -20,7 +20,7 @@ int main()
 {
     system("cls");
 
-    node *top;
+    Node *top;
 
     top = NULL;
 

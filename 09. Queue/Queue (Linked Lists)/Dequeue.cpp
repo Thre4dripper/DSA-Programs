@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //for traverse and display all nodes of linked list
-int display(node *head)
+int display(Node *head)
 {
     int size = 0;
     cout << endl;
@@ -21,12 +21,12 @@ int display(node *head)
     return size;
 }
 
-int dequeue(node **front, node **rear)
+int dequeue(Node **front, Node **rear)
 {
     int element = NULL;
     if (*front != NULL)
     {
-        node *ptr;
+        Node *ptr;
         ptr = *front;
         element = (*front)->data;
         *front = (*front)->next;
@@ -43,14 +43,14 @@ int main()
     system("cls");
 
     int size;
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
-    node *front = first;
-    node *rear = fifth;
+    Node *front = first;
+    Node *rear = fifth;
 
     first->data = 10;
     first->next = second;

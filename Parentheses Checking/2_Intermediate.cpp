@@ -2,14 +2,14 @@
 using namespace std;
 
 #define MAX_BUFFER 100
-struct node
+struct Node
 {
     char data;
-    node *next;
+    Node *next;
 };
 
 //function for checking Stack is empty or not
-bool isEmpty(node *head)
+bool isEmpty(Node *head)
 {
 
     cout << endl;
@@ -24,7 +24,7 @@ bool isEmpty(node *head)
 }
 
 //function for checking Top element of Stack
-bool isOntop(char bracket, node *head)
+bool isOntop(char bracket, Node *head)
 {
     if (head!=NULL && bracket == head->data)
         return true;
@@ -33,9 +33,9 @@ bool isOntop(char bracket, node *head)
 }
 
 //simple Stack Push Function
-void Push(char bracket, node **head)
+void Push(char bracket, Node **head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
 
     ptr->data = bracket;
     ptr->next = (*head);
@@ -43,11 +43,11 @@ void Push(char bracket, node **head)
 }
 
 //simple Stack Pop Function
-char Pop(node **head)
+char Pop(Node **head)
 {
     char bracket;
 
-    node *ptr;
+    Node *ptr;
     ptr = (*head);
 
     if (ptr == NULL)
@@ -65,7 +65,7 @@ char Pop(node **head)
 //main function for checcking expression validity
 int checkValidity(char expression[])
 {
-    node *head = NULL;
+    Node *head = NULL;
 
     for (int i = 0;expression[i]!='\0'; i++)
     {

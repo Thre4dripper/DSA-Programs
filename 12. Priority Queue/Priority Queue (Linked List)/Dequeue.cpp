@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     string name;
     int priority;
-    node *next;
+    Node *next;
 };
 
 //function for deleting elements from priority queue
-node dequeue(node **front, node **rear)
+Node dequeue(Node **front, Node **rear)
 {
-    node element = {"null", -1};
+    Node element = {"null", -1};
     if (*front != NULL)
     {
-        node *ptr = *front;
+        Node *ptr = *front;
         element = *(*front);
         *front = (*front)->next;
         delete ptr;
@@ -27,14 +27,14 @@ int main()
 {
     system("cls");
 
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
-    node *front = first;
-    node *rear = fifth;
+    Node *front = first;
+    Node *rear = fifth;
 
     first->name = "p2";
     first->priority = 5;

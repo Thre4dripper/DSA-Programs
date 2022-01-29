@@ -3,15 +3,15 @@
 
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 
 //function for printing BT left->Parent->right
-void display(node *root)
+void display(Node *root)
 {
 
     if (root == NULL)
@@ -30,11 +30,11 @@ void display(node *root)
 }
 
 //function for generating whole binary tree
-void insert(node **root)
+void insert(Node **root)
 {
     //initial work
-    node *rootNode = new node;
-    queue<node *> q;
+    Node *rootNode = new Node;
+    queue<Node *> q;
 
     cout << "Enter root Element: ";
     cin >> rootNode->data;
@@ -54,12 +54,12 @@ void insert(node **root)
     //infinite loop until queue becomes empty
     while (!q.empty())
     {
-        node *p;
+        Node *p;
         p = q.front();
         q.pop();
 
         //for entering left child
-        node *lchild = new node;
+        Node *lchild = new Node;
         cout << "Enter Left child of " << p->data << ": ";
         cin >> lchild->data;
 
@@ -72,7 +72,7 @@ void insert(node **root)
         p->left = lchild;
 
         //for entering right child
-        node *rchild = new node;
+        Node *rchild = new Node;
         cout << "Enter right child of " << p->data << ": ";
         cin >> rchild->data;
 
@@ -93,7 +93,7 @@ int main()
     //there is no general rule in binary tree to insert single node
     //so generally whole BT will be generated at once
 
-    node *root = NULL;
+    Node *root = NULL;
 
     insert(&root);
 

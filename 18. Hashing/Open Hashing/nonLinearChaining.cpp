@@ -5,15 +5,15 @@ using namespace std;
 #define SIZE 5
 
 //BST node structure
-struct node
+struct Node
 {
     int data;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 
 //function for printing BST left->Parent->right
-void displayBST(node *root)
+void displayBST(Node *root)
 {
     if (root == NULL)
         return;
@@ -28,7 +28,7 @@ void displayBST(node *root)
 }
 
 //function for searching BST left->Parent->right
-bool SearchBST(int element, node *root)
+bool SearchBST(int element, Node *root)
 {
     if (root == NULL)
         return false;
@@ -46,12 +46,12 @@ bool SearchBST(int element, node *root)
 }
 
 //function for inserting element in BST
-node *InsertBST(int element, node *root)
+Node *InsertBST(int element, Node *root)
 {
-    node *ptr = NULL;
+    Node *ptr = NULL;
     if (root == NULL)
     {
-        ptr = new node;
+        ptr = new Node;
         ptr->data = element;
         ptr->left = ptr->right = NULL;
 
@@ -67,7 +67,7 @@ node *InsertBST(int element, node *root)
 }
 
 //function for getting heigth of BST
-int HeightBST(node *root)
+int HeightBST(Node *root)
 {
     if (root == NULL)
         return 0;
@@ -78,9 +78,9 @@ int HeightBST(node *root)
 }
 
 //fucntion to find inorder predec
-node *inorderPredecessor(node *root)
+Node *inorderPredecessor(Node *root)
 {
-    node *ptr = root;
+    Node *ptr = root;
     while (ptr != NULL && ptr->right != NULL)
         ptr = ptr->right;
 
@@ -88,9 +88,9 @@ node *inorderPredecessor(node *root)
 }
 
 //fucntion to find inorder succ
-node *inorderSuccessor(node *root)
+Node *inorderSuccessor(Node *root)
 {
-    node *ptr = root;
+    Node *ptr = root;
     while (ptr != NULL && ptr->left != NULL)
         ptr = ptr->left;
 
@@ -98,7 +98,7 @@ node *inorderSuccessor(node *root)
 }
 
 //function for deleting element from BST
-node *RemoveBST(int element, node *root)
+Node *RemoveBST(int element, Node *root)
 {
     //element not found
     if (root == NULL)
@@ -117,7 +117,7 @@ node *RemoveBST(int element, node *root)
         }
         else
         {
-            node *p = NULL;
+            Node *p = NULL;
 
             //selection of replacing node will be based on
             //left and right sub tree's height
@@ -140,9 +140,9 @@ node *RemoveBST(int element, node *root)
 }
 
 //function to print whole hash table
-void display(node *HT[])
+void display(Node *HT[])
 {
-    node *p = NULL;
+    Node *p = NULL;
     for (int i = 0; i < SIZE; i++)
     {
         p = HT[i];
@@ -157,7 +157,7 @@ int hx(int x)
 }
 
 //function for searching element in hashtable
-bool Search(int element, node *HT[])
+bool Search(int element, Node *HT[])
 {
     int index = hx(element);
 
@@ -165,7 +165,7 @@ bool Search(int element, node *HT[])
 }
 
 //function to insert element in hash table
-void Insert(int element, node *HT[])
+void Insert(int element, Node *HT[])
 {
     if (Search(element, HT) == true)
         return;
@@ -176,7 +176,7 @@ void Insert(int element, node *HT[])
 }
 
 //function for removing element from hashtable
-int Remove(int element, node *HT[])
+int Remove(int element, Node *HT[])
 {
     if (Search(element, HT) == false)
     {
@@ -194,7 +194,7 @@ int Remove(int element, node *HT[])
 int main()
 {
     system("cls");
-    node *HashTable[SIZE];
+    Node *HashTable[SIZE];
 
     for (int i = 0; i < SIZE; i++)
         HashTable[i] = NULL;

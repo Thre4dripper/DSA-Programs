@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
-    node *prev;
+    Node *next;
+    Node *prev;
 };
 
 //function for Clockwise Traversing in Doubly Circular Linked list
-void TraverseClockwise(node *head)
+void TraverseClockwise(Node *head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
 
     ptr = head;
 
@@ -34,9 +34,9 @@ void TraverseClockwise(node *head)
 }
 
 //function for AntiClockwise Traversing in Doubly Circular Linked list
-void TraverseAntiClockwise(node *head)
+void TraverseAntiClockwise(Node *head)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
 
     ptr = head;
 
@@ -60,15 +60,15 @@ void TraverseAntiClockwise(node *head)
 int main()
 {
     system("cls");
-    node *head = new node;
+    Node *head = new Node;
     head->next = head;
     head->prev = head;
 
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     first->data = 10;
     first->next = second;

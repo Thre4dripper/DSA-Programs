@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 //function for printing BT left->Parent->right
-void display(node *root)
+void display(Node *root)
 {
 
     if (root == NULL)
@@ -27,12 +27,12 @@ void display(node *root)
 }
 
 //function for inserting element in BST
-node *Insert(int element, node *root)
+Node *Insert(int element, Node *root)
 {
-    node *ptr = NULL;
+    Node *ptr = NULL;
     if (root == NULL)
     {
-        ptr = new node;
+        ptr = new Node;
         ptr->data = element;
         ptr->left = ptr->right = NULL;
 
@@ -50,7 +50,7 @@ node *Insert(int element, node *root)
 int main()
 {
     system("cls");
-    node *root = NULL;
+    Node *root = NULL;
     root = Insert(20, root);
     root = Insert(11, root);
     root = Insert(30, root);

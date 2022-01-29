@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     string name;
     int priority;
-    node *next;
+    Node *next;
 };
 
 //function for displaying priority queue
-void display(node *front)
+void display(Node *front)
 {
-    struct node *p = front;
+    struct Node *p = front;
     if (p == NULL)
     {
         printf("\nQueue is empty");
@@ -26,11 +26,11 @@ void display(node *front)
 }
 
 //function for inserting element in priority queue
-void enqueue(node element, node **front, node **rear)
+void enqueue(Node element, Node **front, Node **rear)
 {
     //elements are inserting acc to their priorities
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = &element;
     
     ptr->next = NULL;
@@ -46,8 +46,8 @@ void enqueue(node element, node **front, node **rear)
     }
     else
     {
-        node *p = (*front);
-        node *q = NULL;
+        Node *p = (*front);
+        Node *q = NULL;
 
         while (p != NULL && element.priority > p->priority)
         {
@@ -66,8 +66,8 @@ void enqueue(node element, node **front, node **rear)
 int main()
 {
     system("cls");
-    node *front = NULL;
-    node *rear = NULL;
+    Node *front = NULL;
+    Node *rear = NULL;
 
     display(front);
 

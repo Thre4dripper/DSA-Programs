@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //fucntion for travering circular linked list
-int traverse(node *head)
+int traverse(Node *head)
 {
     //function also used to calculate size of circular linked list
     int size = 0;
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = head;
     cout << endl
          << "Circular Linked List->";
@@ -41,7 +41,7 @@ int traverse(node *head)
 }
 
 //function to replace element from start of circulat linked list
-int replaceFromStart(int element, node *head)
+int replaceFromStart(int element, Node *head)
 {
     int initelement;
     //case for empty circular linked list
@@ -49,7 +49,7 @@ int replaceFromStart(int element, node *head)
         cout << "Empty Circular Linked List" << endl;
     else
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = head->next;
 
         initelement = ptr->data;
@@ -61,13 +61,13 @@ int replaceFromStart(int element, node *head)
 }
 
 //function to replace element from any index in circular linked list
-int replaceFormIndex(int element, node *head, int index, int size)
+int replaceFormIndex(int element, Node *head, int index, int size)
 {
     int initelement;
 
     if (index >= 0 && index < size)
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = head->next;
 
         for (int i = 0; i < index; i++)
@@ -85,7 +85,7 @@ int replaceFormIndex(int element, node *head, int index, int size)
 }
 
 //function to replace element from End in circular linked list
-int replaceFromEnd(int element, node *head)
+int replaceFromEnd(int element, Node *head)
 {
     int initelement;
 
@@ -94,7 +94,7 @@ int replaceFromEnd(int element, node *head)
         cout << "Empty Circular Linked List" << endl;
     else
     {
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = head->next;
 
         while (ptr->next != head->next)
@@ -112,11 +112,11 @@ int main()
 {
     system("cls");
 
-    node *head = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *head = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
 

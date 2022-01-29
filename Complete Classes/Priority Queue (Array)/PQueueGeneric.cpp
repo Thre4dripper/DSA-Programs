@@ -6,7 +6,7 @@ template <typename T>
 class PQueue
 {
 private:
-    struct node
+    struct Node
     {
         T name;
         int priority;
@@ -14,7 +14,7 @@ private:
 
     int front, rear;
     int size;
-    node *arr;
+    Node *arr;
 
 public:
     //constructor for initialising size , front and rear
@@ -22,11 +22,11 @@ public:
     {
         front = rear = -1;
         this->size = size;
-        arr = (node *)malloc(size * sizeof(node));
+        arr = (Node *)malloc(size * sizeof(Node));
     }
 
     //function to insert elements in priority queue
-    void enqueue(node element)
+    void enqueue(Node element)
     {
         //Element always entered in queue acc to priorities
 
@@ -63,10 +63,10 @@ public:
     }
 
     //function to remove elements from priority queue
-    node dequeue()
+    Node dequeue()
     {
         //assuming higher number is higher priority
-        node element;
+        Node element;
         if (rear >= 0)
         {
             element = arr[0];
@@ -84,9 +84,9 @@ public:
     }
 
     //method for getting front element from the queue
-    node Front()
+    Node Front()
     {
-        node element;
+        Node element;
         if (front == -1)
             return element;
         else
@@ -94,9 +94,9 @@ public:
     }
 
     //method for getting rear element from the queue
-    node Rear()
+    Node Rear()
     {
-        node element;
+        Node element;
         if (rear == -1)
             return element;
         else

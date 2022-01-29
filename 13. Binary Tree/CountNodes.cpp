@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *left;
-    node *right;
+    Node *left;
+    Node *right;
 };
 
 //function for counting nodes
-int count(node *root)
+int count(Node *root)
 {
     if (root == NULL)
         return 0;
@@ -20,14 +20,14 @@ int count(node *root)
 int main()
 {
     system("cls");
-    node *root = NULL;
-    node *first = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
-    node *sixth = new node;
-    node *seventh = new node;
+    Node *root = NULL;
+    Node *first = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
+    Node *sixth = new Node;
+    Node *seventh = new Node;
 
     root = first;
 

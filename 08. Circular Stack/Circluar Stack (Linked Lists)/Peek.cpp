@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
-int Peek(int index, node *top, int size)
+int Peek(int index, Node *top, int size)
 {
     int element;
 
     if (index >= 0 && index < size)
     {
 
-        node *ptr = new node;
+        Node *ptr = new Node;
         ptr = top->next;
 
         for (int i = 0; i < index; i++)
@@ -34,11 +34,11 @@ int main()
 {
     system("cls");
 
-    node *top = new node;
-    node *second = new node;
-    node *third = new node;
-    node *forth = new node;
-    node *fifth = new node;
+    Node *top = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *forth = new Node;
+    Node *fifth = new Node;
 
     int size;
     top->next = top;

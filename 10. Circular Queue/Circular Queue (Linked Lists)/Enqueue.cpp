@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-struct node
+struct Node
 {
     int data;
-    node *next;
+    Node *next;
 };
 
 //function to display whole queue
-int display(node *front)
+int display(Node *front)
 {
     int size = 0;
     cout << endl
          << "Circular Queue->";
 
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr = front;
 
     //condition for empty circular queue
@@ -38,9 +38,9 @@ int display(node *front)
 }
 
 //function to insert an element in circular queue
-void Enqueue(int element, node **front, node **rear)
+void Enqueue(int element, Node **front, Node **rear)
 {
-    node *ptr = new node;
+    Node *ptr = new Node;
     ptr->data = element;
 
     //when queue is empty, it will create one
@@ -63,10 +63,10 @@ int main()
 {
     system("cls");
 
-    node *front = new node;
+    Node *front = new Node;
     front->next = front;
 
-    node *rear = new node;
+    Node *rear = new Node;
     rear->next = rear;
 
     int size;
