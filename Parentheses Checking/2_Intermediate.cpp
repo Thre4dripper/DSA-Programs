@@ -1,107 +1,49 @@
 #include <iostream>
+#include <stack>
 using namespace std;
 
 #define MAX_BUFFER 100
-struct Node
-{
-    char data;
-    Node *next;
-};
-
-//function for checking Stack is empty or not
-bool isEmpty(Node *head)
-{
-
-    cout << endl;
-    bool isempty = true;
-    while (head != NULL)
-    {
-        isempty = false;
-        head = head->next;
-    }
-
-    return isempty;
-}
-
-//function for checking Top element of Stack
-bool isOntop(char bracket, Node *head)
-{
-    if (head!=NULL && bracket == head->data)
-        return true;
-    else
-        return false;
-}
-
-//simple Stack Push Function
-void Push(char bracket, Node **head)
-{
-    Node *ptr = new Node;
-
-    ptr->data = bracket;
-    ptr->next = (*head);
-    (*head) = ptr;
-}
-
-//simple Stack Pop Function
-char Pop(Node **head)
-{
-    char bracket;
-
-    Node *ptr;
-    ptr = (*head);
-
-    if (ptr == NULL)
-        cout << "Stack Empty" << endl;
-    else
-    {
-        (*head) = (*head)->next;
-        bracket = ptr->data;
-    }
-    delete ptr;
-
-    return bracket;
-}
 
 //main function for checcking expression validity
 int checkValidity(char expression[])
 {
-    Node *head = NULL;
+    stack<char> st;
 
-    for (int i = 0;expression[i]!='\0'; i++)
+    for (int i = 0; expression[i] != '\0'; i++)
     {
         if (expression[i] == '(' || expression[i] == '{' || expression[i] == '[')
-            Push(expression[i], &head);
+            st.push(expression[i]);
 
         else if (expression[i] == ')')
         {
             //condition when ')' stack should not be empty and  '(' must be on Top
-            if (isEmpty(head) == false && isOntop('(',head)==true)
-                Pop(&head);
+            if (st.empty() == false && st.top() == '(')
+                st.pop();
             else
                 return 0;
         }
         else if (expression[i] == '}')
         {
             //condition when '}' stack should not be empty and  '{' must be on Top
-            if (isEmpty(head) == false && isOntop('{',head)==true)
-                Pop(&head);
+            if (st.empty() == false && st.top() == '{')
+                st.pop();
             else
                 return 0;
         }
         else if (expression[i] == ']')
         {
             //condition when ']' stack should not be empty and  '[' must be on Top
-            if (isEmpty(head) == false && isOntop('[',head)==true)
-                Pop(&head);
+            if (st.empty() == false && st.top() == '[')
+                st.pop();
             else
                 return 0;
         }
     }
-    //ABOVE CODE CAN BE SIMPLIFIED TO USE LESS 'IF ELSE' STATEMENTS BUT THEN 
+    //ABOVE CODE CAN BE SIMPLIFIED TO USE LESS 'IF ELSE' STATEMENTS BUT THEN
     //CODE WOULD BE MUCH MORE COMPLEX TO UNDERSTAND
 
     //and after all ')' occured Stack should be empty
-    if (isEmpty(head) == true)
+    if (st.empty() == true)
         return 1;
     else
         return 0;
@@ -115,7 +57,6 @@ int main()
 
     fgets(expression, MAX_BUFFER, stdin);
 
-    
-        cout << endl
-             << checkValidity(expression);
+    cout << endl
+         << checkValidity(expression);
 }
