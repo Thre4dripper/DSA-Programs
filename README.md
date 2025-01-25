@@ -77,11 +77,7 @@ Array:  |10 |20 |30 |40 |50 |
         +---+---+---+---+---+
 ```
 
-**Illustrative Image:**
-
-![Array](https://www.geeksforgeeks.org/wp-content/uploads/2021/06/array-660x330.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/array-data-structure/)_
+[Learn More](https://en.wikipedia.org/wiki/Array_data_structure)
 
 ### 2. Matrix
 
@@ -91,16 +87,16 @@ A matrix is a two-dimensional array of numbers arranged in rows and columns.
 
 ```
 Matrix:
-    1   2   3
-    4   5   6
-    7   8   9
++---+---+---+
+| 1 | 2 | 3 |
++---+---+---+
+| 4 | 5 | 6 |
++---+---+---+
+| 7 | 8 | 9 |
++---+---+---+
 ```
 
-**Illustrative Image:**
-
-![Matrix](https://www.geeksforgeeks.org/wp-content/uploads/Matrix.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/matrix/)_
+[Learn More](<https://en.wikipedia.org/wiki/Matrix_(mathematics)>)
 
 ### 3. Linked Lists
 
@@ -117,11 +113,7 @@ Head
 +------+    +------+    +------+
 ```
 
-**Illustrative Image:**
-
-![Linked List](https://www.geeksforgeeks.org/wp-content/uploads/singly-linked-list.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/data-structures/linked-list/)_
+[Learn More](https://en.wikipedia.org/wiki/Linked_list)
 
 ### 4. Circular Linked Lists
 
@@ -137,11 +129,7 @@ Head-->| Data |--->| Data |--->| Data |
  +-----------------------------------+
 ```
 
-**Illustrative Image:**
-
-![Circular Linked List](https://www.geeksforgeeks.org/wp-content/uploads/CircularLinkedList.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/circular-linked-list/)_
+[Learn More](https://en.wikipedia.org/wiki/Linked_list)
 
 ### 5. Doubly Linked Lists
 
@@ -155,11 +143,7 @@ NULL<--+------+<-->+------+<-->+------+-->NULL
        +------+    +------+    +------+
 ```
 
-**Illustrative Image:**
-
-![Doubly Linked List](https://www.geeksforgeeks.org/wp-content/uploads/DLL1.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/doubly-linked-list/)_
+[Learn More](https://en.wikipedia.org/wiki/Doubly_linked_list)
 
 ### 6. Circular Doubly Linked Lists
 
@@ -175,11 +159,7 @@ Head<->| Data |<-->| Data |<-->| Data |
  +-----------------------------------+
 ```
 
-**Illustrative Image:**
-
-![Circular Doubly Linked List](https://www.geeksforgeeks.org/wp-content/uploads/CircularDoublyLinkedList.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/)_
+[Learn More](https://en.wikipedia.org/wiki/Doubly_linked_list#Circular_doubly_linked_lists)
 
 ### 7. Stack
 
@@ -198,11 +178,7 @@ Stack:
 +------+
 ```
 
-**Illustrative Image:**
-
-![Stack](https://www.geeksforgeeks.org/wp-content/uploads/gq/2013/03/stack.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/stack-data-structure/)_
+[Learn More](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)
 
 ### 8. Circular Stack
 
@@ -222,11 +198,7 @@ A circular stack is a variation of the standard stack where the end of the stack
 +------+    +------+    +------+
 ```
 
-**Illustrative Image:**
-
-![Circular Stack](https://www.geeksforgeeks.org/wp-content/uploads/CircularStack.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/circular-stack/)_
+[Learn More](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)
 
 ### 9. Queue
 
@@ -244,11 +216,7 @@ Front                    Rear
 +-----+  +-----+  +-----+  +-----+
 ```
 
-**Illustrative Image:**
-
-![Queue](https://www.geeksforgeeks.org/wp-content/uploads/Queue.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/queue-data-structure/)_
+[Learn More](<https://en.wikipedia.org/wiki/Queue_(abstract_data_type)>)
 
 ### 10. Circular Queue
 
@@ -271,11 +239,7 @@ Front                    Rear
 +-----+  +-----+  +-----+  +-----+
 ```
 
-**Illustrative Image:**
-
-![Circular Queue](https://www.geeksforgeeks.org/wp-content/uploads/CircularQueue.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/circular-queue-set-1-introduction-array-implementation/)_
+[Learn More](https://en.wikipedia.org/wiki/Circular_buffer)
 
 ### 11. Double Ended Queue
 
@@ -293,11 +257,7 @@ Front                    Rear
 +-----+  +-----+  +-----+  +-----+
 ```
 
-**Illustrative Image:**
-
-![Deque](https://www.geeksforgeeks.org/wp-content/uploads/Deque.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/deque-set-1-introduction-applications/)_
+[Learn More](https://en.wikipedia.org/wiki/Double-ended_queue)
 
 ### 12. Priority Queue
 
@@ -313,11 +273,7 @@ Priority Queue:
 +-----+  +-----+  +-----+  +-----+
 ```
 
-**Illustrative Image:**
-
-![Priority Queue](https://www.geeksforgeeks.org/wp-content/uploads/PriorityQueue.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/priority-queue-set-1-introduction/)_
+[Learn More](https://en.wikipedia.org/wiki/Priority_queue)
 
 ### 13. Binary Tree
 
@@ -334,11 +290,7 @@ A binary tree is a tree data structure in which each node has at most two childr
         4  5 6  7
 ```
 
-**Illustrative Image:**
-
-![Binary Tree](https://www.geeksforgeeks.org/wp-content/uploads/BinaryTree.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/binary-tree-data-structure/)_
+[Learn More](https://en.wikipedia.org/wiki/Binary_tree)
 
 ### 14. Binary Search Tree
 
@@ -355,11 +307,7 @@ A binary search tree (BST) is a binary tree in which each node has a value great
         1  3 5  7
 ```
 
-**Illustrative Image:**
-
-![Binary Search Tree](https://www.geeksforgeeks.org/wp-content/uploads/BST.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/binary-search-tree-data-structure/)_
+[Learn More](https://en.wikipedia.org/wiki/Binary_search_tree)
 
 ### 15. AVL Tree
 
@@ -376,11 +324,7 @@ An AVL tree is a self-balancing binary search tree where the difference between 
         10   25
 ```
 
-**Illustrative Image:**
-
-![AVL Tree](https://www.geeksforgeeks.org/wp-content/uploads/AVLTree.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/avl-tree-set-1-insertion/)_
+[Learn More](https://en.wikipedia.org/wiki/AVL_tree)
 
 ### 16. Heap
 
@@ -389,29 +333,21 @@ A heap is a special tree-based data structure that satisfies the heap property. 
 **ASCII Diagram:**
 
 ```
-        Max Heap:
-            10
-           /  \
-          9    8
-         / \  / \
-        7  6 5  4
+        Max Heap:         Min Heap:
+            10              1
+           /  \            / \
+          9    8          2   3
+         / \  / \        / \ / \
+        7  6 5   4      4  5 6  7
 ```
 
-**Illustrative Image:**
-
-![Heap](https://www.geeksforgeeks.org/wp-content/uploads/Heap.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/heap-data-structure/)_
+[Learn More](<https://en.wikipedia.org/wiki/Heap_(data_structure)>)
 
 ### 17. Sorting Algorithms
 
 Sorting algorithms are methods of reorganizing a large number of items into a specific order, such as ascending or descending.
 
-**Illustrative Image:**
-
-![Sorting Algorithms](https://www.geeksforgeeks.org/wp-content/uploads/Sorting.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/sorting-algorithms/)_
+[Learn More](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
 ### 18. Hashing
 
@@ -428,11 +364,7 @@ Hash Table:
 +-----+-----+-----+-----+-----+
 ```
 
-**Illustrative Image:**
-
-![Hashing](https://www.geeksforgeeks.org/wp-content/uploads/Hashing.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/hashing-data-structure/)_
+[Learn More](https://en.wikipedia.org/wiki/Hash_table)
 
 ### 19. Graphs
 
@@ -449,11 +381,7 @@ Graph:
       D---E
 ```
 
-**Illustrative Image:**
-
-![Graph](https://www.geeksforgeeks.org/wp-content/uploads/Graph.png)
-
-_Source: [GeeksforGeeks](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)_
+[Learn More](<https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)>)
 
 ### 🛠️ Installation
 
